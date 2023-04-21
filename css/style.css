@@ -1,47 +1,8 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
 body {
   height: 100vh;
+  background: linear-gradient(120deg, #A03664, #D23636);
   background: linear-gradient(120deg, #ffffff, #ffffff);
-  
-  
-}
 
-h1 {
-  text-align: center;
-  margin-top: 5px;
-  color: rgb(255, 255, 255);
-  font-size: 10ch;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 30px;
-}
 
-.container {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
 }
-
-.left-side,
-.right-side {
-  flex-basis: 50%;
-  height: 100%;
-}
-
-.left-side {
-  background-color: #A03664; /* Change this to your desired color */
-}
-
-.right-side {
-  background-color: #D23636; /* Change this to your desired color */
-}
-
-.footer {
-  background-color: white;
-  height: 50px;
-}
-
