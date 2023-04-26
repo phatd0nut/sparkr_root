@@ -51,20 +51,45 @@ function getData(responseText) {
     let establishmentData = JSON.parse(responseText); // Parsear JSON-datan från SMAPI
     let establishmentList = document.createElement("ul");
 
-    for (let i = 0; i < establishmentData.payload.length; i++) {
+    for (let i = 0; establishmentData.payload && i < establishmentData.payload.length; i++) {
         let establishment = establishmentData.payload[i];
         let establishmentName = establishment.name;
         let establishmentAddress = establishment.address;
         let establishmentZipCode = establishment.zip_code;
+        let establishmentPriceRng = establishment.price_range;
+        let establishmentTelNr = establishment.phone_number;
+        let establishmentRating = Number(establishment.rating).toFixed(2);
+        let clickableTelNr = document.createElement("a");
+        clickableTelNr.setAttribute("href", "tel: " + establishmentTelNr);
+        clickableTelNr.textContent = establishmentTelNr;
+        let establishmentWWW = establishment.website;
+        let clickableWWW = document.createElement("a");
+        clickableWWW.setAttribute("href", establishmentWWW);
+        let icon = document.createElement("img");
+        icon.setAttribute("src", "../img/click.png");
+        icon.setAttribute("alt", establishmentWWW);
+        clickableWWW.appendChild(icon);
         let establishmentCity = establishment.city;
         let fullAddress = establishmentAddress + ", " + establishmentZipCode + " " + establishmentCity;
         let establishmentListItem = document.createElement("li");
         establishmentListItem.textContent = establishmentName;
+        establishmentListItem.appendChild(clickableWWW);
+        icon.style.display = "none";
+        document.querySelector
         establishmentListItem.addEventListener("click", function () {
             // Visa mer detaljerad information när man klickat på alternativen
             document.querySelector("#establishment-name").textContent = establishmentName;
             document.querySelector("#establishment-address").textContent = fullAddress;
+            document.querySelector("#establishment-priceRange").textContent = establishmentPriceRng;
+            document.querySelector("#establishment-rating").textContent = "Betyg: " + establishmentRating + " / 5";
+            document.querySelector("#establishment-telNr").innerHTML = "";
+            document.querySelector("#establishment-telNr").appendChild(clickableTelNr);
+            document.querySelector("#establishment-website").innerHTML = "";
+            document.querySelector("#establishment-website").appendChild(clickableWWW);
             document.querySelector("#moreInfo").style.display = "block";
+            icon.style.display = "block";
+            icon.style.width = "50px";
+            icon.style.height = "50px";
         });
 
         let backToListBtn = document.querySelector("#back-to-list");
