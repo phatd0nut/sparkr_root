@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'SFUIText-Bold';
+    src: url(/fonts/SFUIText-Bold.otf);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 80vh; 
+  }
+
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(226, 226, 232);
+    transition: all 1.25s ease;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SFUIText-Bold';
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  .box.flipped {
+    transform: rotateY(360deg);
+    background-color: rgb(185, 182, 182);
+  }
+  
+ 
