@@ -94,6 +94,8 @@ function getData(responseText) {
             icon.style.width = "50px";
             icon.style.height = "50px";
             displayMap(lat, lng);
+            document.getElementById("directions-btn").addEventListener("click", getDirections);
+
         });
 
         let backToListBtn = document.querySelector("#back-to-list");
@@ -118,15 +120,40 @@ function getData(responseText) {
 function displayMap(lat, lng) {
     // Skapa nytt kartobjekt
     console.log(lat, lng);
+    
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: lat, lng: lng},
-      zoom: 15
+        center: {lat: parseFloat(lat), lng: parseFloat(lng)},
+        zoom: 15,
+        styles: [
+            {featureType: "poi", stylers: [{visibility: "off"}]},  // No points of interest.
+            {featureType: "transit.station", stylers: [{visibility: "off"}]}  // No bus stations, etc.
+        ]
     });
+        // Lägger till markör
+        marker = new google.maps.Marker({
+            position: {lat: parseFloat(lat), lng: parseFloat(lng)},
+            map: map
+          });
+      
+}
+
+function getDirections() {
+    let origin = new google.maps.LatLng(userLocationLat, userLocationLng);
+    let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+    let request = {
+        origin: origin,
+        destination: destination,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
+            directionsRenderer.setMap(map);
+        }
+    });
+} 
+
   
-    // Lägger till markör
-    marker = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
-      map: map
-    });
-  }
+
+  
   
