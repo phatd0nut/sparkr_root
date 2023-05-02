@@ -4,6 +4,9 @@ var establishmentOpt; // Dropdown-meny för etablissemang
 var userLocation = null; //Deklarerar en variabel för användarens position och nollställer den varje gång sidan laddas
 var userLocationLat; // Användarens latitud
 var userLocationLng; // Användarens longitud
+var map; // Google maps kartan
+var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API nyckel
+var marker; // Kartmarkör
 
 function init() {
     getUserLocation();
@@ -11,7 +14,6 @@ function init() {
     establishmentOpt = document.getElementById("establishmentOpt");
     establishmentOpt.addEventListener("change", requestSmapi); // Reagerar på användarens val i listan och anropar ny data från API:t efter val
     requestSmapi();
-
 }
 
 window.addEventListener("load", init);
@@ -23,7 +25,6 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocationLat = position.coords.latitude;
             userLocationLng = position.coords.longitude;
             requestSmapi();
-            console.log(userLocation);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -53,6 +54,8 @@ function getData(responseText) {
 
     for (let i = 0; establishmentData.payload && i < establishmentData.payload.length; i++) {
         let establishment = establishmentData.payload[i];
+        let lat = establishment.lat;
+        let lng = establishment.lng;
         let establishmentName = establishment.name;
         let establishmentAddress = establishment.address;
         let establishmentZipCode = establishment.zip_code;
@@ -75,8 +78,8 @@ function getData(responseText) {
         establishmentListItem.textContent = establishmentName;
         establishmentListItem.appendChild(clickableWWW);
         icon.style.display = "none";
-        document.querySelector
         establishmentListItem.addEventListener("click", function () {
+
             // Visa mer detaljerad information när man klickat på alternativen
             document.querySelector("#establishment-name").textContent = establishmentName;
             document.querySelector("#establishment-address").textContent = fullAddress;
@@ -90,6 +93,7 @@ function getData(responseText) {
             icon.style.display = "block";
             icon.style.width = "50px";
             icon.style.height = "50px";
+            displayMap(lat, lng);
         });
 
         let backToListBtn = document.querySelector("#back-to-list");
@@ -106,4 +110,23 @@ function getData(responseText) {
     } else {
         testDiv.appendChild(establishmentList); // Om det inte finns en lista sedan tidigare, appendar listan till testDiv elementet
     }
+
 }
+
+// FUNGERAR INTE SOM DET SKA
+
+function displayMap(lat, lng) {
+    // Skapa nytt kartobjekt
+    console.log(lat, lng);
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: lat, lng: lng},
+      zoom: 15
+    });
+  
+    // Lägger till markör
+    marker = new google.maps.Marker({
+      position: {lat: lat, lng: lng},
+      map: map
+    });
+  }
+  
