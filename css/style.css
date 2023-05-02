@@ -85,7 +85,6 @@ h2 {
   text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -96,13 +95,12 @@ h2 {
 .button2 {
   font-family: 'SFUIText-Bold';
   font-size: 18px;
-  background: #e88c0c;
+  background: #f64606;
   padding: 60px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
   justify-content: center;
