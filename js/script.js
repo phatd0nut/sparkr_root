@@ -51,6 +51,7 @@ function requestSmapi() {
 function getData(responseText) {
     let establishmentData = JSON.parse(responseText); // Parsear JSON-datan från SMAPI
     let establishmentList = document.createElement("ul");
+    console.log(responseText);
 
     for (let i = 0; establishmentData.payload && i < establishmentData.payload.length; i++) {
         let establishment = establishmentData.payload[i];
@@ -152,8 +153,3 @@ function getDirections() {
         }
     });
 } 
-
-  
-
-  
-  
