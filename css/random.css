@@ -1,8 +1,9 @@
-@font-face {
-    font-family: 'SFUIText-Bold';
-    src: url(/fonts/SFUIText-Bold.otf);
-}
 
+body {
+font-family: "anchor-web", sans-serif;
+font-weight: 500;
+font-style: normal;
+}
 .container {
     display: flex;
     justify-content: center;

@@ -1,13 +1,7 @@
-@font-face {
-  font-family: 'MemphisRiver';
-  src: url(/fonts/Memphis\ River.otf);
-
-}
-
-@font-face {
-  font-family: 'SFUIText-Bold';
-  src: url(/fonts/SFUIText-Bold.otf);
-
+body {
+  font-family: "anchor-web", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #logo {
@@ -20,13 +14,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #DDA5A5;
- 
+
 }
 
 #Header {
   text-align: center;
-  font-family: 'MemphisRiver';
   font-size: 60px;
   height: auto;
   margin-top: 10px;
@@ -37,8 +29,6 @@ h2 {
   text-align: center;
   font-size: medium;
   margin-top: -0px;
-  font-family: 'SFUIText-bold';
-  font-style: italic;
   text-transform: uppercase;
   color: #000000;
   height: auto;
@@ -48,7 +38,6 @@ h2 {
 #activity {
   text-align: center;
   margin-top: 20px;
-  font-family: 'SFUIText-Bold';
   color: #cacaca;
   height: auto;
 }
@@ -56,18 +45,15 @@ h2 {
 .container {
   display: flex;
   justify-content: space-around;
-  font-family: 'SFUIText-Bold';
 }
 
 .choose {
-  font-family: 'SFUIText-Bold';
   text-align: center;
   color: #cacaca;
   height: auto;
 }
 
 .choice1 {
-  font-family: 'SFUITEXT-Bold';
   display: flex;
   justify-content: space-between;
   font-size: 20px;
@@ -77,10 +63,9 @@ h2 {
 }
 
 .button1 {
-  font-family: 'SFUIText-Bold';
   font-size: 18px;
   background: #4ad5f7;
-  padding: 60px;
+  padding: 50px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -89,14 +74,14 @@ h2 {
   display: flex;
   justify-content: center;
   width: auto;
-  
+  border-radius: 0 50px;
+
 }
 
 .button2 {
-  font-family: 'SFUIText-Bold';
   font-size: 18px;
   background: #f64606;
-  padding: 60px;
+  padding: 50px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -105,23 +90,60 @@ h2 {
   display: flex;
   justify-content: center;
   width: auto;
-  
+  border-radius: 50px 0;
+
 }
 
 
 .button3 {
-  font-family: 'SFUIText-Bold';
   font-size: 18px;
-  background: #303934;
+  background: #f53636;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
-  border-radius: 50px;
   cursor: pointer;
   display: flex;
+  border-radius: 50px;
   justify-content: center;
   width: auto;
 }
 
+form {
+  columns: 2;
+  column-gap: 1em;
+}
+
+label {
+  display: block;
+}
+
+.arrow {
+  border: solid rgb(82, 80, 80);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  margin: 10px;
+  padding: 13px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+img {
+  transform: translateX(0px);
+  animation: float 6s ease-out infinite;
+}
+@keyframes float {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
