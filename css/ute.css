@@ -1,13 +1,8 @@
-@font-face {
-    font-family: 'SFUIText-Bold';
-    src: url(/fonts/SFUIText-Bold.otf);
-
-}
-
-
 body {
-    font-family: 'SFUIText-Bold';
-    
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
 }
 
 img {
@@ -25,8 +20,10 @@ h2 {
 }
 
 .button3 {
-    font-family: 'SFUIText-Bold';
-    font-size: 18px;
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 300%;
     background: linear-gradient(90deg, rgba(238, 13, 13, 1) 0%, rgba(93, 3, 3, 1) 49%, rgba(238, 13, 13, 1) 100%);
     ;
     padding: 33px;
