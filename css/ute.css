@@ -10,10 +10,9 @@ h1 {
 }
 
 #googleMap {
-    width:  350px;
+    width: 350px;
     height: 200px;
     border: solid rgba(238, 13, 13, 1)
-
 }
 
 #establishmentWebsite img {
@@ -29,9 +28,18 @@ img {
 
 h2 {
     text-align: center;
-    color: rgb(255, 0, 0);
+    color: #00DBDE;
     text-align: right;
     margin-right: 50px;
+    font-size: 50px;
+}
+
+#ute {
+    text-align: center;
+   color: #994dc7; 
+    text-align: right;
+    margin-right: 50px;
+    font-size: 50px;
 }
 
 .button3 {
@@ -39,8 +47,9 @@ h2 {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background: linear-gradient(90deg, rgba(238, 13, 13, 1) 0%, rgba(93, 3, 3, 1) 49%, rgba(238, 13, 13, 1) 100%);
-    ;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #23a1df 100%);
+
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -60,9 +69,30 @@ h2 {
     display: inline-block;
     margin: 10px;
     padding: 13px;
-  }
-  
-  .left {
+}
+
+.left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
-  }
+}
+
+.button4 {
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 200%;
+    background-color: #994dc7;
+    background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
+    ;
+    padding: 33px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 25px;
+}
