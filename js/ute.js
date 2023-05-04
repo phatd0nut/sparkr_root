@@ -5,9 +5,12 @@ var userLocationLng; // Användarens longitud
 var googleMap; // Google maps kartan
 var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API nyckel
 var marker; // Kartmarkör
+var directionsService; // Variabel för vägbeskrivningar
+var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 
 function init() {
     establishmentInfo = document.getElementById("establishmentInfo");
+    directionsBtn = document.getElementById("directions-btn").addEventListener("click", getDirections);
     getUserLocation();
     requestSmapi();
 }
@@ -86,10 +89,10 @@ function getData(responseText) {
   }
   
 
-function displayMap(lat, lng) {
+  function displayMap(lat, lng) {
     // Skapa nytt kartobjekt
     console.log(lat, lng);
-
+  
     map = new google.maps.Map(document.getElementById("googleMap"), {
         center: { lat: parseFloat(lat), lng: parseFloat(lng) },
         zoom: 15,
@@ -103,9 +106,14 @@ function displayMap(lat, lng) {
         position: { lat: parseFloat(lat), lng: parseFloat(lng) },
         map: map
     });
-
-}
-
+  
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({
+      map: map
+    });
+  
+  }
+  
 function getDirections() {
     let origin = new google.maps.LatLng(userLocationLat, userLocationLng);
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
