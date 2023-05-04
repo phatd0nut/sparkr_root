@@ -37,9 +37,12 @@ h2 {
 
 #activity {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 100px;
   color: #cacaca;
   height: auto;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -64,7 +67,8 @@ h2 {
 
 .button1 {
   font-size: 18px;
-  background: #4ad5f7;
+   background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #23a1df 100%);
   padding: 50px;
   text-align: center;
   text-decoration: none;
@@ -75,12 +79,14 @@ h2 {
   justify-content: center;
   width: auto;
   border-radius: 0 50px;
+  
 
 }
 
 .button2 {
   font-size: 18px;
-  background: #f64606;
+  background-color: #994dc7;
+  background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
   padding: 50px;
   text-align: center;
   text-decoration: none;
@@ -97,7 +103,8 @@ h2 {
 
 .button3 {
   font-size: 18px;
-  background: #f53636;
+  background-color: #3785fb;
+  background-image: linear-gradient(180deg, #32d0f4 0%, #23a1df 100%);
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -136,14 +143,35 @@ img {
   transform: translateX(0px);
   animation: float 6s ease-out infinite;
 }
+
 @keyframes float {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-  50%{
+
+  50% {
     transform: translateY(10px);
   }
-  100%{
+
+  100% {
     transform: translateY(0px);
   }
 }
+
+.logo {
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #994dc7 100%);
+
+  width: auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 0 0 50% 50%;
+  color: white;
+  text-transform: uppercase;
+  font-size: 180px;
+}
+
+
