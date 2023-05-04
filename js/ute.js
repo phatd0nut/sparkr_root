@@ -10,7 +10,6 @@ var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 
 function init() {
     establishmentInfo = document.getElementById("establishmentInfo");
-    directionsBtn = document.getElementById("directions-btn").addEventListener("click", getDirections);
     getUserLocation();
     requestSmapi();
 }
@@ -81,7 +80,9 @@ function getData(responseText) {
         document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
 
         displayMap(lat, lng);
-        document.getElementById("directions-btn").addEventListener("click", getDirections);
+        document.getElementById("directions-btn").addEventListener("click", function () {
+            getDirections(userLocationLat, userLocationLng);
+        });
     }
 }
 
@@ -110,8 +111,8 @@ function displayMap(lat, lng) {
 
 }
 
-function getDirections() {
-    let myLocation = new google.maps.LatLng(userLocationLat, userLocationLng);
+function getDirections(userLocationLat, userLocationLng) {
+    let myLocation = new google.maps.LatLng(parseFloat(userLocationLat), parseFloat(userLocationLng));
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
     let requestDirections = {
         origin: myLocation,
