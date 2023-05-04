@@ -32,9 +32,6 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     }
 }
 
-
-
-
 function requestSmapi() {
     let request = new XMLHttpRequest();
     request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&debug=true", true)
@@ -48,84 +45,88 @@ function requestSmapi() {
 
 function getData(responseText) {
     let establishmentData = JSON.parse(responseText);
-  
-    if (establishmentData.payload != null) {
-      let establishments = establishmentData.payload;
-      // Shuffle the establishments array
-      establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
-  
-      let establishment = establishments[0];
-      let lat = establishment.lat;
-      let lng = establishment.lng;
-      let estName = establishment.name;
-      let estDescription = establishment.description;
-      let estTel = establishment.phone_number;
-      let estAddress = establishment.address;
-      let estPriceRange = establishment.price_range;
-      let estWebsite = establishment.website;
-      let estRating = Number(establishment.rating).toFixed(2);
-  
-      // Utskrift av information i HTML
-      document.getElementById("establishmentName").innerHTML = estName;
-      document.getElementById("establishmentDescription").innerHTML = estDescription;
-      let clickableTelNr = document.createElement("a");
-      clickableTelNr.setAttribute("href", "tel: " + estTel);
-      clickableTelNr.textContent = estTel;
-      let clickableWWW = document.createElement("a");
-      clickableWWW.setAttribute("href", estWebsite);
-      let icon = document.createElement("img");
-      icon.setAttribute("src", "../img/click.png");
-      icon.setAttribute("alt", estWebsite);
-      clickableWWW.appendChild(icon);
-      document.querySelector("#establishmentWebsite").appendChild(clickableWWW);
-      document.querySelector("#establishmentTel").appendChild(clickableTelNr);
-      document.getElementById("establishmentAddress").innerHTML = estAddress;
-      document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
-      document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
-  
-      displayMap(lat, lng);
-      document.getElementById("directions-btn").addEventListener("click", getDirections);
-    }
-  }
-  
 
-  function displayMap(lat, lng) {
+    if (establishmentData.payload != null) {
+        let establishments = establishmentData.payload;
+        // Shuffle the establishments array
+        establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
+
+        let establishment = establishments[0];
+        let lat = establishment.lat;
+        let lng = establishment.lng;
+        let estName = establishment.name;
+        let estDescription = establishment.description;
+        let estTel = establishment.phone_number;
+        let estAddress = establishment.address;
+        let estPriceRange = establishment.price_range;
+        let estWebsite = establishment.website;
+        let estRating = Number(establishment.rating).toFixed(2);
+
+        // Utskrift av information i HTML
+        document.getElementById("establishmentName").innerHTML = estName;
+        document.getElementById("establishmentDescription").innerHTML = estDescription;
+        let clickableTelNr = document.createElement("a");
+        clickableTelNr.setAttribute("href", "tel: " + estTel);
+        clickableTelNr.textContent = estTel;
+        let clickableWWW = document.createElement("a");
+        clickableWWW.setAttribute("href", estWebsite);
+        let icon = document.createElement("img");
+        icon.setAttribute("src", "../img/click.png");
+        icon.setAttribute("alt", estWebsite);
+        clickableWWW.appendChild(icon);
+        document.querySelector("#establishmentWebsite").appendChild(clickableWWW);
+        document.querySelector("#establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentAddress").innerHTML = estAddress;
+        document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
+        document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
+
+        displayMap(lat, lng);
+        document.getElementById("directions-btn").addEventListener("click", getDirections);
+    }
+}
+
+function displayMap(lat, lng) {
     // Skapa nytt kartobjekt
-    console.log(lat, lng);
-  
     map = new google.maps.Map(document.getElementById("googleMap"), {
         center: { lat: parseFloat(lat), lng: parseFloat(lng) },
         zoom: 15,
         styles: [
             { featureType: "poi", stylers: [{ visibility: "off" }] },  // No points of interest.
             { featureType: "transit.station", stylers: [{ visibility: "off" }] }  // No bus stations, etc.
-        ]
+        ],
+        mapTypeControl: false
     });
     // Lägger till markör
     marker = new google.maps.Marker({
         position: { lat: parseFloat(lat), lng: parseFloat(lng) },
         map: map
     });
-  
+
+    // Skapar ny instans av vägbeskrivningar och en instans som renderar vägbeskrivningen
     directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer({
-      map: map
+        map: map
     });
-  
-  }
-  
+
+}
+
 function getDirections() {
-    let origin = new google.maps.LatLng(userLocationLat, userLocationLng);
+    let myLocation = new google.maps.LatLng(userLocationLat, userLocationLng);
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
-    let request = {
-        origin: origin,
+    let requestDirections = {
+        origin: myLocation,
         destination: destination,
         travelMode: google.maps.TravelMode.DRIVING
     };
-    directionsService.route(request, function (result, status) {
+    directionsService.route(requestDirections, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+            // Tar bort den tidigare markören (så att det inte blir dubbla markörer på destinationen)
+            if (marker) {
+                marker.setMap(null);
+            }
+            // Visar vägbeskrivningarna på kartan
             directionsRenderer.setDirections(result);
             directionsRenderer.setMap(map);
         }
     });
-} 
+}
