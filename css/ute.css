@@ -38,7 +38,7 @@ h2 {
     font-family: "anchor-web", sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 300%;
+    font-size: 200%;
     background: linear-gradient(90deg, rgba(238, 13, 13, 1) 0%, rgba(93, 3, 3, 1) 49%, rgba(238, 13, 13, 1) 100%);
     ;
     padding: 33px;
@@ -53,3 +53,16 @@ h2 {
     width: auto;
     margin: 25px;
 }
+
+.arrow {
+    border: solid rgb(82, 80, 80);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin: 10px;
+    padding: 13px;
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
