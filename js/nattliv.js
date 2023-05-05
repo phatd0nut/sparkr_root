@@ -49,7 +49,7 @@ function getData(responseText) {
         let establishments = establishmentData.payload;
         // Shuffle the establishments array
         establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
-
+        
         let establishment = establishments[0];
         let lat = establishment.lat;
         let lng = establishment.lng;
@@ -66,18 +66,16 @@ function getData(responseText) {
         document.getElementById("establishmentDescription").innerHTML = estDescription;
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + estTel);
-        clickableTelNr.textContent = estTel;
+        clickableTelNr.textContent =  estTel;
         let clickableWWW = document.createElement("a");
         clickableWWW.setAttribute("href", estWebsite);
-        let icon = document.createElement("img");
-        icon.setAttribute("src", "../img/click.png");
-        icon.setAttribute("alt", estWebsite);
-        clickableWWW.appendChild(icon);
-        document.querySelector("#establishmentWebsite").appendChild(clickableWWW);
+        
+        clickableWWW.textContent = estWebsite;
+        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
         document.querySelector("#establishmentTel").appendChild(clickableTelNr);
-        document.getElementById("establishmentAddress").innerHTML = estAddress;
-        document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
-        document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
+        document.getElementById("establishmentAddress").innerHTML = "Adress: " +  estAddress;
+        document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
+        document.getElementById("establishmentRating").innerHTML = "Betyg " + parseFloat(estRating) + " / 5";
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {

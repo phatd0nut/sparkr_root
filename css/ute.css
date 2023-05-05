@@ -2,28 +2,12 @@ body {
     font-family: "anchor-web", sans-serif;
     font-weight: 500;
     font-style: normal;
+    margin: 0;
 
 }
 
 h1 {
     font-size: 4rem;
-}
-
-#googleMap {
-    width: 350px;
-    height: 200px;
-    border: solid rgba(238, 13, 13, 1)
-}
-
-#establishmentWebsite img {
-    width: 12%;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
 
 h2 {
@@ -36,7 +20,7 @@ h2 {
 
 #ute {
     text-align: center;
-   color: #994dc7; 
+    color: #994dc7;
     text-align: right;
     margin-right: 50px;
     font-size: 50px;
@@ -96,3 +80,44 @@ h2 {
     width: auto;
     margin: 25px;
 }
+
+/* STILLSÄTTNING FÖR nattliv.HTML */
+
+#Nattliv {
+    text-align: center;
+    font-size: 35px;
+}
+
+#establishmentInfo {
+    
+    text-align: center;
+    font-size: 1rem;
+}
+
+#establishmentName {
+    color: #994dc7;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#establishmentDescription {
+
+}
+
+#googleMap {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 180px;
+    border: solid 2px #994dc7;
+}
+
+#directions-btn {
+    border-radius: 20px;
+    background-color: #994dc7;
+    background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
+    color: white;
+    border-style: none;
+    padding: 30px;
+    cursor: pointer;
+}   
