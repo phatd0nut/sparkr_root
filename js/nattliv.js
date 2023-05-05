@@ -73,8 +73,8 @@ function getData(responseText) {
         icon.setAttribute("src", "../img/click.png");
         icon.setAttribute("alt", estWebsite);
         clickableWWW.appendChild(icon);
-        document.querySelector("#establishmentWebsite").appendChild(clickableWWW);
-        document.querySelector("#establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
+        document.getElementById("establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
         document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
