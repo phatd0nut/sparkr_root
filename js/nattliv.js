@@ -38,7 +38,7 @@ function requestSmapi() {
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
-            else establishmentInfo.innerHTML = "Den begärda resursen hittades inte."
+            else establishmentInfo.innerHTML = "<p>Den begärda resursen hittades inte.<p>"
     };
 }
 
