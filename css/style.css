@@ -1,3 +1,4 @@
+
 body {
   font-family: "anchor-web", sans-serif;
   font-weight: 500;
@@ -58,16 +59,16 @@ h2 {
 
 .choice1 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-size: 20px;
-  margin: 0 80px;
+  margin: -10px;
   height: 400px;
   align-items: center;
 }
 
 .button1 {
   font-size: 18px;
-   background-color: #00DBDE;
+  background-color: #00DBDE;
   background-image: linear-gradient(90deg, #00DBDE 0%, #23a1df 100%);
   padding: 50px;
   text-align: center;
@@ -78,9 +79,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: auto;
-  border-radius: 0 50px;
-  
-
+  border-radius:  0 50px;
 }
 
 .button2 {
@@ -97,7 +96,6 @@ h2 {
   justify-content: center;
   width: auto;
   border-radius: 50px 0;
-
 }
 
 
@@ -139,29 +137,10 @@ label {
   -webkit-transform: rotate(135deg);
 }
 
-img {
-  transform: translateX(0px);
-  animation: float 6s ease-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(10px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
 
 .logo {
   background-color: #00DBDE;
   background-image: linear-gradient(90deg, #00DBDE 0%, #994dc7 100%);
-
   width: auto;
   height: 100px;
   display: flex;
@@ -172,6 +151,20 @@ img {
   color: white;
   text-transform: uppercase;
   font-size: 180px;
+  animation: color 10s ease-out infinite;
+  background-size: 200% 200% ;
 }
 
+@keyframes color {
+  25% {
+    background-position: 0 50%;
+  }
 
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
