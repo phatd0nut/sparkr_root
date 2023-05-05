@@ -11,6 +11,7 @@ var foodType; // Variabel för val av mat
 var foodPrice; // Variabel för prisklass
 var restaurangPubInfo; // Referens för utskrift av SMAPI-information
 
+
 function init() {
     getUserLocation();
     restaurangPubInfo = document.getElementById("restaurangPubInfo");
