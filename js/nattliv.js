@@ -38,7 +38,7 @@ function requestSmapi() {
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
-            else establishmentInfo.innerHTML = "Den begärda resursen hittades inte."
+            else establishmentInfo.innerHTML = "<p>Den begärda resursen hittades inte.<p>"
     };
 }
 
@@ -69,6 +69,7 @@ function getData(responseText) {
         clickableTelNr.textContent =  estTel;
         let clickableWWW = document.createElement("a");
         clickableWWW.setAttribute("href", estWebsite);
+
         
         clickableWWW.textContent = estWebsite;
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
@@ -76,6 +77,14 @@ function getData(responseText) {
         document.getElementById("establishmentAddress").innerHTML = "Adress: " +  estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
         document.getElementById("establishmentRating").innerHTML = "Betyg " + parseFloat(estRating) + " / 5";
+
+
+        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
+        document.getElementById("establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentAddress").innerHTML = estAddress;
+        document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
+        document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
+
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
