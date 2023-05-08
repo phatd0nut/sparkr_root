@@ -59,7 +59,7 @@ function getData(responseText) {
         let estAddress = establishment.address;
         let estPriceRange = establishment.price_range;
         let estWebsite = establishment.website;
-        let estRating = Number(establishment.rating).toFixed(2);
+        let estRating = Number(establishment.rating).toFixed(1);
 
         // Utskrift av information i HTML
         document.getElementById("establishmentName").innerHTML = estName;
