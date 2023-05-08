@@ -107,20 +107,20 @@ function getData(responseText) {
 
         // Utskrift av information i HTML
         document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
-        document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
+        document.getElementById("restaurangPubDescription").innerHTML = "";
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
         clickableTelNr.textContent = restaurangPubTel;
         let clickableWWW = document.createElement("a");
         clickableWWW.setAttribute("href", restaurangPubWebsite);
-        document.getElementById("restaurangPubTel").innerHTML = "";
+        document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
         document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
         document.getElementById("restaurangPubWebsite").innerHTML = "";
         clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
-        document.getElementById("restaurangPubAddress").innerHTML = restaurangPubAddress;
-        document.getElementById("restaurangPubPriceRng").innerHTML = restaurangPubPriceRange;
-        document.getElementById("restaurangPubRating").innerHTML = restaurangPubRating + " / 5";
+        document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
+        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
+        document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {

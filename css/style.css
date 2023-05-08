@@ -5,16 +5,18 @@ body {
   font-style: normal;
 }
 
-#logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 
 body {
   margin: 0;
   padding: 0;
+
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 
 }
 
@@ -152,7 +154,7 @@ label {
   text-transform: uppercase;
   font-size: 180px;
   animation: color 10s ease-out infinite;
-  background-size: 200% 200% ;
+  background-size: 200% 200%;
 }
 
 @keyframes color {

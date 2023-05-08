@@ -1,26 +1,55 @@
+.logo {
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #994dc7 100%);
+    width: auto;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 0 0 50% 50%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 180px;
+    animation: color 10s ease-out infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes color {
+    25% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+
+
 body {
     font-family: "anchor-web", sans-serif;
     font-weight: 500;
     font-style: normal;
     margin: 0;
-
 }
 
 h1 {
     font-size: 4rem;
 }
 
-
 h2 {
     text-align: center;
     color: #00DBDE;
-    text-align: right;
-    margin-right: 50px;
-    font-size: 50px;
+    font-size: 3.5rem;
 }
 
 #googleMap {
-    width:  350px;
+    width: 350px;
     height: 200px;
     border: solid rgba(238, 13, 13, 1);
 
@@ -41,9 +70,7 @@ img {
 #ute {
     text-align: center;
     color: #994dc7;
-    text-align: right;
-    margin-right: 50px;
-    font-size: 50px;
+    font-size: 3.5rem;
 }
 
 .button3 {
@@ -104,24 +131,29 @@ img {
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
 #Nattliv {
-    text-align: center;
+    text-align: right;
     font-size: 35px;
+    padding: 10px;
 }
 
 #establishmentInfo {
-    
+
     text-align: center;
     font-size: 1rem;
 }
 
 #establishmentName {
     color: #994dc7;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
+    margin-left: 28px;
+    padding: 0em;
 }
 
 #establishmentDescription {
-
+    text-align: left;
+    margin-top: -50px;
+    margin-left: 30px;
 }
 
 #googleMap {
@@ -129,15 +161,137 @@ img {
     justify-content: center;
     width: auto;
     height: 180px;
-    border: solid 2px #994dc7;
+    border: solid 3px #994dc7;
+    border-radius: 25px;
 }
 
 #directions-btn {
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #994dc7;
     background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
     color: white;
     border-style: none;
-    padding: 30px;
+    padding: 10px;
     cursor: pointer;
-}   
+}
+
+.contact p {
+    display: inline-block;
+}
+
+/* STILLSÄTTNING FÖR restaurangochpub.HTML */
+
+
+#foodType {
+    text-align: center;
+}
+
+#foodType h2 {
+    font-size: 35px;
+}
+
+#foodType label {
+    display: inline-block;
+    text-align: center;
+}
+#foodPrice {
+    text-align: center;
+}
+
+#foodPrice label{
+    text-align: center;
+    display: inline-block;
+
+}
+
+#foodPrice h3 {
+    text-align: center;
+}
+
+#foodPrice {
+    text-align: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#generateResults {
+    padding: 10px;
+    width: 100px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid
+}
+
+#generateResults:hover {
+    background-color: #651860;
+}
+
+#restaurangPubInfo {
+    text-align: center;
+}
+
+
+
+/* för radio knapparna------ */
+
+.radiobuttons {
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
+    color: white;
+}
+
+
+/*CSS för random.html */
+
+.container-random-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 80vh; 
+    }
+  
+  
+  .box {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(226, 226, 232);
+      transition: all 1.25s ease;
+      border-radius: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'SFUIText-Bold';
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+    
+    .box.flipped {
+      transform: rotateY(360deg);
+      background-color: rgb(185, 182, 182);
+    }
+  
+  #textbox {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #generate {
+    text-align: center;
+  }
+
+
