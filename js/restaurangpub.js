@@ -10,6 +10,7 @@ var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 var foodType; // Variabel för val av mat
 var foodPrice; // Variabel för prisklass
 var restaurangPubInfo; // Referens för utskrift av SMAPI-information
+let displayedId = []; // Referens för ID på alternativ som visas
 
 
 function init() {
@@ -80,47 +81,53 @@ function requestSmapi(foodType, foodPrice) {
 function getData(responseText) {
     let restaurangPubData = JSON.parse(responseText);
 
-
     if (restaurangPubData.payload == null || restaurangPubData.payload.length === 0) {
-        // If there are no results, display a message to the user and return from the function
         alert("Det fanns inga alternativ med dina val i närheten.");
         return;
     }
+
     else {
         restaurangPubInfo.style.display = "block";
-        let restaurangPub = restaurangPubData.payload;
-        restaurangPub.sort(() => Math.random() - 0.5); // Blandar resultaten
-        restaurangPub = restaurangPubData.payload[0];
+        let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av GPT
+        if (restaurangPub.length === 0) {
+            alert("Inga nya alternativ hittades.");
+            return;
+        }
 
-        let lat = restaurangPub.lat;
-        let lng = restaurangPub.lng;
-        console.log(lat);
-        console.log(lng);
-        let restaurangPubName = restaurangPub.name;
-        console.log(restaurangPubName);
-        let restaurangPubDescription = restaurangPub.description;
-        let restaurangPubTel = restaurangPub.phone_number;
-        let restaurangPubAddress = restaurangPub.address;
-        let restaurangPubPriceRange = restaurangPub.price_range;
-        let restaurangPubWebsite = restaurangPub.website;
-        let restaurangPubRating = Number(restaurangPub.rating).toFixed(1);
+        let randomIndex = Math.floor(Math.random() * restaurangPub.length);
+        let selectedEntry = restaurangPub[randomIndex];
+        displayedId.push(selectedEntry.id);
+
+        let lat = selectedEntry.lat;
+        let lng = selectedEntry.lng;
+        let restaurangPubName = selectedEntry.name;
+        let restaurangPubDescription = selectedEntry.description;
+        let restaurangPubTel = selectedEntry.phone_number;
+        let restaurangPubAddress = selectedEntry.address;
+        let restaurangPubPriceRange = selectedEntry.price_range;
+        let restaurangPubWebsite = selectedEntry.website;
+        let restaurangPubRating = Number(selectedEntry.rating).toFixed(1);
 
         // Utskrift av information i HTML
         document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
-        document.getElementById("restaurangPubDescription").innerHTML = "";
+        document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
         clickableTelNr.textContent = restaurangPubTel;
         let clickableWWW = document.createElement("a");
         clickableWWW.setAttribute("href", restaurangPubWebsite);
-        document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
-        document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+        if (!selectedEntry.phone_number) {
+            document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+        } else {
+            document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
+            document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+        }
         document.getElementById("restaurangPubWebsite").innerHTML = "";
         clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
-        document.getElementById("restaurangPubAddress").innerHTML = "Adress:" + restaurangPubAddress;
+        document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
         document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
-        document.getElementById("restaurangPubRating").innerHTML = "Omdöme:" + restaurangPubRating + " / 5";
+        document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
@@ -128,6 +135,7 @@ function getData(responseText) {
         });
     }
 }
+
 
 function displayMap(lat, lng) {
     // Skapa nytt kartobjekt
