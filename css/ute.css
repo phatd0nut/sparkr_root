@@ -162,7 +162,6 @@ img {
     width: auto;
     height: 180px;
     border: solid 3px #994dc7;
-    border-radius: 25px;
 }
 
 #directions-btn {
@@ -181,6 +180,9 @@ img {
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
 
+h3 {
+    font-size: 25px;
+}
 
 #foodType {
     text-align: center;
@@ -247,6 +249,15 @@ img {
     margin: 5px;
     color: white;
 }
+
+.radiobuttons {
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
+    color: white;
+}
+
 
 
 /*CSS för random.html */

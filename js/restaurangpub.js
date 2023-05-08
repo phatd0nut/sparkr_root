@@ -118,9 +118,9 @@ function getData(responseText) {
         document.getElementById("restaurangPubWebsite").innerHTML = "";
         clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
-        document.getElementById("restaurangPubAddress").innerHTML = "Adress:" + restaurangPubAddress;
-        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
-        document.getElementById("restaurangPubRating").innerHTML = "Omdöme:" + restaurangPubRating + " / 5";
+        document.getElementById("restaurangPubAddress").innerHTML = "Adress :" + restaurangPubAddress;
+        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris :" + restaurangPubPriceRange;
+        document.getElementById("restaurangPubRating").innerHTML = "Omdöme :" + restaurangPubRating + " / 5";
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
