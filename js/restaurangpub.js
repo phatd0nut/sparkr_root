@@ -88,14 +88,17 @@ function getData(responseText) {
 
     else {
         restaurangPubInfo.style.display = "block";
-        let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av GPT
+        let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
         if (restaurangPub.length === 0) {
             alert("Inga nya alternativ hittades.");
             return;
         }
 
+        // Slumpar resultaten enligt förvalda kriterier från SMAPI
         let randomIndex = Math.floor(Math.random() * restaurangPub.length);
         let selectedEntry = restaurangPub[randomIndex];
+
+        // De resultat som har visats pushas till displayedId array för att inte visas dubbelt
         displayedId.push(selectedEntry.id);
 
         let lat = selectedEntry.lat;
