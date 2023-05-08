@@ -13,38 +13,86 @@
 </head>
 
 <body>
-  <h2>Restaurang & Pub</h2>
+  <div class="logo"> <img src="/img/logotyp_sparkr_v3_4.png" alt="bild på sparkr loggan">
+  </div>
+  <a href="/../index.html"><i class="arrow left"></i></a></i>
   <div id="foodType">
-    <h3>Typ av mat</h3>
-    <label><input type="radio" class="foodOpt" name="food-type" value="Pizzeria" checked/>Pizzeria</label>
-    <label><input type="radio" class="foodOpt" name="food-type" value="Hamburgerkedja"/>Hamburgerkedja</label>
-    <label><input type="radio" class="foodOpt" name="food-type" value="Restaurang"/>Restaurang</label>
-    <label><input type="radio" class="foodOpt" name="food-type" value="Gatukök"/>Gatukök</label>
-    <label><input type="radio" class="foodOpt" name="food-type" value="Bistro"/>Bistro</label>
+    <h3>Välj mellan:</h3>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="foodOpt" name="food-type" value="Pizzeria" checked />Pizzeria
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="foodOpt" name="food-type" value="Hamburgerkedja" />Hamburgerkedja
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="foodOpt" name="food-type" value="Restaurang" />Restaurang
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="foodOpt" name="food-type" value="Gatukök" />Gatukök
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="foodOpt" name="food-type" value="Bistro" />Bistro
+      </div>
+    </label>
   </div>
 
   <div id="foodPrice">
-    <h3>Prisklass</h3>
-    <label><input type="radio" class="priceOpt" name="food-price" value="0-25" checked/>0-25</label>
-    <label><input type="radio" class="priceOpt" name="food-price" value="25-100"/>25-100</label>
-    <label><input type="radio" class="priceOpt" name="food-price" value="100-250"/>100-250</label>
-    <label><input type="radio" class="priceOpt" name="food-price" value="250-500"/>250-500</label>
-    <label><input type="radio" class="priceOpt" name="food-price" value="500-1250"/>500-1250</label>
-    <label><input type="radio" class="priceOpt" name="food-price" value="1250-5000"/>1250-5000</label>
+    <h3>Välj prisklass:
+    </h3>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="0-25" checked />0-25
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="25-100" />25-100
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="100-250" />100-250
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="250-500" />250-500
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="500-1250" />500-1250
+      </div>
+    </label>
+    <label>
+      <div class="radiobuttons">
+        <input type="radio" class="priceOpt" name="food-price" value="1250-5000" />1250-5000
+      </div>
+    </label>
   </div>
-
-    <button id="generateResults">Kör</button>
-    <div id="restaurangPubInfo">
-      <h2 class="restaurangPubName"></h2>
-      <h3 id="restaurangPubName"></h3>
-      <p id="restaurangPubDescription"></p>
-      <p id="restaurangPubTel"></p>
-      <p id="restaurangPubAddress"></p>
-      <p id="restaurangPubPriceRng"></p>
-      <p id="restaurangPubWebsite"></p>
-      <p id="restaurangPubRating"></p>
-      <div id="googleMap"></div>
-      <button id="directions-btn">Vägbeskrivning</button>
+  <div class="container2">
+    <button id="generateResults">Sök</button>
+  </div>
+  <div id="restaurangPubInfo">
+    <h2 class="restaurangPubName"></h2>
+    <h3 id="restaurangPubName"></h3>
+    <p id="restaurangPubDescription"></p>
+    <p id="restaurangPubTel"></p>
+    <p id="restaurangPubAddress"></p>
+    <p id="restaurangPubPriceRng"></p>
+    <p id="restaurangPubWebsite"></p>
+    <p id="restaurangPubRating"></p>
+    <div id="googleMap"></div>
+    <button id="directions-btn">Vägbeskrivning</button>
   </div>
 
 </body>

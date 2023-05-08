@@ -68,22 +68,21 @@ function getData(responseText) {
         clickableTelNr.setAttribute("href", "tel: " + estTel);
         clickableTelNr.textContent =  estTel;
         let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", estWebsite);
-
-        
+        clickableWWW.setAttribute("href", estWebsite);  
         clickableWWW.textContent = estWebsite;
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
         document.querySelector("#establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = "Adress: " +  estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
-        document.getElementById("establishmentRating").innerHTML = "Betyg " + parseFloat(estRating) + " / 5";
+        document.getElementById("establishmentRating").innerHTML = "Omdöme " + parseFloat(estRating) + " / 5";
 
 
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.getElementById("establishmentTel").appendChild(clickableTelNr);
-        document.getElementById("establishmentAddress").innerHTML = estAddress;
-        document.getElementById("establishmentPriceRng").innerHTML = estPriceRange;
-        document.getElementById("establishmentRating").innerHTML = estRating + " / 5";
+        document.getElementById("establishmentTel").innerHTML= "Telefonnummer: "; 
+        + document.getElementById("establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
+        document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
+        document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
 
 
         displayMap(lat, lng);
