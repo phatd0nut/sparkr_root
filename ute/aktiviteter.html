@@ -13,14 +13,10 @@
 </head>
 
 <body>
-    <form>
+    <div id="activityFilter">
         <label class="activityOpt"><input type="radio" name="activity" value="Temapark">Temapark</label>
-        <label for="search-type">Djurpark</label>
-        <select id="search-type" name="search-type">
-            <option value="Djurpark">Djurpark</option>
-            <option value="Älgpark">Älgpark</option>
-        </select>
         <label class="activityOpt"><input type="radio" name="activity" value="Djurpark">Djurpark</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Älgpark">Älgpark</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Simhall">Simhall</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Gokart">Gokart</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Zipline">Zipline</label>
@@ -37,8 +33,25 @@
         <label class="activityOpt"><input type="radio" name="activity" value="Ateljé">Ateljé</label>
         <label class="activityOpt"><input type="radio" ame="activity" value="Konsthall">Konsthall</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Sevärdhet">Sevärdhet</label>
-    </form>
+    </div>
 
+    <div id="container2">
+        <button id="generateResults">Sök</button>
+        <button id="changeFilters">Ändra filtrering</button>
+    </div>
+    <div id="activityInfo">
+        <h2 class="restaurangPubName"></h2>
+        <h3 id="restaurangPubName"></h3>
+        <p id="restaurangPubDescription"></p>
+        <p id="restaurangPubTel"></p>
+        <p id="restaurangPubAddress"></p>
+        <p id="restaurangPubPriceRng"></p>
+        <p id="restaurangPubWebsite"></p>
+        <p id="restaurangPubRating"></p>
+        <div id="googleMap"></div>
+        <button id="directions-btn">Vägbeskrivning</button>
+      </div>
+    
 
 </body>
 
