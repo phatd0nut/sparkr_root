@@ -7,8 +7,9 @@ var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API ny
 var marker; // Kartmarkör
 var directionsService; // Variabel för vägbeskrivningar
 var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
-
-
+var foodType; // Variabel för val av mat
+var foodPrice; // Variabel för prisklass
+var restaurangPubInfo; // Referens för utskrift av SMAPI-information
 var searchFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
 let displayedId = []; // Referens för ID på alternativ som visas
@@ -41,8 +42,8 @@ function init() {
     }
 
     generateBtn.addEventListener("click", function () {
-        searchFilters.forEach(function (filter) {
-            filter.style.display = "none";
+        searchFilters.forEach(function (searchFilters) {
+            searchFilters.style.display = "none";
         });
         changeFiltersBtn.style.display = "block";
         changeFiltersBtn.addEventListener("click", showFilters);
@@ -78,7 +79,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi(foodType, foodPrice) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=10&debug=true", true)
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
@@ -137,15 +138,9 @@ function getData(responseText) {
         document.getElementById("restaurangPubWebsite").innerHTML = "";
         clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
-
-        document.getElementById("restaurangPubAddress").innerHTML = "Adress:" + restaurangPubAddress;
-        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
-        document.getElementById("restaurangPubRating").innerHTML = "Omdöme:" + restaurangPubRating + " / 5";
-
         document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
         document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + ":-";
         document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {

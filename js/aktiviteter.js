@@ -7,57 +7,60 @@ var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API ny
 var marker; // Kartmarkör
 var directionsService; // Variabel för vägbeskrivningar
 var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
-var foodType; // Variabel för val av mat
-var foodPrice; // Variabel för prisklass
-var restaurangPubInfo; // Referens för utskrift av SMAPI-information
-var searchFilters; // Referens för filtreringsalternativen
+var activityType; // Variabel för val av aktivitet
+var activityInfo; // Referens för utskrift av SMAPI-information
+var activityFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
 var displayedId = []; // Referens för ID på alternativ som visas
+var showActivityFilters; // Referens för knappen som visar filtreringen
 
 
 function init() {
     getUserLocation();
     changeFiltersBtn = document.getElementById("changeFilters");
     changeFiltersBtn.style.display = "none";
-    restaurangPubInfo = document.getElementById("restaurangPubInfo");
-    restaurangPubInfo.style.display = "none";
-    searchFilters = document.querySelectorAll(".searchFilters");
-    let foodTypeInput = document.querySelectorAll(".foodOpt")
-    let foodPriceInput = document.querySelectorAll(".priceOpt");
+    activityInfo = document.getElementById("activityInfo");
+    activityInfo.style.display = "none";
+    activityFilters = document.querySelectorAll(".activityFilters");
+    // activityFilters.forEach(function (activityFilter) {
+    //     activityFilter.style.display = "none";
+    // });
     let generateBtn = document.querySelector("#generateResults");
-    foodType = "Pizzeria";
-    foodPrice = "0-25";
+    // generateBtn.style.display = "none";
+    let activityTypeInput = document.querySelectorAll(".activityOpt")
+    activityType = "Temapark";
 
-    for (let i = 0; i < foodTypeInput.length; i++) {
-        foodTypeInput[i].addEventListener("change", (event) => {
-            foodType = event.target.value;
-        });
-
-    }
-
-    for (let i = 0; i < foodPriceInput.length; i++) {
-        foodPriceInput[i].addEventListener("change", (event) => {
-            foodPrice = event.target.value;
+    for (let i = 0; i < activityTypeInput.length; i++) {
+        activityTypeInput[i].addEventListener("change", (event) => {
+            activityType = event.target.value;
         });
     }
 
-    generateBtn.addEventListener("click", function () {
-        searchFilters.forEach(function (filter) {
-            filter.style.display = "none";
+    // showActivityFilters = document.getElementById("showActivityFilters").addEventListener("click", function () {
+    //     this.style.display = "none";
+    //     activityFilters.forEach(function (activityFilter) {
+    //         activityFilter.style.display = "block";
+    //         generateBtn.style.display = "block";
+    //     });
+
+        generateBtn.addEventListener("click", function () {
+            activityFilters.forEach(function (activityFilters) {
+                activityFilters.style.display = "none";
+            });
+            changeFiltersBtn.style.display = "block";
+            changeFiltersBtn.addEventListener("click", showFilters);
+            // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
+            if (activityType === "Temapark") {
+                requestSmapi(activityType);
+                getUserLocation();
+            } else {
+                // Om valen ändras, uppdatera anropet till SMAPI
+                requestSmapi(activityType);
+                getUserLocation();
+            }
         });
-        changeFiltersBtn.style.display = "block";
-        changeFiltersBtn.addEventListener("click", showFilters);
-        // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
-        if (foodType === "Pizzeria" && foodPrice === "0-25") {
-            requestSmapi(foodType, foodPrice);
-            getUserLocation();
-        } else {
-            // Om valen ändras, uppdatera anropet till SMAPI
-            requestSmapi(foodType, foodPrice);
-            getUserLocation();
-        }
-    });
 }
+
 
 window.addEventListener("load", init);
 
@@ -77,78 +80,83 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     }
 }
 
-function requestSmapi(foodType, foodPrice) {
+function requestSmapi(activityType) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&types=activity&descriptions=" + activityType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=30&debug=true", true)
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
-            else restaurangPubInfo.innerHTML = "<p>Den begärda resursen hittades inte.</p>"
+            else activityInfo.innerHTML = "<p>Den begärda resursen hittades inte.</p>"
     };
 }
 
 function getData(responseText) {
-    let restaurangPubData = JSON.parse(responseText);
+    let activityData = JSON.parse(responseText);
 
-    if (restaurangPubData.payload == null || restaurangPubData.payload.length === 0) {
+    if (activityData.payload == null || activityData.payload.length === 0) {
         alert("Det fanns inga alternativ med dina val i närheten.");
         return;
     }
 
     else {
-        restaurangPubInfo.style.display = "block";   
-        let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
-        if (restaurangPub.length === 0) {
+        activityInfo.style.display = "block";
+        let activitiesData = activityData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
+        if (activitiesData.length === 0) {
             alert("Inga nya alternativ hittades.");
             return;
         }
 
         // Slumpar resultaten enligt förvalda kriterier från SMAPI
-        let randomIndex = Math.floor(Math.random() * restaurangPub.length);
-        let selectedEntry = restaurangPub[randomIndex];
+        let randomIndex = Math.floor(Math.random() * activitiesData.length);
+        let selectedEntry = activitiesData[randomIndex];
 
         // De resultat som har visats pushas till displayedId array för att inte visas dubbelt
         displayedId.push(selectedEntry.id);
 
         let lat = selectedEntry.lat;
         let lng = selectedEntry.lng;
-        let restaurangPubName = selectedEntry.name;
-        let restaurangPubDescription = selectedEntry.description;
-        let restaurangPubTel = selectedEntry.phone_number;
-        let restaurangPubAddress = selectedEntry.address;
-        let restaurangPubPriceRange = selectedEntry.price_range;
-        let restaurangPubWebsite = selectedEntry.website;
-        let restaurangPubRating = Number(selectedEntry.rating).toFixed(1);
+        let activitiesDataName = selectedEntry.name;
+        let activitiesDataDescription = selectedEntry.description;
+        let activitiesDataTel = selectedEntry.phone_number;
+        let activitiesDataAddress = selectedEntry.address;
+        let activitiesDataPriceRange = selectedEntry.price_range;
+        let activitiesDataWebsite = selectedEntry.website;
+        let activitiesDataRating = Number(selectedEntry.rating).toFixed(1);
 
         // Utskrift av information i HTML
-        document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
-        document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
+        document.getElementById("activityName").innerHTML = activitiesDataName;
+        document.getElementById("activityDescription").innerHTML = activitiesDataDescription;
         let clickableTelNr = document.createElement("a");
-        clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
-        clickableTelNr.textContent = restaurangPubTel;
+        clickableTelNr.setAttribute("href", "tel: " + activitiesDataTel);
+        clickableTelNr.textContent = activitiesDataTel;
         let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", restaurangPubWebsite);
+        clickableWWW.setAttribute("href", activitiesDataWebsite);
         if (!selectedEntry.phone_number) {
-            document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
-        } else {
-            document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
-            document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+            document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
         }
-        document.getElementById("restaurangPubWebsite").innerHTML = "";
-        clickableWWW.textContent = restaurangPubWebsite;
-        document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
+        else {
+            document.getElementById("activityTel").innerHTML = "Telefonnummer: ";
+            document.getElementById("activityTel").appendChild(clickableTelNr);
+        }
+        if (selectedEntry.outdoors == "Y") {
+            document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Ja"
+        }
+        else {
+            document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Nej"
+        }
+        document.getElementById("activityWebsite").innerHTML = "";
+        clickableWWW.textContent = activitiesDataWebsite;
+        document.getElementById("activityWebsite").appendChild(clickableWWW);
+        document.getElementById("activityAddress").innerHTML = "Adress:" + activitiesDataAddress;
+        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange;
+        document.getElementById("activityRating").innerHTML = "Omdöme:" + activitiesDataRating + " / 5";
+        document.getElementById("activityAddress").innerHTML = "Adress: " + activitiesDataAddress;
+        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange + ":-";
+        document.getElementById("activityRating").innerHTML = "Omdöme: " + activitiesDataRating + " / 5";
 
-        document.getElementById("restaurangPubAddress").innerHTML = "Adress:" + restaurangPubAddress;
-        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
-        document.getElementById("restaurangPubRating").innerHTML = "Omdöme:" + restaurangPubRating + " / 5";
 
-        document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
-        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + ":-";
-        document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-
-
-        displayMap(lat, lng);
+            displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
             getDirections(userLocationLat, userLocationLng);
         });
@@ -203,7 +211,7 @@ function getDirections(userLocationLat, userLocationLng) {
 }
 
 function showFilters() {
-    searchFilters.forEach(function (filter) {
+    activityFilters.forEach(function (filter) {
         filter.style.display = "block";
     });
     changeFiltersBtn.style.display = "none";
