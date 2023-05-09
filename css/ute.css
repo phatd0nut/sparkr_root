@@ -231,10 +231,11 @@ h3 {
     text-align: center;
 }
 
-#container2 {
+.container2 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    
 }
 
 #generateResults {
