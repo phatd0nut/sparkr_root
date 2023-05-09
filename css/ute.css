@@ -250,7 +250,7 @@ img {
 
 /* för radio knapparna------ */
 
-.radiobuttons {
+.priceOpt, .foodOpt, .activityOpt {
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;

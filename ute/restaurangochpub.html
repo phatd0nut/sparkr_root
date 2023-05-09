@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/../css/ute.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"></script>
   <script src="../js/restaurangpub.js"></script>
   <title>Restaurang & Pub</title>
@@ -15,69 +16,25 @@
 <body>
   <div class="logo"> <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
   </div>
-  <a href="/../index.html"><i class="arrow left"></i></a></i>
+  <a href="ute.html"><i class="arrow left"></i></a>
   <div id="foodType" class="searchFilters">
     <h3>Välj mellan:</h3>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="foodOpt" name="food-type" value="Pizzeria" checked />Pizzeria
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="foodOpt" name="food-type" value="Hamburgerkedja" />Hamburgerkedja
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="foodOpt" name="food-type" value="Restaurang" />Restaurang
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="foodOpt" name="food-type" value="Gatukök" />Gatukök
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="foodOpt" name="food-type" value="Bistro" />Bistro
-      </div>
-    </label>
+    <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Pizzeria" checked />Pizzeria</label>
+    <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Hamburgerkedja" />Hamburgerkedja</label>
+    <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Restaurang" />Restaurang</label>
+    <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Gatukök" />Gatukök</label>
+    <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Bistro" />Bistro</label>
   </div>
 
   <div id="foodPrice" class="searchFilters">
     <h3>Välj prisklass:
     </h3>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="0-25" checked />0-25
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="25-100" />25-100
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="100-250" />100-250
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="250-500" />250-500
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="500-1250" />500-1250
-      </div>
-    </label>
-    <label>
-      <div class="radiobuttons">
-        <input type="radio" class="priceOpt" name="food-price" value="1250-5000" />1250-5000
-      </div>
-    </label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="0-25" checked />0-25</label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="25-100" />25-100</label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="100-250" />100-250</label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="250-500" />250-500</label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="500-1250" />500-1250</label>
+    <label class="priceOpt"><input type="radio" class="priceOpt" name="food-price" value="1250-5000" />1250-5000</label>
   </div>
   <div id="container2">
     <button id="generateResults">Sök</button>
