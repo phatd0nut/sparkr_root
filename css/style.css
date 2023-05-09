@@ -3,13 +3,8 @@ body {
   font-family: "anchor-web", sans-serif;
   font-weight: 500;
   font-style: normal;
-}
-
-
-body {
   margin: 0;
   padding: 0;
-
 }
 
 img {
@@ -83,7 +78,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: auto;
-  border-radius:  0 50px;
+  border-radius:  50px;
 }
 
 .button2 {
@@ -99,7 +94,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: auto;
-  border-radius: 50px 0;
+  border-radius: 50px ;
 }
 
 
@@ -172,3 +167,4 @@ label {
     background-position: 0 50%;
   }
 }
+

@@ -131,15 +131,26 @@ img {
 
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
-#Nattliv {
-    text-align: right;
+.container-sectionTitle {
+    display: flex;
+    justify-content: right;
+    
+}
+
+.sectionTitle {
+    text-align: center;
+    color: #FFF;
+    padding: 1%;
+    margin-bottom: 0;
     font-size: 35px;
-    padding: 10px;
+    background-color: #994dc7;
+    width: 45%;
+    border-radius: 200px 0px 0px 200px;
 }
 
 #establishmentInfo {
 
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
 }
 
@@ -147,14 +158,17 @@ img {
     color: #994dc7;
     text-align: left;
     text-transform: uppercase;
-    margin-left: 28px;
     padding: 0em;
+    margin-top: 0;
 }
 
 #establishmentDescription {
     text-align: left;
     margin-top: -50px;
-    margin-left: 30px;
+}
+
+#establishmentRating {
+    margin-bottom: 2%;
 }
 
 #googleMap {
@@ -163,6 +177,12 @@ img {
     width: auto;
     height: 180px;
     border: solid 3px #994dc7;
+}
+
+#directions-btn-placement {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
 }
 
 #directions-btn {
@@ -177,9 +197,9 @@ img {
 
 
 .infoBar {
-    border-top: 10px solid purple;
-    border-bottom: 10px solid purple;
-    text-align: left;
+    border-top: 10px solid #994dc7;
+    border-bottom: 10px solid #994dc7;
+    border-radius: 10px;
     margin: 30px;
 }
 
@@ -213,11 +233,12 @@ h3 {
     display: inline-block;
     text-align: center;
 }
+
 #foodPrice {
     text-align: center;
 }
 
-#foodPrice label{
+#foodPrice label {
     text-align: center;
     display: inline-block;
 
@@ -270,7 +291,9 @@ h3 {
 
 /* för radio knapparna------ */
 
-.priceOpt, .foodOpt, .activityOpt {
+.priceOpt,
+.foodOpt,
+.activityOpt {
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;
@@ -294,43 +317,41 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 80vh; 
-    }
-  
-  
-  #box {
-      width: 100px;
-      height: 100px;
-      background-color: rgb(226, 226, 232);
-      transition: all 1.25s ease;
-      border-radius: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'SFUIText-Bold';
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
-    }
-    
-    .box.flipped {
-      transform: rotateY(360deg);
-      background-color: rgb(185, 182, 182);
-    }
-  
-  #textbox {
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(226, 226, 232);
+    transition: all 1.25s ease;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SFUIText-Bold';
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.box.flipped {
+    transform: rotateY(360deg);
+    background-color: rgb(185, 182, 182);
+}
+
+#textbox {
     font-size: 50px;
     margin: 0;
     padding: 0;
-  }
+}
 
-  #generate {
+#generate {
     text-align: center;
-  }
-
-
+}
