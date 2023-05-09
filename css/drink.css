@@ -10,9 +10,9 @@ body {
   font-style: normal;
 }
 
+
 /* Bakgrundsfärg för den vänstra kolumnen */
 .drinkar {
-  background-color: #FF6B6B;
   background: #FFFFFF;
   border: 4px solid transparent;
   box-shadow:inset 1px 1px 7px #00DB;
@@ -84,6 +84,42 @@ ul {
   margin: 0;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 20px;
+  }
+  
+  .kategorier {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  }
+  
+  .kategorier h2 {
+  font-size: 24px;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  }
+  
+  .kategorier button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  }
+  
+  .kategorier button:hover {
+  background-color: #3e8
+  }
 @media only screen and (max-width: 390px) {
   body {
     grid-template-columns: 1fr;

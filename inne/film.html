@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkar hemma</title>
+
+    <link rel="stylesheet" href="/css/drink.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
+    <link rel="stylesheet" href="/sparkr_root/css/drink.css" />
+
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="logo">
+        <h1>Mina filmer</h1>
+      </div>
+    </header>
+    
+    <main>
+      <div class="grid-container">
+        <div class="kategorier">
+            <h2>Överraska mig!</h2>
+            <button onclick="slumpaFilm('blandat')">Slumpa en film åt mig</button>
+            <p id="resultat-blandat"></p>
+          </div>
+        <div class="kategorier">
+            <h2>Komedi</h2>
+            <button onclick="slumpaFilm('komedi')">Slumpa en film åt mig</button>
+            <p id="resultat-komedi"></p>
+          </div>
+          
+        <div class="kategorier">
+          <h2>Action</h2>
+          <button onclick="slumpaFilm('action')">Slumpa en film åt mig</button>
+          <p id="resultat-action"></p>
+        </div>
+        <div class="kategorier">
+          <h2>Drama</h2>
+          <button onclick="slumpaFilm('drama')">Slumpa en film åt mig</button>
+          <p id="resultat-drama"></p>
+        </div>
+        <div class="kategorier">
+            <h2>Skräckfilm</h2>
+            <button onclick="slumpaFilm('horror')">Slumpa en film åt mig</button>
+            <p id="resultat-horror"></p>
+          </div>
+      </div>
+      <div class="kategorier">
+        <h2>Barnfilmer</h2>
+        <button onclick="slumpaFilm('barnfilm')">Slumpa en film åt mig</button>
+        <p id="resultat-barnfilm"></p>
+      </div>
+      <div class="kategorier">
+        <h2>Krim/Thriller</h2>
+        <button onclick="slumpaFilm('thriller')">Slumpa en film åt mig</button>
+        <p id="resultat-thriller"></p>
+      </div>
+    </main>
+
+    <script src="/js/filmer.js"></script>
+  </body>
+</html>
