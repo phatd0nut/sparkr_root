@@ -10,13 +10,18 @@ var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 var foodType; // Variabel för val av mat
 var foodPrice; // Variabel för prisklass
 var restaurangPubInfo; // Referens för utskrift av SMAPI-information
+var searchFilters; // Referens för filtreringsalternativen
+var changeFiltersBtn; //Referens för knappen som visar filtreringen
 let displayedId = []; // Referens för ID på alternativ som visas
 
 
 function init() {
     getUserLocation();
+    changeFiltersBtn = document.getElementById("changeFilters");
+    changeFiltersBtn.style.display = "none";
     restaurangPubInfo = document.getElementById("restaurangPubInfo");
     restaurangPubInfo.style.display = "none";
+    searchFilters = document.querySelectorAll(".searchFilters");
     let foodTypeInput = document.querySelectorAll(".foodOpt")
     let foodPriceInput = document.querySelectorAll(".priceOpt");
     let generateBtn = document.querySelector("#generateResults");
@@ -37,6 +42,11 @@ function init() {
     }
 
     generateBtn.addEventListener("click", function () {
+        searchFilters.forEach(function (filter) {
+            filter.style.display = "none";
+        });
+        changeFiltersBtn.style.display = "block";
+        changeFiltersBtn.addEventListener("click", showFilters);
         // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
         if (foodType === "Pizzeria" && foodPrice === "0-25") {
             requestSmapi(foodType, foodPrice);
@@ -87,7 +97,7 @@ function getData(responseText) {
     }
 
     else {
-        restaurangPubInfo.style.display = "block";
+        restaurangPubInfo.style.display = "block";   
         let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
         if (restaurangPub.length === 0) {
             alert("Inga nya alternativ hittades.");
@@ -128,9 +138,15 @@ function getData(responseText) {
         document.getElementById("restaurangPubWebsite").innerHTML = "";
         clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
+
         document.getElementById("restaurangPubAddress").innerHTML = "Adress:" + restaurangPubAddress;
         document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange;
         document.getElementById("restaurangPubRating").innerHTML = "Omdöme:" + restaurangPubRating + " / 5";
+
+        document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
+        document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + ":-";
+        document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
+
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
@@ -184,4 +200,11 @@ function getDirections(userLocationLat, userLocationLng) {
             directionsRenderer.setMap(map);
         }
     });
+}
+
+function showFilters() {
+    searchFilters.forEach(function (filter) {
+        filter.style.display = "block";
+    });
+    changeFiltersBtn.style.display = "none";
 }

@@ -5,29 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/ute.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
+    <script src="../js/nattliv.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"></script>
+    <title>Aktiviteter</title>
 </head>
 
 <body>
     <form>
-        <label><input type="radio" name="activity" value="temapark">Temapark</label>
-        <label><input type="radio" name="activity" value="djurpark/älgpark">Djurpark/Älgpark</label>
-        <label><input type="radio" name="activity" value="simhall">Simhall</label>
-        <label><input type="radio" name="activity" value="gokart">Gokart</label>
-        <label><input type="radio" name="activity" value="zipline">Zipline</label>
-        <label><input type="radio" name="activity" value="nöjescenter">Nöjescenter</label>
-        <label><input type="radio" name="activity" value="paintball center">Paintball Center</label>
-        <label><input type="radio" name="activity" value="hälsocenter">Hälsocenter</label>
-        <label><input type="radio" name="activity" value="golfbana">Golfbana</label>
-        <label><input type="radio" name="activity" value="bowlinghall">Bowlinghall</label>
-        <label><input type="radio" name="activity" value="klättring">Klättring</label>
-        <label><input type="radio" name="activity" value="skateboardpark">Skateboardpark</label>
-        <label><input type="radio" name="activity" value="museum">Museum</label>
-        <label><input type="radio" name="activity" value="slott">Slott</label>
-        <label><input type="radio" name="activity" value="konstgalleri">Konstgalleri</label>
-        <label><input type="radio" name="activity" value="atelj">Ateljé</label>
-        <label><input type="radio" name="activity" value="konsthall">Konsthall</label>
-        <label><input type="radio" name="activity" value="sevärdhet">Sevärdhet</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Temapark">Temapark</label>
+        <label for="search-type">Djurpark</label>
+        <select id="search-type" name="search-type">
+            <option value="Djurpark">Djurpark</option>
+            <option value="Älgpark">Älgpark</option>
+        </select>
+        <label class="activityOpt"><input type="radio" name="activity" value="Djurpark">Djurpark</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Simhall">Simhall</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Gokart">Gokart</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Zipline">Zipline</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Nöjescenter">Nöjescenter</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Paintballcenter">Paintballcenter</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Hälsocenter">Hälsocenter</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Golfbana">Golfbana</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Bowlinghall">Bowlinghall</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Klättring">Klättring</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Skateboardpark">Skateboardpark</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Museum">Museum</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Slott">Slott</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Konstgalleri">Konstgalleri</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Ateljé">Ateljé</label>
+        <label class="activityOpt"><input type="radio" ame="activity" value="Konsthall">Konsthall</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Sevärdhet">Sevärdhet</label>
     </form>
 
 
