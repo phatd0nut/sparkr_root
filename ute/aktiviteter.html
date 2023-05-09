@@ -7,20 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/ute.css" />
     <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
-    <script src="../js/nattliv.js"></script>
+    <script src="../js/aktiviteter.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"></script>
     <title>Aktiviteter</title>
 </head>
 
 <body>
-    <form>
+    <h1 id="sectionTitle">Aktiviteter</h1>
+    <div id="activityFilter">
         <label class="activityOpt"><input type="radio" name="activity" value="Temapark">Temapark</label>
-        <label for="search-type">Djurpark</label>
-        <select id="search-type" name="search-type">
-            <option value="Djurpark">Djurpark</option>
-            <option value="Älgpark">Älgpark</option>
-        </select>
         <label class="activityOpt"><input type="radio" name="activity" value="Djurpark">Djurpark</label>
+        <label class="activityOpt"><input type="radio" name="activity" value="Älgpark">Älgpark</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Simhall">Simhall</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Gokart">Gokart</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Zipline">Zipline</label>
@@ -37,7 +34,25 @@
         <label class="activityOpt"><input type="radio" name="activity" value="Ateljé">Ateljé</label>
         <label class="activityOpt"><input type="radio" ame="activity" value="Konsthall">Konsthall</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Sevärdhet">Sevärdhet</label>
-    </form>
+    </div>
+
+    <div id="container2">
+        <button id="generateResults">Sök</button>
+        <button id="changeFilters">Ändra filtrering</button>
+    </div>
+
+    <div id="activityInfo">
+        <div id="googleMap"></div>
+        <button id="directions-btn">Vägbeskrivning</button>
+
+        <h2 class="activityName"></h2>
+        <h3 id="activityDescription"></h3>
+        <p id="activityTel"></p>
+        <p id="activityAddress"></p>
+        <p id="activityPriceRng"></p>
+        <p id="activityWebsite"></p>
+        <p id="activityRating"></p>
+    </div>
 
 
 </body>

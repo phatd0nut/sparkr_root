@@ -175,14 +175,18 @@ img {
     cursor: pointer;
 }
 
-.purple-line {
-    border-top: 10x solid purple;
-    margin: 10px 0;
-  }
 
-.informationbar {
+.infoBar {
+    border-top: 10px solid purple;
+    border-bottom: 10px solid purple;
     text-align: left;
     margin: 30px;
+}
+
+.infoBar h1 {
+    position: absolute;
+    left: 50%;
+
 }
 
 .contact p {
