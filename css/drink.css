@@ -2,27 +2,71 @@
 body {
   display: grid;
   grid-template-columns: 1fr;
+  font-family: "anchor-web", sans-serif;
   gap: 10px;
   padding: 20px;
+  background-color: #EDEDED;
+  font-weight: 500;
+  font-style: normal;
 }
-
-
 
 /* Bakgrundsfärg för den vänstra kolumnen */
 .drinkar {
-  background-color: #DDA5A5;
+  background-color: #FF6B6B;
+  background: #FFFFFF;
+  border: 4px solid transparent;
+  box-shadow:inset 1px 1px 7px #00DB;
+  transition: transform 0.3s ease;
   padding: 20px;
   margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
+
+.background-image {
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  padding-top: 50%; /* förhållandet mellan bredden och höjden av bilden */
+}
+
+.background-image h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+
+}
 /* H1 och P elementen */
 h1, p {
+  color: #000000;
   margin: 0;
   padding: 0;
 }
 
 /* Stil för h1 elementen */
 h1 {
+ 
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
