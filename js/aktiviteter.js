@@ -7,11 +7,12 @@ var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API ny
 var marker; // Kartmarkör
 var directionsService; // Variabel för vägbeskrivningar
 var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
-
-
+var foodType; // Variabel för val av mat
+var foodPrice; // Variabel för prisklass
+var restaurangPubInfo; // Referens för utskrift av SMAPI-information
 var searchFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
-let displayedId = []; // Referens för ID på alternativ som visas
+var displayedId = []; // Referens för ID på alternativ som visas
 
 
 function init() {
