@@ -1,7 +1,7 @@
-/* Bakgrund Animation för Loggan */
+/* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
 .logo {
-    background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #994dc7 100%);
+    
+    background-image: linear-gradient(90deg, #34a8ce 0%, #994dc7 100%);
     width: auto;
     height: 100px;
     display: flex;
@@ -97,16 +97,19 @@ img {
 
 .arrow {
     border: solid rgb(82, 80, 80);
-    border-width: 0 3px 3px 0;
+    border-width: 0 6px 6px 0;
     display: inline-block;
-    margin: 10px;
     padding: 13px;
+    margin-top: 40px;
+    margin-left: 25px;
 }
 
 .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
 }
+
+
 
 .button4 {
     font-family: "anchor-web", sans-serif;
@@ -133,7 +136,15 @@ img {
 
 .container-sectionTitle {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    
+}
+
+.container-sectionTitle a {
+    margin-right: -50px;
+    background-color: #8f2685;
+    border-radius: 0 200px 200px 0px;
+    height: 53px;
     
 }
 
@@ -231,6 +242,10 @@ img {
     display: inline-block;
 }
 
+.infoBar-line {
+    display: flex;
+    justify-content: space-between;
+}
 
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
