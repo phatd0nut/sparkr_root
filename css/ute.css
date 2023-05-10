@@ -57,15 +57,15 @@ h2 {
 }
 
 #establishmentWebsite img {
-    width: 50%;
+    width: 40%;
     position: relative;
     left: 25%;
 }
 
 #establishmentTel img {
-    width: 50%;
+    width: 40%;
     position: relative;
-    left: 95%;
+    left: 85%;
     transform: rotate(0deg);
 }
 
