@@ -35,6 +35,7 @@ function requestSmapi() {
     let request = new XMLHttpRequest();
     request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=10&debug=true", true)
     request.send(null);
+    console.log(userLocationLat, userLocationLng);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
@@ -44,10 +45,10 @@ function requestSmapi() {
 
 function getData(responseText) {
     let establishmentData = JSON.parse(responseText);
+    console.log(responseText);
 
     if (establishmentData.payload != null) {
         let establishments = establishmentData.payload;
-        // Shuffle the establishments array
         establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
         
         let establishment = establishments[0];
@@ -71,19 +72,11 @@ function getData(responseText) {
         clickableWWW.setAttribute("href", estWebsite);  
         clickableWWW.textContent = estWebsite;
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.querySelector("#establishmentTel").appendChild(clickableTelNr);
-        document.getElementById("establishmentAddress").innerHTML = "Adress: " +  estAddress;
-        document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
-        document.getElementById("establishmentRating").innerHTML = "Omdöme " + parseFloat(estRating) + " / 5";
-
-
-        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.getElementById("establishmentTel").innerHTML= " "; 
-        + document.getElementById("establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentTel").innerHTML= ""; 
+        document.getElementById("establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
         document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
-
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {

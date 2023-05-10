@@ -68,7 +68,6 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             userLocationLat = position.coords.latitude;
             userLocationLng = position.coords.longitude;
-            console.log(userLocation);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
