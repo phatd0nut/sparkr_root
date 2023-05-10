@@ -78,7 +78,7 @@ function getData(responseText) {
 
 
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.getElementById("establishmentTel").innerHTML= "Telefonnummer: "; 
+        document.getElementById("establishmentTel").innerHTML= " "; 
         + document.getElementById("establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
