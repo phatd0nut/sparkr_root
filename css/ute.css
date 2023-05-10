@@ -57,7 +57,16 @@ h2 {
 }
 
 #establishmentWebsite img {
-    width: 12%;
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#establishmentTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
 }
 
 img {
