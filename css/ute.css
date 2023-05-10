@@ -96,7 +96,7 @@ img {
 }
 
 .arrow {
-    border: solid rgb(82, 80, 80);
+    border: solid  #994dc7;
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 13px;
@@ -140,11 +140,9 @@ img {
     
 }
 
+
 .container-sectionTitle a {
     margin-right: -50px;
-    background-color: #8f2685;
-    border-radius: 0 200px 200px 0px;
-    height: 53px;
     
 }
 
@@ -165,7 +163,7 @@ img {
 }
 
 #establishmentTel a {
-    color: #3f0c5c
+    color: #3f0c5c;
 }
 
 #establishmentName {
@@ -199,7 +197,6 @@ img {
 #directions-btn-placement {
     display: flex;
     justify-content: center;
-    margin-top: 4%;
 }
 
 #directions-btn {
@@ -245,6 +242,8 @@ img {
 .infoBar-line {
     display: flex;
     justify-content: space-between;
+    margin: 0;
+    padding: 0;
 }
 
 
