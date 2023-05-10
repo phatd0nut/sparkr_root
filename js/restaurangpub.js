@@ -125,17 +125,24 @@ function getData(responseText) {
         document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
-        clickableTelNr.textContent = restaurangPubTel;
-        let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", restaurangPubWebsite);
+        // clickableTelNr.textContent = restaurangPubTel;
         if (!selectedEntry.phone_number) {
             document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
         } else {
-            document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
+            // document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: ";
+            document.getElementById("restaurangPubTel").innerHTML = "";
             document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+            let telIcon = document.createElement("img");
+            telIcon.setAttribute("src", "../img/phone.png");
+            clickableTelNr.appendChild(telIcon);
         }
+        let clickableWWW = document.createElement("a");
+        clickableWWW.setAttribute("href", restaurangPubWebsite);
+        let linkIcon = document.createElement("img");
+        linkIcon.setAttribute("src", "../img/otherclick.png")
+        clickableWWW.appendChild(linkIcon);
+        // clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").innerHTML = "";
-        clickableWWW.textContent = restaurangPubWebsite;
         document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
         document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
         document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + ":-";

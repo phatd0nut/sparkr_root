@@ -43,22 +43,22 @@ function init() {
     //         generateBtn.style.display = "block";
     //     });
 
-        generateBtn.addEventListener("click", function () {
-            activityFilters.forEach(function (activityFilters) {
-                activityFilters.style.display = "none";
-            });
-            changeFiltersBtn.style.display = "block";
-            changeFiltersBtn.addEventListener("click", showFilters);
-            // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
-            if (activityType === "Temapark") {
-                requestSmapi(activityType);
-                getUserLocation();
-            } else {
-                // Om valen ändras, uppdatera anropet till SMAPI
-                requestSmapi(activityType);
-                getUserLocation();
-            }
+    generateBtn.addEventListener("click", function () {
+        activityFilters.forEach(function (activityFilters) {
+            activityFilters.style.display = "none";
         });
+        changeFiltersBtn.style.display = "block";
+        changeFiltersBtn.addEventListener("click", showFilters);
+        // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
+        if (activityType === "Temapark") {
+            requestSmapi(activityType);
+            getUserLocation();
+        } else {
+            // Om valen ändras, uppdatera anropet till SMAPI
+            requestSmapi(activityType);
+            getUserLocation();
+        }
+    });
 }
 
 
@@ -130,14 +130,16 @@ function getData(responseText) {
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + activitiesDataTel);
         clickableTelNr.textContent = activitiesDataTel;
-        let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", activitiesDataWebsite);
         if (!selectedEntry.phone_number) {
             document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
         }
         else {
-            document.getElementById("activityTel").innerHTML = "Telefonnummer: ";
+            // document.getElementById("activityTel").innerHTML = "Telefonnummer: ";
+            document.getElementById("activityTel").innerHTML = "";
             document.getElementById("activityTel").appendChild(clickableTelNr);
+            let telIcon = document.createElement("img");
+            telIcon.setAttribute("src", "../img/phone.png");
+            clickableTelNr.appendChild(telIcon);
         }
         if (selectedEntry.outdoors == "Y") {
             document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Ja"
@@ -145,8 +147,13 @@ function getData(responseText) {
         else {
             document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Nej"
         }
+        let clickableWWW = document.createElement("a");
+        clickableWWW.setAttribute("href", activitiesDataWebsite);
+        let linkIcon = document.createElement("img");
+        linkIcon.setAttribute("src", "../img/otherclick.png")
+        clickableWWW.appendChild(linkIcon);
+        // clickableWWW.textContent = activitiesDataWebsite;
         document.getElementById("activityWebsite").innerHTML = "";
-        clickableWWW.textContent = activitiesDataWebsite;
         document.getElementById("activityWebsite").appendChild(clickableWWW);
         document.getElementById("activityAddress").innerHTML = "Adress:" + activitiesDataAddress;
         document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange;
@@ -156,7 +163,7 @@ function getData(responseText) {
         document.getElementById("activityRating").innerHTML = "Omdöme: " + activitiesDataRating + " / 5";
 
 
-            displayMap(lat, lng);
+        displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {
             getDirections(userLocationLat, userLocationLng);
         });

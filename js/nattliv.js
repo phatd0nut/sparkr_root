@@ -83,8 +83,9 @@ function getData(responseText) {
         linkIcon.setAttribute("src", "../img/otherclick.png")
         clickableWWW.appendChild(linkIcon);
         // clickableWWW.textContent = estWebsite;
+        document.getElementById("establishmentWebsite").innerHTML = "";
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        // document.getElementById("establishmentTel").innerHTML = "";
+        document.getElementById("establishmentTel").innerHTML = "";
         document.getElementById("establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
