@@ -22,8 +22,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             userLocationLat = position.coords.latitude;
             userLocationLng = position.coords.longitude;
-            // userLocationLat = "56.878017011624685";
-            // userLocationLng = "14.807412906905228";
+             //userLocationLat = "56.878017011624685";
+             //userLocationLng = "14.807412906905228";
             requestSmapi();
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);

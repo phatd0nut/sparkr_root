@@ -1,6 +1,6 @@
 /* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
 .logo {
-    
+
     background-image: linear-gradient(90deg, #34a8ce 0%, #994dc7 100%);
     width: auto;
     height: 100px;
@@ -105,7 +105,7 @@ img {
 }
 
 .arrow {
-    border: solid  #994dc7;
+    border: solid #994dc7;
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 13px;
@@ -146,13 +146,13 @@ img {
 .container-sectionTitle {
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 
 .container-sectionTitle a {
     margin-right: -50px;
-    
+
 }
 
 .sectionTitle {
@@ -210,8 +210,7 @@ img {
 
 #directions-btn {
     border-radius: 50px;
-    background-color: #994dc7;
-    background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
+    background-color: #440d66;
     color: white;
     border-style: none;
     padding: 10px;
@@ -297,7 +296,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    
+
 }
 
 #generateResults {
@@ -324,7 +323,59 @@ h3 {
     background-color: #651860;
 }
 
+#changeFilters:hover {
+    background-color: #651860;
+}
+
 #restaurangPubInfo {
+    text-align: center;
+}
+
+#restaurangPubDescription {
+    text-align: left;
+    margin-top: -60px;
+    color: #3f0c5c;
+}
+
+#restaurangPubName {
+    color: #994dc7;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0em;
+    margin-top: 0;
+}
+
+#restaurangPubinfo {
+    text-align: left;
+}
+
+#restaurangPubAddress {
+    text-align: left;
+}
+
+#restaurangPubPriceRng {
+    text-align: left;
+}
+
+#restaurangPubRating {
+    text-align: left;
+}
+
+#restaurangPubTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
+}
+
+#restaurangPubWebsite img {
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#activityFilters {
+    display: inline-block;
     text-align: center;
 }
 
