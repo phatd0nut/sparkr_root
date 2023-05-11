@@ -1,5 +1,5 @@
 
-function slumpaFilm(kategori) {
+function slumpaFilm(kategorier) {
   var filmer = {
     blandat: [
           "Manchester by the Sea",
@@ -180,12 +180,81 @@ function slumpaFilm(kategori) {
       "Baby Driver",
       "The Equalizer",
       "Sicario: Day of the Soldado",
-    ]  
+    ]
   };
+ 
+  var index = Math.floor(Math.random() * filmer[kategorier].length);
+  var film = filmer[kategorier][index];
 
-  var index = Math.floor(Math.random() * filmer[kategori].length);
-  var film = filmer[kategori][index];
+  // Kontrollera om det finns filmer kvar att visa i kategorin
+  if (filmer[kategorier].length === 0) {
+    var resultatTagg = document.getElementById("resultat-" + kategorier);
+    resultatTagg.textContent = "Du har sett alla filmer i denna kategori.";
+    return;
+  }
 
-  var resultatTagg = document.getElementById("resultat-" + kategori);
-  resultatTagg.textContent = "Din slumpade film är: " + film;
+  // Hämta nästa film baserat på räknaren
+  var räknareTagg = document.getElementById("räknare-" + kategorier);
+  var räknare = parseInt(räknareTagg.textContent);
+  var film = filmer[kategorier][räknare];
+
+  // Öka räknaren för nästa gång
+  räknare++;
+  räknareTagg.textContent = räknare;
+
+  var resultatTagg = document.getElementById("resultat-" + kategorier);
+  resultatTagg.textContent = "Din valda film är " + film;
 }
+
+/*
+function slumpaFilm(kategorier) {
+  var filmer = {
+    blandat: [
+          "Manchester by the Sea",
+          "The Pursuit of Happyness",
+          "Three Billboards Outside Ebbing, Missouri",
+          "Still Alice",
+          "A Star is Born",
+          "The Conjuring",
+          "Sinister",
+          "The Exorcism of Emily Rose",
+          "Lights Out",
+          "The Autopsy of Jane Doe",
+          "The Lion King",
+          "Toy Story",
+          "Up"
+    ],
+
+    komedi: [
+      "The Hangover",
+      "Bridesmaids",
+      "Superbad",
+      "This Is the End",
+      "The 40-Year-Old Virgin",
+      "Step Brothers",
+      "Anchorman: The Legend of Ron Burgundy",
+      "Knocked Up",
+      "Get Hard",
+      "The Other Guys",
+      "Neighbors",
+      "The Grand Budapest Hotel",
+      "Talladega Nights: The Ballad of Ricky Bobby",
+      "The Nice Guys",
+      "Game Night",
+      "Blockers",
+      "Spy",
+      "Popstar: Never Stop Never Stopping",
+      "21 Jump Street",
+      "The Disaster Artist"
+    ]
+ 
+  };
+ 
+
+  var index = Math.floor(Math.random() * filmer[kategorier].length);
+  var film = filmer[kategorier][index];
+
+  var resultatTagg = document.getElementById("resultat-" + kategorier);
+  resultatTagg.textContent = "Din valda film är " + film;
+}
+*/
