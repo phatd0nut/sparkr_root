@@ -5,7 +5,7 @@
   var smapiKey = "nxo3vzJa"; // SMAPI-nyckeln
   var userLocationLat; // Användarens latitud
   var userLocationLng; // Användarens longitud
-
+  var randomId
   function init() {
     getUserLocation();   
     randomBox = document.getElementById("box");
@@ -43,9 +43,9 @@
       userLocationLat +
       "&lng=" +
       userLocationLng +
-      "?ids=" +
+      "&ids=" +
       randomId +
-      "&debug=true",
+      "?debug=true",
       true
     );
     request.send(null);
@@ -58,11 +58,16 @@
   }
 
   //slumpar establishment.
-  function randomIds() {
-    randomId = Math.floor(Math.random() * rngId.length);
-    requestSmapi();
-   
-  }
+  // Randomly selects an ID from the rngId array
+function getRandomId() {
+  return rngId[Math.floor(Math.random() * rngId.length)];
+}
+
+// Event listener for generating random IDs
+function randomIds() {
+  randomId = getRandomId();
+  requestSmapi();
+}
 
   //Funktion som tar random shit från ord.
   //function randomOrd(){

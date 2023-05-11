@@ -14,8 +14,10 @@
 
 <body>
     <div class="logo"> <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan"></div>
-    <a href="ute.html"><i class="arrow left"></i></a>
-    <h1 id="sectionTitle">Aktiviteter</h1>
+    <div class="container-sectionTitle">
+        <a href="ute.html"><i class="arrow left"></i></a>
+        <h1 class="sectionTitle">Aktiviteter</h1>
+    </div>
 
     <!-- <div class="container2"><button id="showActivityFilters">Klicka för att visa alternativ</button></div> -->
 
@@ -49,19 +51,24 @@
     </div>
 
     <div id="activityInfo">
-        <div id="googleMap"></div>
-        <button id="directions-btn">Vägbeskrivning</button>
-
-        <h2 id="activityName"></h2>
-        <h3 id="activityDescription"></h3>
-        <p id="activityTel"></p>
-        <p id="activityAddress"></p>
-        <p id="activityPriceRng"></p>
-        <p id="activityWebsite"></p>
-        <p id="activityRating"></p>
-        <p id="activityOutdoors"></p>
-    </div>
-
+        <div id="establishmentInfo">
+            <div id="googleMap"></div>
+            <div id="directions-btn-placement">
+                <button id="directions-btn">Vägbeskrivning</button>
+            </div>
+            <div class="infoBar">
+                <div class="infoBar-line">
+                    <h2 id="activityName"></h2>
+                    <p id="activityTel"></p>
+                    <p id="activityWebsite"></p>
+                </div>
+                <h3 id="activityDescription"></h3>
+                <p id="activityAddress"></p>
+                <p id="activityPriceRng"></p>
+                <p id="activityRating"></p>
+                <p id="activityOutdoors"></p>
+            </div>
+        </div>
 </body>
 
 </html>

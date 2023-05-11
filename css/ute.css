@@ -1,4 +1,5 @@
 /* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
+
 .logo {
 
     background-image: linear-gradient(90deg, #34a8ce 0%, #994dc7 100%);
@@ -43,7 +44,7 @@ h1 {
     font-size: 4rem;
 }
 
-h2 {
+#Inne {
     text-align: center;
     color: #00DBDE;
     font-size: 3.5rem;
@@ -140,6 +141,9 @@ img {
     width: auto;
     margin: 25px;
 }
+
+/* STILLSÄTTNING för ute.html */
+
 
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
@@ -327,9 +331,6 @@ h3 {
     background-color: #651860;
 }
 
-#restaurangPubInfo {
-    text-align: center;
-}
 
 #restaurangPubDescription {
     text-align: left;
@@ -374,18 +375,13 @@ h3 {
     left: 25%;
 }
 
-#activityFilters {
-    display: inline-block;
-    text-align: center;
-}
 
 
 
 /* för radio knapparna------ */
 
 .priceOpt,
-.foodOpt,
-.activityOpt {
+.foodOpt {
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;
@@ -401,6 +397,18 @@ h3 {
     color: white;
 }
 
+.activityOpt {
+    display: inline-block;
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
+    color: white;
+}
+
+input {
+    accent-color: #994dc7;
+}
 
 
 /*CSS för random.html */
@@ -446,4 +454,41 @@ h3 {
 
 #generate {
     text-align: center;
+}
+
+/* stillsättning för aktiviteter.html */
+
+#activityName {
+    color: #994dc7;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0em;
+    margin-top: 0;
+}
+
+#activityDescription {
+    text-align: left;
+    margin-top: -60px;
+    color: #3f0c5c
+}
+
+#activityWebsite img {
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#activityTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
+}
+
+.activityFilters {
+    text-align: center;
+}
+
+#activityName {
+    white-space: nowrap;
 }
