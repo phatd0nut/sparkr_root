@@ -10,8 +10,8 @@ var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 
 function init() {
     establishmentInfo = document.getElementById("establishmentInfo");
+    establishmentInfo.style.display = "none";
     getUserLocation();
-    requestSmapi();
 }
 
 window.addEventListener("load", init);
@@ -22,6 +22,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             userLocationLat = position.coords.latitude;
             userLocationLng = position.coords.longitude;
+             //userLocationLat = "56.878017011624685";
+             //userLocationLng = "14.807412906905228";
             requestSmapi();
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
@@ -33,7 +35,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi() {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=10&debug=true", true)
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
@@ -44,12 +46,17 @@ function requestSmapi() {
 
 function getData(responseText) {
     let establishmentData = JSON.parse(responseText);
+    console.log(responseText);
 
-    if (establishmentData.payload != null) {
+    if (establishmentData.payload == null || establishmentData.payload.length === 0) {
+        alert("Det fanns inga nattklubbar i din närhet tyvärr.");
+        return;
+    }
+    else {
+        establishmentInfo.style.display = "block";
         let establishments = establishmentData.payload;
-        // Shuffle the establishments array
         establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
-        
+
         let establishment = establishments[0];
         let lat = establishment.lat;
         let lng = establishment.lng;
@@ -66,24 +73,23 @@ function getData(responseText) {
         document.getElementById("establishmentDescription").innerHTML = estDescription;
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + estTel);
-        clickableTelNr.textContent =  estTel;
+        let telIcon = document.createElement("img");
+        telIcon.setAttribute("src", "../img/phone.png");
+        clickableTelNr.appendChild(telIcon);
+        // clickableTelNr.textContent = estTel;
         let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", estWebsite);  
-        clickableWWW.textContent = estWebsite;
+        clickableWWW.setAttribute("href", estWebsite);
+        let linkIcon = document.createElement("img");
+        linkIcon.setAttribute("src", "../img/otherclick.png")
+        clickableWWW.appendChild(linkIcon);
+        // clickableWWW.textContent = estWebsite;
+        document.getElementById("establishmentWebsite").innerHTML = "";
         document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.querySelector("#establishmentTel").appendChild(clickableTelNr);
-        document.getElementById("establishmentAddress").innerHTML = "Adress: " +  estAddress;
-        document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
-        document.getElementById("establishmentRating").innerHTML = "Omdöme " + parseFloat(estRating) + " / 5";
-
-
-        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.getElementById("establishmentTel").innerHTML= "Telefonnummer: "; 
-        + document.getElementById("establishmentTel").appendChild(clickableTelNr);
+        document.getElementById("establishmentTel").innerHTML = "";
+        document.getElementById("establishmentTel").appendChild(clickableTelNr);
         document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
         document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
         document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
-
 
         displayMap(lat, lng);
         document.getElementById("directions-btn").addEventListener("click", function () {

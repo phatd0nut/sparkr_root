@@ -1,7 +1,7 @@
-/* Bakgrund Animation för Loggan */
+/* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
 .logo {
-    background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #994dc7 100%);
+
+    background-image: linear-gradient(90deg, #34a8ce 0%, #994dc7 100%);
     width: auto;
     height: 100px;
     display: flex;
@@ -57,7 +57,16 @@ h2 {
 }
 
 #establishmentWebsite img {
-    width: 12%;
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#establishmentTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
 }
 
 img {
@@ -96,17 +105,20 @@ img {
 }
 
 .arrow {
-    border: solid rgb(82, 80, 80);
-    border-width: 0 3px 3px 0;
+    border: solid #994dc7;
+    border-width: 0 6px 6px 0;
     display: inline-block;
-    margin: 10px;
     padding: 13px;
+    margin-top: 40px;
+    margin-left: 25px;
 }
 
 .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
 }
+
+
 
 .button4 {
     font-family: "anchor-web", sans-serif;
@@ -131,64 +143,116 @@ img {
 
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
-#Nattliv {
-    text-align: right;
+.container-sectionTitle {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.container-sectionTitle a {
+    margin-right: -50px;
+
+}
+
+.sectionTitle {
+    text-align: center;
+    color: #FFF;
+    padding: 1%;
+    margin-bottom: 0;
     font-size: 35px;
-    padding: 10px;
+    background-color: #994dc7;
+    width: 45%;
+    border-radius: 200px 0px 0px 200px;
 }
 
 #establishmentInfo {
-
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
+}
+
+#establishmentTel a {
+    color: #3f0c5c;
 }
 
 #establishmentName {
     color: #994dc7;
     text-align: left;
     text-transform: uppercase;
-    margin-left: 28px;
     padding: 0em;
+    margin-top: 0;
 }
 
 #establishmentDescription {
     text-align: left;
-    margin-top: -50px;
-    margin-left: 30px;
+    margin-top: -60px;
+    color: #3f0c5c;
+}
+
+#establishmentRating {
+    margin-bottom: 2%;
 }
 
 #googleMap {
     display: flex;
     justify-content: center;
     width: auto;
-    height: 180px;
+    height: 140px;
     border: solid 3px #994dc7;
+    margin: 20px;
+    margin-top: 10%;
+}
+
+#directions-btn-placement {
+    display: flex;
+    justify-content: center;
 }
 
 #directions-btn {
     border-radius: 50px;
-    background-color: #994dc7;
-    background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
+    background-color: #440d66;
     color: white;
     border-style: none;
     padding: 10px;
     cursor: pointer;
+    font-family: "anchor-web", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 150%;
 }
 
-.purple-line {
-    border-top: 10x solid purple;
-    margin: 10px 0;
-  }
 
-.informationbar {
-    text-align: left;
-    margin: 30px;
+
+
+.infoBar {
+    border-top: 10px solid #994dc7;
+    border-bottom: 10px solid #994dc7;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 2%;
+    background-color: #fcf9ff;
+}
+
+.infoBar h1 {
+    position: absolute;
+    left: 50%;
+
 }
 
 .contact p {
     display: inline-block;
 }
 
+.infoBar-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
 
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
@@ -209,11 +273,12 @@ h3 {
     display: inline-block;
     text-align: center;
 }
+
 #foodPrice {
     text-align: center;
 }
 
-#foodPrice label{
+#foodPrice label {
     text-align: center;
     display: inline-block;
 
@@ -227,10 +292,11 @@ h3 {
     text-align: center;
 }
 
-#container2 {
+.container2 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+
 }
 
 #generateResults {
@@ -257,7 +323,59 @@ h3 {
     background-color: #651860;
 }
 
+#changeFilters:hover {
+    background-color: #651860;
+}
+
 #restaurangPubInfo {
+    text-align: center;
+}
+
+#restaurangPubDescription {
+    text-align: left;
+    margin-top: -60px;
+    color: #3f0c5c;
+}
+
+#restaurangPubName {
+    color: #994dc7;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0em;
+    margin-top: 0;
+}
+
+#restaurangPubinfo {
+    text-align: left;
+}
+
+#restaurangPubAddress {
+    text-align: left;
+}
+
+#restaurangPubPriceRng {
+    text-align: left;
+}
+
+#restaurangPubRating {
+    text-align: left;
+}
+
+#restaurangPubTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
+}
+
+#restaurangPubWebsite img {
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#activityFilters {
+    display: inline-block;
     text-align: center;
 }
 
@@ -265,7 +383,9 @@ h3 {
 
 /* för radio knapparna------ */
 
-.priceOpt, .foodOpt, .activityOpt {
+.priceOpt,
+.foodOpt,
+.activityOpt {
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;
@@ -289,43 +409,41 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 80vh; 
-    }
-  
-  
-  #box {
-      width: 100px;
-      height: 100px;
-      background-color: rgb(226, 226, 232);
-      transition: all 1.25s ease;
-      border-radius: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'SFUIText-Bold';
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
-    }
-    
-    .box.flipped {
-      transform: rotateY(360deg);
-      background-color: rgb(185, 182, 182);
-    }
-  
-  #textbox {
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(226, 226, 232);
+    transition: all 1.25s ease;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SFUIText-Bold';
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.box.flipped {
+    transform: rotateY(360deg);
+    background-color: rgb(185, 182, 182);
+}
+
+#textbox {
     font-size: 50px;
     margin: 0;
     padding: 0;
-  }
+}
 
-  #generate {
+#generate {
     text-align: center;
-  }
-
-
+}
