@@ -5,6 +5,9 @@ body {
   font-style: normal;
   margin: 0;
   padding: 0;
+  background-image: url(/img/backgroundforsparkr-01.png);
+  background-size: 500px 896px;
+  background-repeat: no-repeat;
 }
 
 img {
@@ -12,7 +15,6 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-
 }
 
 #Header {
@@ -36,7 +38,7 @@ h2 {
 #activity {
   text-align: center;
   margin-top: 100px;
-  color: #cacaca;
+  color: white;
   height: auto;
   font-size: 50px;
   margin: 0;
@@ -50,7 +52,7 @@ h2 {
 
 .choose {
   text-align: center;
-  color: #cacaca;
+  color: white  ;
   height: auto;
   margin: 0;
   padding: 0;
@@ -146,12 +148,12 @@ label {
   justify-content: center;
   text-align: center;
   align-items: center;
-  border-radius: 0 0 50% 50%;
   color: white;
   text-transform: uppercase;
   font-size: 180px;
   animation: color 10s ease-out infinite;
   background-size: 200% 200%;
+  border-radius: 0 0 50% 50%;
 }
 
 @keyframes color {

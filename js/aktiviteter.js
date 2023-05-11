@@ -70,7 +70,9 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
         navigator.geolocation.getCurrentPosition(function (position) { //Om webbläsaren stödjer API:t sparar den den geografiska platsen i userLocation
             userLocation = position.coords; // Användarens koordinater
             userLocationLat = position.coords.latitude;
-            userLocationLng = position.coords.longitude;
+            //userLocationLng = position.coords.longitude;
+            userLocationLat = "56.878017011624685";
+            userLocationLng = "14.807412906905228";
             console.log(userLocation);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
@@ -129,18 +131,17 @@ function getData(responseText) {
         document.getElementById("activityDescription").innerHTML = activitiesDataDescription;
         let clickableTelNr = document.createElement("a");
         clickableTelNr.setAttribute("href", "tel: " + activitiesDataTel);
-        clickableTelNr.textContent = activitiesDataTel;
+        
         if (!selectedEntry.phone_number) {
             document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
-        }
-        else {
-            // document.getElementById("activityTel").innerHTML = "Telefonnummer: ";
+        } else {
             document.getElementById("activityTel").innerHTML = "";
             document.getElementById("activityTel").appendChild(clickableTelNr);
             let telIcon = document.createElement("img");
             telIcon.setAttribute("src", "../img/phone.png");
             clickableTelNr.appendChild(telIcon);
         }
+        
         if (selectedEntry.outdoors == "Y") {
             document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Ja"
         }
