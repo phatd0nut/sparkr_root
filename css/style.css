@@ -5,9 +5,11 @@ body {
   font-style: normal;
   margin: 0;
   padding: 0;
+  background-position: center center;
+  background-repeat: no-repeat; background-size: cover;
   background-image: url(/img/backgroundforsparkr-01.png);
-  background-size: 500px 896px;
-  background-repeat: no-repeat;
+  background-image: auto;
+  background-size: auto;
 }
 
 img {
@@ -32,8 +34,12 @@ h2 {
   text-transform: uppercase;
   color: #000000;
   height: auto;
-
 }
+
+
+
+
+
 
 #activity {
   text-align: center;
@@ -169,4 +175,6 @@ label {
     background-position: 0 50%;
   }
 }
+
+
 
