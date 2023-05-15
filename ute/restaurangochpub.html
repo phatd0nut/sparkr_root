@@ -44,6 +44,16 @@
   <div class="container2">
     <button id="generateResults">Sök</button>
     <button id="changeFilters">Ändra filtrering</button>
+    <div id="changeRadius">
+      <label for="radius">Utöka ditt område:</label>
+      <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
+      <span id="radiusValue">10 km</span>
+    </div>
+    <div id="scrollBtns">
+      <p id="indexCounter"></p>
+      <button id="nextOption" class="indexBtns">Nästa</button>
+      <button id="previousOption" class="indexBtns">Föregående</button>
+    </div>
   </div>
 
   <div id="restaurangPubInfo">
