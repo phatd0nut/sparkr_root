@@ -21,6 +21,11 @@
     <!-- <div class="container2"><button id="showActivityFilters">Klicka för att visa alternativ</button></div> -->
 
     <div class="activityFilters">
+        <div id="changeRadius">
+            <label for="radius">Utöka ditt område:</label>
+            <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
+            <span id="radiusValue">10 km</span>
+        </div>
         <h3>Välj en aktivitet:</h3>
         <label class="activityOpt"><input type="radio" name="activity" value="Temapark" checked>Temapark</label>
         <label class="activityOpt"><input type="radio" name="activity" value="Djurpark">Djurpark</label>
@@ -46,16 +51,6 @@
     <div class="container2">
         <button id="generateResults">Sök</button>
         <button id="changeFilters">Ändra filtrering</button>
-        <div id="changeRadius">
-            <label for="radius">Utöka ditt område:</label>
-            <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
-            <span id="radiusValue">10 km</span>
-          </div>
-          <div id="scrollBtns">
-            <p id="indexCounter"></p>
-            <button id="nextOption" class="indexBtns">Nästa</button>
-            <button id="previousOption" class="indexBtns">Föregående</button>
-          </div>
     </div>
 
     <div id="activityInfo">
@@ -76,7 +71,14 @@
                 <p id="activityRating"></p>
                 <p id="activityOutdoors"></p>
             </div>
-        </div>
+            <div class="container-scrollBtns">
+                <div id="scrollBtns">
+                    <p id="indexCounter"></p>
+                    <button id="previousOption" class="indexBtns">Föregående</button>
+                    <button id="nextOption" class="indexBtns">Nästa</button>
+                </div>
+            </div>
+        </diV>
 </body>
 
 </html>
