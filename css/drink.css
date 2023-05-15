@@ -85,7 +85,7 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+/*CSS för filmer*/
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -108,22 +108,119 @@ ul {
   text-align: center;
   }
   
-  .kategorier button {
+ .kategorier button {
   display: block;
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: #4caf50;
-  color: #fff;
+  background-color: transparent;
+  color: #000000;
   font-size: 18px;
   cursor: pointer;
   }
   
   .kategorier button:hover {
 
+  background-color: transparent;
+  }
+  
+  /* CSS för kolumner och kategorier */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.kategori-enkel {
+  background: linear-gradient(90deg, #eef19a, #FFFFFF 100%);
+  background-size: 200% 100%;
+  animation: color-enkel 10s ease-in-out infinite;
+}
+
+.kategori-sorglig {
+  background: linear-gradient(90deg, #EC7063, #FFFFFF 100%);
+  background-size: 200% 100%;
+  animation: color-sorglig 10s ease-in-out infinite;
+}
+
+.kategori-djup {
+  background: linear-gradient(90deg, #5DADE2, #FFFFFF 100%);
+  background-size: 200% 100%;
+  animation: color-djup 10s ease-in-out infinite;
+}
+
+.kategori-spannande {
+  background: linear-gradient(90deg, #3bb46e, #FFFFFF 100%);
+  background-size: 200% 100%;
+  animation: color-spannande 10s ease-in-out infinite;
+}
+
+
+
+@keyframes color-enkel {
+  25% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes color-sorglig {
+  25% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+
+
     
   background-color: #3e8
+
   }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes color-djup {
+  25% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes color-spannande {
+  25% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.kategorier {
+  flex-basis: calc(50% - 10px);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+  
 @media only screen and (max-width: 390px) {
   body {
     grid-template-columns: 1fr;
