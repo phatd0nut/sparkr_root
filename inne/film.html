@@ -12,58 +12,41 @@
 
 </head>
 <body>
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="logo">
-        <h1>Mina filmer</h1>
-      </div>
-    </header>
-    
     <main>
-      <div class="grid-container">
-        <div class="kategorier">
-            <h2>Överraska mig!</h2>
-            <button onclick="slumpaFilm('blandat')">Slumpa film</button>
-            <p id="resultat-blandat"></p>
-            <p id="räknare-blandat">0</p>
-            
-          </div>
-          <div class="background-image" style="background-image: url('/img/chokladboll.jpg')">
-            <h1 class="title">Komedi</h1>
-        <div class="kategorier">
-            <button onclick="slumpaFilm('komedi')">Slumpa en film åt mig</button>
-            <p id="resultat-komedi"></p>
-          </div>
-          </div>
-          
-        <div class="kategorier">
-          <h2>Action</h2>
-          <button onclick="slumpaFilm('action')">Slumpa en film åt mig</button>
-          <p id="resultat-action"></p>
+    <div class="grid-container">
+        <div class="kategorier kategori-enkel">
+            <h2 class="title">Lättsamma filmer</h2>
+            <button onclick="slumpaFilm('enkel')">Slumpa en film åt mig</button>
+            <p id="resultat-enkel"></p>
+            <p id="räknare-enkel">0</p>
         </div>
-        <div class="kategorier">
-          <h2>Drama</h2>
-          <button onclick="slumpaFilm('drama')">Slumpa en film åt mig</button>
-          <p id="resultat-drama"></p>
+    </div>
+    <div class="grid-container">
+        <div class="kategorier kategori-sorglig">
+            <h2 class="title">Sorgliga filmer</h2>
+            <button onclick="slumpaFilm('sorglig')">Slumpa en film åt mig</button>
+            <p id="resultat-sorglig"></p>
+            <p id="räknare-sorglig">0</p>
         </div>
-        <div class="kategorier">
-            <h2>Skräckfilm</h2>
-            <button onclick="slumpaFilm('horror')">Slumpa en film åt mig</button>
-            <p id="resultat-horror"></p>
-          </div>
-      </div>
-      <div class="kategorier">
-        <h2>Barnfilmer</h2>
-        <button onclick="slumpaFilm('barnfilm')">Slumpa en film åt mig</button>
-        <p id="resultat-barnfilm"></p>
-      </div>
-      <div class="kategorier">
-        <h2>Krim/Thriller</h2>
-        <button onclick="slumpaFilm('thriller')">Slumpa en film åt mig</button>
-        <p id="resultat-thriller"></p>
-      </div>
+    </div>
+    <div class="grid-container">
+        <div class="kategorier kategori-djup">
+            <h2 class="title">Djupa filmer</h2>
+            <button onclick="slumpaFilm('djup')">Slumpa en film åt mig</button>
+            <p id="resultat-djup"></p>
+            <p id="räknare-djup">0</p>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="kategorier kategori-spannande">
+            <h2 class="title">Spännande filmer</h2>
+            <button onclick="slumpaFilm('spannande')">Slumpa en film åt mig</button>
+            <p id="resultat-spannande"></p>
+            <p id="räknare-spannande">0</p>
+        </div>
+    </div>
     </main>
 
-    <script src="/js/filmer.js"></script>
+    <script src="/js/drink.js"></script>
   </body>
 </html>
