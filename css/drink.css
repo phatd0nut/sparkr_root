@@ -1,4 +1,6 @@
 /* Grid container för hela sidan */
+
+
 body {
   display: grid;
   grid-template-columns: 1fr;
@@ -65,7 +67,7 @@ h1, p {
 }
 
 /* Stil för h1 elementen */
-h1 {
+h1 {  
  
   font-size: 28px;
   font-weight: bold;
@@ -118,6 +120,7 @@ ul {
   }
   
   .kategorier button:hover {
+
   background-color: transparent;
   }
   
@@ -172,6 +175,11 @@ ul {
   }
   50% {
     background-position: 100% 50%;
+
+
+    
+  background-color: #3e8
+
   }
   100% {
     background-position: 0% 50%;
@@ -219,6 +227,7 @@ ul {
     gap: 5px;
     padding: 10px;
   }
+  
   .drinkar {
     padding: 10px;
     margin-bottom: 5px;
@@ -231,4 +240,6 @@ ul {
     font-size: 16px;
     margin-bottom: 3px;
   }
+
+  
 }

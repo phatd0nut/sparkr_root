@@ -1,4 +1,20 @@
 /* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
+
+.bakgrund-ute {
+    background-position: center center;
+    background-repeat: no-repeat; background-size: cover;
+    background-image: url(/img/purple2-01.png);
+
+}
+
+/* bakgrund för inne.html. */
+.bakgrund-inne {
+    background-position: center center;
+    background-repeat: no-repeat; background-size: cover;
+    background-image: url(/img/blue-01.png);
+}
+
+/* ---------------------------------------------------------------------------------- */
 .logo {
 
     background-image: linear-gradient(90deg, #34a8ce 0%, #994dc7 100%);
@@ -43,7 +59,7 @@ h1 {
     font-size: 4rem;
 }
 
-h2 {
+#Inne {
     text-align: center;
     color: #00DBDE;
     font-size: 3.5rem;
@@ -79,7 +95,7 @@ img {
 
 #ute {
     text-align: center;
-    color: #994dc7;
+    color: white;
     font-size: 3.5rem;
 }
 
@@ -89,8 +105,7 @@ img {
     font-style: normal;
     font-size: 200%;
     background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #23a1df 100%);
-
+    background-image: linear-gradient(90deg, #00DBDE 0%, #29a0da 100%);
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -102,10 +117,27 @@ img {
     justify-content: center;
     width: auto;
     margin: 25px;
+    animation: color 10s ease-out infinite;
+    background-size: 200% 200%;
+
 }
 
+ @keyframes button3-color  {
+    25% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+    }
+
 .arrow {
-    border: solid #994dc7;
+    border: solid #ffffff;
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 13px;
@@ -125,9 +157,8 @@ img {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background-color: #994dc7;
-    background-image: linear-gradient(90deg, #8f2685 0%, #994dc7 100%);
-    ;
+    background-color: rgb(111, 45, 168);
+    background-image: linear-gradient(90deg, #af5de2 0%, #1a121a 100%);
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -139,7 +170,26 @@ img {
     justify-content: center;
     width: auto;
     margin: 25px;
+    animation: color 10s ease-out infinite;
+    background-size: 200% 200%;
 }
+
+
+@keyframes button4-color  {
+    25% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+    }
+/* STILLSÄTTNING för ute.html */
+
 
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
@@ -257,8 +307,11 @@ img {
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
 
+
+
 h3 {
     font-size: 25px;
+    
 }
 
 #foodType {
@@ -267,6 +320,10 @@ h3 {
 
 #foodType h2 {
     font-size: 35px;
+}
+
+#foodType h3 {
+    color: white;
 }
 
 #foodType label {
@@ -284,8 +341,11 @@ h3 {
 
 }
 
+
+
 #foodPrice h3 {
     text-align: center;
+    color: white;
 }
 
 #foodPrice {
@@ -306,7 +366,8 @@ h3 {
     border-color: rgb(226, 225, 225);
     border-radius: 50px;
     color: white;
-    border-style: solid
+    border-style: solid;
+    font-family:"anchor-web", sans-serif;
 }
 
 #changeFilters {
@@ -316,7 +377,8 @@ h3 {
     border-color: rgb(226, 225, 225);
     border-radius: 50px;
     color: white;
-    border-style: solid
+    border-style: solid;
+    font-family:"anchor-web", sans-serif;
 }
 
 #generateResults:hover {
@@ -327,9 +389,6 @@ h3 {
     background-color: #651860;
 }
 
-#restaurangPubInfo {
-    text-align: center;
-}
 
 #restaurangPubDescription {
     text-align: left;
@@ -374,18 +433,13 @@ h3 {
     left: 25%;
 }
 
-#activityFilters {
-    display: inline-block;
-    text-align: center;
-}
 
 
 
 /* för radio knapparna------ */
 
 .priceOpt,
-.foodOpt,
-.activityOpt {
+.foodOpt {
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;
@@ -401,6 +455,18 @@ h3 {
     color: white;
 }
 
+.activityOpt {
+    display: inline-block;
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
+    color: white;
+}
+
+input {
+    accent-color: #994dc7;
+}
 
 
 /*CSS för random.html */
@@ -446,4 +512,41 @@ h3 {
 
 #generate {
     text-align: center;
+}
+
+/* stillsättning för aktiviteter.html */
+
+#activityName {
+    color: #994dc7;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0em;
+    margin-top: 0;
+}
+
+#activityDescription {
+    text-align: left;
+    margin-top: -60px;
+    color: #3f0c5c
+}
+
+#activityWebsite img {
+    width: 40%;
+    position: relative;
+    left: 25%;
+}
+
+#activityTel img {
+    width: 40%;
+    position: relative;
+    left: 85%;
+    transform: rotate(0deg);
+}
+
+.activityFilters {
+    text-align: center;
+}
+
+#activityName {
+    white-space: nowrap;
 }
