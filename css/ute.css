@@ -1,6 +1,6 @@
 /* Bakgrund Animation för Loggan för ute.html och allt inom ute.*/
 
-#bakgrund-ute {
+.bakgrund-ute {
     background-position: center center;
     background-repeat: no-repeat; background-size: cover;
     background-image: url(/img/purple2-01.png);
@@ -8,7 +8,7 @@
 }
 
 /* bakgrund för inne.html. */
-#bakgrund-inne {
+.bakgrund-inne {
     background-position: center center;
     background-repeat: no-repeat; background-size: cover;
     background-image: url(/img/blue-01.png);
@@ -137,7 +137,7 @@ img {
     }
 
 .arrow {
-    border: solid #2f2733;
+    border: solid #ffffff;
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 13px;
@@ -307,8 +307,11 @@ img {
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
 
+
+
 h3 {
     font-size: 25px;
+    
 }
 
 #foodType {
@@ -317,6 +320,10 @@ h3 {
 
 #foodType h2 {
     font-size: 35px;
+}
+
+#foodType h3 {
+    color: white;
 }
 
 #foodType label {
@@ -334,8 +341,11 @@ h3 {
 
 }
 
+
+
 #foodPrice h3 {
     text-align: center;
+    color: white;
 }
 
 #foodPrice {
@@ -356,7 +366,8 @@ h3 {
     border-color: rgb(226, 225, 225);
     border-radius: 50px;
     color: white;
-    border-style: solid
+    border-style: solid;
+    font-family:"anchor-web", sans-serif;
 }
 
 #changeFilters {
@@ -366,7 +377,8 @@ h3 {
     border-color: rgb(226, 225, 225);
     border-radius: 50px;
     color: white;
-    border-style: solid
+    border-style: solid;
+    font-family:"anchor-web", sans-serif;
 }
 
 #generateResults:hover {
