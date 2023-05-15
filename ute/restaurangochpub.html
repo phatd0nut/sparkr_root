@@ -19,6 +19,11 @@
     <a href="ute.html"><i class="arrow left"></i></a>
     <h1 class="sectionTitle">Restaurang & Pub</h1>
   </div>
+  <div id="changeRadius">
+    <label for="radius">Utöka ditt område:</label>
+    <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
+    <span id="radiusValue">10 km</span>
+  </div>
   <div id="foodType" class="searchFilters">
     <h3>Välj mellan:</h3>
     <label class="priceOpt"><input type="radio" class="foodOpt" name="food-type" value="Pizzeria" checked />Pizzeria</label>
@@ -44,16 +49,7 @@
   <div class="container2">
     <button id="generateResults">Sök</button>
     <button id="changeFilters">Ändra filtrering</button>
-    <div id="changeRadius">
-      <label for="radius">Utöka ditt område:</label>
-      <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
-      <span id="radiusValue">10 km</span>
-    </div>
-    <div id="scrollBtns">
-      <p id="indexCounter"></p>
-      <button id="nextOption" class="indexBtns">Nästa</button>
-      <button id="previousOption" class="indexBtns">Föregående</button>
-    </div>
+  </div>
   </div>
 
   <div id="restaurangPubInfo">
@@ -71,6 +67,12 @@
       <p id="restaurangPubAddress"></p>
       <p id="restaurangPubPriceRng"></p>
       <p id="restaurangPubRating"></p>
+    </div>
+    <div class="container-scrollBtns">
+      <div id="scrollBtns">
+        <p id="indexCounter"></p>
+        <button id="previousOption" class="indexBtns">&#8249;</button> <button id="nextOption" class="indexBtns">&#8250;</button>
+      </div>
     </div>
   </div>
 </body>
