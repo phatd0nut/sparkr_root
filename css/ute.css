@@ -119,7 +119,10 @@ img {
     margin: 25px;
     animation: color 10s ease-out infinite;
     background-size: 200% 200%;
+}
 
+.button3:active {
+    transform: scale(1.05);
 }
 
  @keyframes button3-color  {
@@ -174,6 +177,9 @@ img {
     background-size: 200% 200%;
 }
 
+.button4:active {
+    transform: scale(1.05);
+}
 
 @keyframes button4-color  {
     25% {
@@ -190,6 +196,23 @@ img {
     }
 /* STILLSÄTTNING för ute.html */
 
+.container-arrowh2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.left-arrow {
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.centered-text {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 55px;
+}
 
 /* STILLSÄTTNING FÖR nattliv.HTML */
 
@@ -393,16 +416,16 @@ h3 {
 
 #restaurangPubDescription {
     text-align: left;
-    margin-top: -60px;
     color: #3f0c5c;
+    margin: 0;
 }
 
 #restaurangPubName {
     color: #994dc7;
     text-align: left;
     text-transform: uppercase;
-    padding: 0em;
-    margin-top: 0;
+    margin: 0;
+    font-size: 40px;
 }
 
 #restaurangPubinfo {
@@ -421,20 +444,27 @@ h3 {
     text-align: left;
 }
 
-#restaurangPubTel img {
-    width: 40%;
-    position: relative;
-    left: 85%;
-    transform: rotate(0deg);
+.infoBar-line {
+    display: flex;
+    align-items: center;
 }
 
+#restaurangPubName {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+#restaurangPubTel {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#restaurangPubTel img,
 #restaurangPubWebsite img {
-    width: 40%;
-    position: relative;
-    left: 25%;
+    width: 50px;
+    height: 50px;
 }
-
-
 
 
 /* för radio knapparna------ */
@@ -521,20 +551,19 @@ input {
     color: #994dc7;
     text-align: left;
     text-transform: uppercase;
-    padding: 0em;
-    margin-top: 0;
+    margin: 0;
+    font-size: 40px;
 }
 
 #activityDescription {
     text-align: left;
-    margin-top: -60px;
-    color: #3f0c5c
+    color: #3f0c5c;
+    margin: 0;
 }
-
+#activityTel,
 #activityWebsite img {
-    width: 40%;
-    position: relative;
-    left: 25%;
+    width: 50px;
+    height: 50px;
 }
 
 #activityTel img {
@@ -582,14 +611,34 @@ input {
     color: white;
 }
 
+
 .indexBtns {
-    padding: 8px 16px;
+    padding: 1% 25px;
     border-radius: 50%;
-    margin: 0.5rem;
     border-style: none;
+    margin: 30px;
+    font-size: 20px;
+    margin-top: -50px;
+    text-align: center;
+    color: #994dc7;
 }
+
+.indexBtns p {   
+  font-size: 50px;
+  margin: 0;
+  text-align: center;
+}
+
+
+
 
 .indexBtns:active {
     background-color: #ddd;
     color: black;
   }
+
+  #indexCounter {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+  } 

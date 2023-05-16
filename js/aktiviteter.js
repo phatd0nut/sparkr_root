@@ -181,7 +181,7 @@ function getData(responseText) {
         document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange;
         document.getElementById("activityRating").innerHTML = "Omdöme:" + activitiesDataRating + " / 5";
         document.getElementById("activityAddress").innerHTML = "Adress: " + activitiesDataAddress;
-        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange + ":-";
+        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange + " Kr";
         document.getElementById("activityRating").innerHTML = "Omdöme: " + activitiesDataRating + " / 5";
 
 
