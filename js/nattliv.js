@@ -10,44 +10,58 @@ var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 var nrOfOptions; // Referens för antal genererade resultat från SMAPI
 var initialNrOfOptions = 0; // Lagrar det initiala värdet av genererade resultat från SMAPI 
 var currentOptionIndex; // Referens för det resultat som visas
-var activityData; // Referens för SMAPI-payload data
+var establishmentData; // Referens för SMAPI-payload data
 var radiusValue; // Referens för utskrift av radius i HTML
 var selectedRadius = 10; // Initialt värde på radius
 var radiusDiv; // Referens för radius slidern
 var generateBtn; // Referens för sök knappen
 var scrollBtns; // Referens för scroll-knapparna
-var activityFilters; // Referens för filtreringsalternativen
+var searchFilters; // Referens för filtreringsalternativen
+var changeFiltersBtn; //Referens för knappen som visar filtreringen
+var nightlifeInfo; // Referens för resultatsrutan från SMAPI
+
 
 function init() {
-    establishmentInfo = document.getElementById("establishmentInfo");
-    establishmentInfo.style.display = "none";
     getUserLocation();
-
-    generateBtn.addEventListener("click", function () {
-        generateBtn.style.display = "none";
-        radiusDiv.style.display = "none";
-        scrollBtns.style.display = "block";
-        activityFilters.forEach(function (activityFilters) {
-            activityFilters.style.display = "none";
-        });
-        changeFiltersBtn.style.display = "block";
-        changeFiltersBtn.addEventListener("click", showFilters);
-        // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
-        if (activityType === "Temapark") {
-            requestSmapi(activityType);
-            getUserLocation();
-        } else {
-            // Om valen ändras, uppdatera anropet till SMAPI
-            requestSmapi(activityType);
-            getUserLocation();
-        }
+    generateBtn = document.getElementById("generateResults");
+    searchFilters = document.querySelectorAll(".searchFilters");
+    changeFiltersBtn = document.getElementById("changeFilters");
+    nightlifeInfo = document.getElementById("establishmentInfo");
+    nightlifeInfo.style.display = "none";
+    scrollBtns = document.getElementById("scrollBtns");
+    scrollBtns.style.display = "none";
+    changeFiltersBtn.style.display = "none";
+    radiusDiv = document.getElementById("changeRadius");
+    let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
+        nextOption();
+        displayedOption();
+    });
+    let previousOptionBtn = document.getElementById("previousOption").addEventListener("click", function () {
+        previousOption();
+        displayedOption();
     });
 
+    let radiusSlider = document.getElementById("radiusSlider");
+    radiusValue = document.getElementById("radiusValue");
+    radiusSlider.addEventListener("input", function () {
+        selectedRadius = radiusSlider.value;
+        radiusValue.innerHTML = selectedRadius + " km";
+    })
+
+    generateBtn.addEventListener("click", function () {
+        requestSmapi();
+         generateBtn.style.display = "none";
+         radiusDiv.style.display = "none";
+         scrollBtns.style.display = "block";
+         changeFiltersBtn.style.display = "block";
+         changeFiltersBtn.addEventListener("click", showFilters);
+     });
 
 }
 
 window.addEventListener("load", init);
 
+// Funktionen gjord med hjälp av ChatGPT
 function getUserLocation() { // Funktion för att få användarens geografiska position
     if (navigator.geolocation) { // Kontrollerar om webbläsaren stödjer geolocation-API:t
         navigator.geolocation.getCurrentPosition(function (position) { //Om webbläsaren stödjer API:t sparar den den geografiska platsen i userLocation
@@ -56,7 +70,6 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocationLng = position.coords.longitude;
             //  userLocationLat = "56.878017011624685";
             //  userLocationLng = "14.807412906905228";
-            requestSmapi();
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -67,66 +80,28 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi() {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=10&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius + "&debug=true", true)
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
-            else establishmentInfo.innerHTML = "<p>Den begärda resursen hittades inte.<p>"
+            else nightlifeInfo.innerHTML = "<p>Den begärda resursen hittades inte.<p>"
     };
 }
 
 function getData(responseText) {
-    let establishmentData = JSON.parse(responseText);
-    console.log(responseText);
+    nightlifeData = JSON.parse(responseText);
+    currentOptionIndex = 1;
 
-    if (establishmentData.payload == null || establishmentData.payload.length === 0) {
+    if (nightlifeData.payload == null || nightlifeData.payload.length === 0) {
         alert("Det fanns inga nattklubbar i din närhet tyvärr.");
         return;
     }
     else {
-        // establishmentInfo.style.display = "block";
-        let establishments = establishmentData.payload;
-        establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
-
-        let establishment = establishments[0];
-        let lat = establishment.lat;
-        let lng = establishment.lng;
-        let estName = establishment.name;
-        let estDescription = establishment.description;
-        let estTel = establishment.phone_number;
-        let estAddress = establishment.address;
-        let estPriceRange = establishment.price_range;
-        let estWebsite = establishment.website;
-        let estRating = Number(establishment.rating).toFixed(1);
-
-        // Utskrift av information i HTML
-        document.getElementById("establishmentName").innerHTML = estName;
-        document.getElementById("establishmentDescription").innerHTML = estDescription;
-        let clickableTelNr = document.createElement("a");
-        clickableTelNr.setAttribute("href", "tel: " + estTel);
-        let telIcon = document.createElement("img");
-        telIcon.setAttribute("src", "../img/phone.png");
-        clickableTelNr.appendChild(telIcon);
-        // clickableTelNr.textContent = estTel;
-        let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", estWebsite);
-        let linkIcon = document.createElement("img");
-        linkIcon.setAttribute("src", "../img/otherclick.png")
-        clickableWWW.appendChild(linkIcon);
-        // clickableWWW.textContent = estWebsite;
-        document.getElementById("establishmentWebsite").innerHTML = "";
-        document.getElementById("establishmentWebsite").appendChild(clickableWWW);
-        document.getElementById("establishmentTel").innerHTML = "";
-        document.getElementById("establishmentTel").appendChild(clickableTelNr);
-        document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
-        document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
-        document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
-
-        displayMap(lat, lng);
-        document.getElementById("directions-btn").addEventListener("click", function () {
-            getDirections(userLocationLat, userLocationLng);
-        });
+        nightlifeInfo.style.display = "block";
+        nrOfOptions = nightlifeData.payload.length;
+        initialNrOfOptions = nrOfOptions;
+        displayedOption();
     }
 }
 
@@ -155,6 +130,7 @@ function displayMap(lat, lng) {
 
 }
 
+// Funktion gjort med hjälp av ChatGPT
 function getDirections(userLocationLat, userLocationLng) {
     let myLocation = new google.maps.LatLng(parseFloat(userLocationLat), parseFloat(userLocationLng));
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
@@ -174,4 +150,79 @@ function getDirections(userLocationLat, userLocationLng) {
             directionsRenderer.setMap(map);
         }
     });
+}
+
+function showFilters() {
+    searchFilters.forEach(function (searchFilters) {
+        searchFilters.style.display = "block";
+        radiusDiv.style.display = "block";
+        generateBtn.style.display = "block";
+        scrollBtns.style.display = "none";
+    });
+    changeFiltersBtn.style.display = "none";
+}
+
+function displayedOption() {
+    document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
+    let nightlife = nightlifeData.payload;
+    nightlife.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload. Kod tagen från ChatGPT
+    let selectedEntry = nightlifeData.payload[currentOptionIndex - 1];
+
+    let lat = selectedEntry.lat;
+    let lng = selectedEntry.lng;
+    let estCity = selectedEntry.city;
+    let estName = selectedEntry.name;
+    let estDescription = selectedEntry.description;
+    let estTel = selectedEntry.phone_number;
+    let estAddress = selectedEntry.address;
+    let estPriceRange = selectedEntry.price_range;
+    let estWebsite = selectedEntry.website;
+    let estRating = Number(selectedEntry.rating).toFixed(1);
+
+    // Utskrift av information i HTML
+    document.getElementById("establishmentName").innerHTML = estName;
+    document.getElementById("establishmentDescription").innerHTML = estDescription;
+    let clickableTelNr = document.createElement("a");
+    clickableTelNr.setAttribute("href", "tel: " + estTel);
+    let telIcon = document.createElement("img");
+    telIcon.setAttribute("src", "../img/phone.png");
+    clickableTelNr.appendChild(telIcon);
+    // clickableTelNr.textContent = estTel;
+    let clickableWWW = document.createElement("a");
+    clickableWWW.setAttribute("href", estWebsite);
+    let linkIcon = document.createElement("img");
+    linkIcon.setAttribute("src", "../img/otherclick.png")
+    clickableWWW.appendChild(linkIcon);
+    // clickableWWW.textContent = estWebsite;
+    document.getElementById("establishmentWebsite").innerHTML = "";
+    document.getElementById("establishmentWebsite").appendChild(clickableWWW);
+    document.getElementById("establishmentTel").innerHTML = "";
+    document.getElementById("establishmentTel").appendChild(clickableTelNr);
+    document.getElementById("establishmentCity").innerHTML = "Stad: " + estCity;
+    document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
+    document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
+    document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
+
+    displayMap(lat, lng);
+    document.getElementById("directions-btn").addEventListener("click", function () {
+        getDirections(userLocationLat, userLocationLng);
+    });
+}
+
+
+function nextOption() {
+    currentOptionIndex++;
+    if (currentOptionIndex > nightlifeData.payload.length) {
+        currentOptionIndex = 1; // Gå tillbaka till första valet
+    }
+    displayedOption();
+}
+
+function previousOption() {
+    if (currentOptionIndex === 1) {
+        currentOptionIndex = nightlifeData.payload.length; // Gå tillbaka till sista valet
+    } else {
+        currentOptionIndex--;
+    }
+    displayedOption();
 }
