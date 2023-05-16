@@ -188,6 +188,7 @@ function showFilters() {
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";
         scrollBtns.style.display = "none";
+        restaurangPubInfo.style.display = "none";
     });
     changeFiltersBtn.style.display = "none";
 }
@@ -238,7 +239,6 @@ function displayedOption() {
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
 
     displayMap(lat, lng);
-
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });

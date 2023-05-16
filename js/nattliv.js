@@ -158,6 +158,7 @@ function showFilters() {
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";
         scrollBtns.style.display = "none";
+        nightlifeInfo.style.display = "none";
     });
     changeFiltersBtn.style.display = "none";
 }

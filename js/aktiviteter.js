@@ -178,6 +178,7 @@ function showFilters() {
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";
         scrollBtns.style.display = "none";
+        activityInfo.style.display = "none";
     });
     changeFiltersBtn.style.display = "none";
 }
@@ -236,7 +237,6 @@ function displayedOption() {
     document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
     document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + ":-";
     document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
-
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").addEventListener("click", function () {
