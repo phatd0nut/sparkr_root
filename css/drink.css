@@ -7,17 +7,26 @@ body {
   font-family: "anchor-web", sans-serif;
   gap: 10px;
   padding: 20px;
-  background-color: #EDEDED;
+  background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 /* Bakgrundsfärg för den vänstra kolumnen */
 .drinkar {
   background: #FFFFFF;
   border: 4px solid transparent;
-  box-shadow:inset 1px 1px 7px #00DB;
   transition: transform 0.3s ease;
   padding: 20px;
   margin-bottom: 10px;
@@ -220,7 +229,7 @@ ul {
 }
 
 
-  
+/*Det följsamma designläget*/
 @media only screen and (max-width: 390px) {
   body {
     grid-template-columns: 1fr;
