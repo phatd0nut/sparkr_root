@@ -7,11 +7,43 @@ var googleKey = "AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"; // Google Maps API ny
 var marker; // Kartmarkör
 var directionsService; // Variabel för vägbeskrivningar
 var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
+var nrOfOptions; // Referens för antal genererade resultat från SMAPI
+var initialNrOfOptions = 0; // Lagrar det initiala värdet av genererade resultat från SMAPI 
+var currentOptionIndex; // Referens för det resultat som visas
+var activityData; // Referens för SMAPI-payload data
+var radiusValue; // Referens för utskrift av radius i HTML
+var selectedRadius = 10; // Initialt värde på radius
+var radiusDiv; // Referens för radius slidern
+var generateBtn; // Referens för sök knappen
+var scrollBtns; // Referens för scroll-knapparna
+var activityFilters; // Referens för filtreringsalternativen
 
 function init() {
     establishmentInfo = document.getElementById("establishmentInfo");
     establishmentInfo.style.display = "none";
     getUserLocation();
+
+    generateBtn.addEventListener("click", function () {
+        generateBtn.style.display = "none";
+        radiusDiv.style.display = "none";
+        scrollBtns.style.display = "block";
+        activityFilters.forEach(function (activityFilters) {
+            activityFilters.style.display = "none";
+        });
+        changeFiltersBtn.style.display = "block";
+        changeFiltersBtn.addEventListener("click", showFilters);
+        // Om användaren inte ändrar valen skickas de förvalda värdena till SMAPI
+        if (activityType === "Temapark") {
+            requestSmapi(activityType);
+            getUserLocation();
+        } else {
+            // Om valen ändras, uppdatera anropet till SMAPI
+            requestSmapi(activityType);
+            getUserLocation();
+        }
+    });
+
+
 }
 
 window.addEventListener("load", init);
@@ -20,10 +52,10 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     if (navigator.geolocation) { // Kontrollerar om webbläsaren stödjer geolocation-API:t
         navigator.geolocation.getCurrentPosition(function (position) { //Om webbläsaren stödjer API:t sparar den den geografiska platsen i userLocation
             userLocation = position.coords; // Användarens koordinater
-            //userLocationLat = position.coords.latitude;
-            //userLocationLng = position.coords.longitude;
-             userLocationLat = "56.878017011624685";
-             userLocationLng = "14.807412906905228";
+            userLocationLat = position.coords.latitude;
+            userLocationLng = position.coords.longitude;
+            //  userLocationLat = "56.878017011624685";
+            //  userLocationLng = "14.807412906905228";
             requestSmapi();
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
@@ -53,7 +85,7 @@ function getData(responseText) {
         return;
     }
     else {
-        establishmentInfo.style.display = "block";
+        // establishmentInfo.style.display = "block";
         let establishments = establishmentData.payload;
         establishments.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload
 

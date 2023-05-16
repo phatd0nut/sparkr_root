@@ -12,7 +12,6 @@ var activityInfo; // Referens för utskrift av SMAPI-information
 var activityFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
 var displayedId = []; // Referens för ID på alternativ som visas
-var showActivityFilters; // Referens för knappen som visar filtreringen
 var nrOfOptions; // Referens för antal genererade resultat från SMAPI
 var initialNrOfOptions = 0; // Lagrar det initiala värdet av genererade resultat från SMAPI 
 var currentOptionIndex; // Referens för det resultat som visas
