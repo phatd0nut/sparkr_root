@@ -12,7 +12,16 @@ var foodPrice; // Variabel för prisklass
 var restaurangPubInfo; // Referens för utskrift av SMAPI-information
 var searchFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
-let displayedId = []; // Referens för ID på alternativ som visas
+var displayedId = []; // Referens för ID på alternativ som visas
+var nrOfOptions; // Referens för antal genererade resultat från SMAPI
+var initialNrOfOptions = 0; // Lagrar det initiala värdet av genererade resultat från SMAPI 
+var currentOptionIndex; // Referens för det resultat som visas
+var restaurangPubData; // Referens för SMAPI-payload data
+var radiusValue; // Referens för utskrift av radius i HTML
+var selectedRadius = 10; // Initialt värde på radius
+var radiusDiv; // Referens för radius slidern
+var generateBtn; // Referens för sök knappen
+var scrollBtns; // Referens för scroll-knapparna
 
 
 function init() {
@@ -22,9 +31,27 @@ function init() {
     restaurangPubInfo = document.getElementById("restaurangPubInfo");
     restaurangPubInfo.style.display = "none";
     searchFilters = document.querySelectorAll(".searchFilters");
+    scrollBtns = document.getElementById("scrollBtns");
+    scrollBtns.style.display = "none";
+    let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
+        nextOption();
+        displayedOption();
+    });
+    let previousOptionBtn = document.getElementById("previousOption").addEventListener("click", function () {
+        previousOption();
+        displayedOption();
+    });
+    radiusDiv = document.getElementById("changeRadius");
+
+    let radiusSlider = document.getElementById("radiusSlider");
+    radiusValue = document.getElementById("radiusValue");
+    radiusSlider.addEventListener("input", function () {
+        selectedRadius = radiusSlider.value;
+        radiusValue.innerHTML = selectedRadius + " km";
+    })
     let foodTypeInput = document.querySelectorAll(".foodOpt")
     let foodPriceInput = document.querySelectorAll(".priceOpt");
-    let generateBtn = document.querySelector("#generateResults");
+    generateBtn = document.querySelector("#generateResults");
     foodType = "Pizzeria";
     foodPrice = "0-25";
 
@@ -42,6 +69,9 @@ function init() {
     }
 
     generateBtn.addEventListener("click", function () {
+        generateBtn.style.display = "none";
+        radiusDiv.style.display = "none";
+        scrollBtns.style.display = "block";
         searchFilters.forEach(function (searchFilters) {
             searchFilters.style.display = "none";
         });
@@ -68,8 +98,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             //userLocationLat = position.coords.latitude;
             //userLocationLng = position.coords.longitude;
-            userLocationLat = "56.878017011624685";
-            userLocationLng = "14.807412906905228";
+             userLocationLat = "56.878017011624685";
+             userLocationLng = "14.807412906905228";
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -80,7 +110,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi(foodType, foodPrice) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=10&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=" + selectedRadius + "&debug=true", true)
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
@@ -90,7 +120,9 @@ function requestSmapi(foodType, foodPrice) {
 }
 
 function getData(responseText) {
-    let restaurangPubData = JSON.parse(responseText);
+    restaurangPubData = JSON.parse(responseText);
+    currentOptionIndex = 1;
+
 
     if (restaurangPubData.payload == null || restaurangPubData.payload.length === 0) {
         alert("Det fanns inga alternativ med dina val i närheten.");
@@ -98,7 +130,10 @@ function getData(responseText) {
     }
 
     else {
-        restaurangPubInfo.style.display = "block";   
+        nrOfOptions = restaurangPubData.payload.length;
+        initialNrOfOptions = nrOfOptions;
+        displayedOption();
+        restaurangPubInfo.style.display = "block";
         let restaurangPub = restaurangPubData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
         if (restaurangPub.length === 0) {
             alert("Inga nya alternativ hittades.");
@@ -207,6 +242,78 @@ function getDirections(userLocationLat, userLocationLng) {
 function showFilters() {
     searchFilters.forEach(function (filter) {
         filter.style.display = "block";
+        radiusDiv.style.display = "block";
+        generateBtn.style.display = "block";
+        scrollBtns.style.display = "none";
     });
     changeFiltersBtn.style.display = "none";
 }
+
+function displayedOption() {
+    document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
+
+    let selectedEntry = restaurangPubData.payload[currentOptionIndex - 1];
+
+    let lat = selectedEntry.lat;
+    let lng = selectedEntry.lng;
+    let restaurangPubName = selectedEntry.name;
+    let restaurangPubDescription = selectedEntry.description;
+    let restaurangPubTel = selectedEntry.phone_number;
+    let restaurangPubAddress = selectedEntry.address;
+    let restaurangPubPriceRange = selectedEntry.price_range;
+    let restaurangPubWebsite = selectedEntry.website;
+    let restaurangPubRating = Number(selectedEntry.rating).toFixed(1);
+
+    // Utskrift av information i HTML
+    document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
+    document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
+
+    let clickableTelNr = document.createElement("a");
+    clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
+    if (!selectedEntry.phone_number) {
+        document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades.";
+    } else {
+        document.getElementById("restaurangPubTel").innerHTML = "";
+        document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+        let telIcon = document.createElement("img");
+        telIcon.setAttribute("src", "../img/phone.png");
+        clickableTelNr.appendChild(telIcon);
+    }
+
+    let clickableWWW = document.createElement("a");
+    clickableWWW.setAttribute("href", restaurangPubWebsite);
+    let linkIcon = document.createElement("img");
+    linkIcon.setAttribute("src", "../img/otherclick.png");
+    clickableWWW.appendChild(linkIcon);
+    document.getElementById("restaurangPubWebsite").innerHTML = "";
+    document.getElementById("restaurangPubWebsite").appendChild(clickableWWW);
+
+    document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
+    document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
+    document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
+
+    displayMap(lat, lng);
+
+    document.getElementById("directions-btn").addEventListener("click", function () {
+        getDirections(userLocationLat, userLocationLng);
+    });
+}
+
+
+function nextOption() {
+    currentOptionIndex++;
+    if (currentOptionIndex > restaurangPubData.payload.length) {
+        currentOptionIndex = 1; // Gå tillbaka till första valet
+    }
+    displayedOption();
+}
+
+function previousOption() {
+    if (currentOptionIndex === 1) {
+        currentOptionIndex = restaurangPubData.payload.length; // Gå tillbaka till sista valet
+    } else {
+        currentOptionIndex--;
+    }
+    displayedOption();
+}
+
