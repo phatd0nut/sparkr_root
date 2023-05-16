@@ -372,13 +372,14 @@ h3 {
 
 #changeFilters {
     padding: 10px;
-    width: 100px;
+    width: 150px;
     background-color: #994dc7;
     border-color: rgb(226, 225, 225);
     border-radius: 50px;
     color: white;
     border-style: solid;
     font-family:"anchor-web", sans-serif;
+    font-size: large;
 }
 
 #generateResults:hover {
@@ -547,6 +548,48 @@ input {
     text-align: center;
 }
 
+
+.activityFilters h3 {
+    color: white;
+}
+
 #activityName {
     white-space: nowrap;
 }
+
+/* Stillsättning för slidebar radies och föregående och nästgående sida */ 
+
+#changeRadius {
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    background-color: #e2c8da;
+    border-radius: 50px;
+    width: auto;
+    padding: 2%;
+    color: rgb(147, 33, 162);
+    text-align: center;
+}
+
+.container-scrollBtns{
+    display: flex;
+    justify-content: center;
+}
+
+
+#scrollBtns  {
+    text-align: center;
+    color: white;
+}
+
+.indexBtns {
+    padding: 8px 16px;
+    border-radius: 50%;
+    margin: 0.5rem;
+    border-style: none;
+}
+
+.indexBtns:active {
+    background-color: #ddd;
+    color: black;
+  }
