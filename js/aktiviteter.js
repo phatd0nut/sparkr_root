@@ -12,7 +12,6 @@ var activityInfo; // Referens för utskrift av SMAPI-information
 var activityFilters; // Referens för filtreringsalternativen
 var changeFiltersBtn; //Referens för knappen som visar filtreringen
 var displayedId = []; // Referens för ID på alternativ som visas
-var showActivityFilters; // Referens för knappen som visar filtreringen
 var nrOfOptions; // Referens för antal genererade resultat från SMAPI
 var initialNrOfOptions = 0; // Lagrar det initiala värdet av genererade resultat från SMAPI 
 var currentOptionIndex; // Referens för det resultat som visas
@@ -113,83 +112,16 @@ function requestSmapi(activityType) {
 function getData(responseText) {
     activityData = JSON.parse(responseText);
     currentOptionIndex = 1;
-
     if (activityData.payload == null || activityData.payload.length === 0) {
         alert("Det fanns inga alternativ med dina val i närheten.");
         return;
     }
 
     else {
+        activityInfo.style.display = "block";
         nrOfOptions = activityData.payload.length;
         initialNrOfOptions = nrOfOptions;
         displayedOption();
-        activityInfo.style.display = "block";
-        activityInfo.style.display = "block";
-        let activitiesData = activityData.payload.filter(entry => !displayedId.includes(entry.id)); // Filtrerar bort alternativ som redan blivit genererade med hjälp av ID:t från varje objekt i SMAPI // Kod genererad med hjälp av ChatGPT
-        if (activitiesData.length === 0) {
-            alert("Inga nya alternativ hittades.");
-            return;
-        }
-
-        // Slumpar resultaten enligt förvalda kriterier från SMAPI
-        let randomIndex = Math.floor(Math.random() * activitiesData.length);
-        let selectedEntry = activitiesData[randomIndex];
-
-        // De resultat som har visats pushas till displayedId array för att inte visas dubbelt
-        displayedId.push(selectedEntry.id);
-
-        let lat = selectedEntry.lat;
-        let lng = selectedEntry.lng;
-        let activitiesDataName = selectedEntry.name;
-        let activitiesDataDescription = selectedEntry.description;
-        let activitiesDataTel = selectedEntry.phone_number;
-        let activitiesDataAddress = selectedEntry.address;
-        let activitiesDataPriceRange = selectedEntry.price_range;
-        let activitiesDataWebsite = selectedEntry.website;
-        let activitiesDataRating = Number(selectedEntry.rating).toFixed(1);
-
-        // Utskrift av information i HTML
-        document.getElementById("activityName").innerHTML = activitiesDataName;
-        document.getElementById("activityDescription").innerHTML = activitiesDataDescription;
-        let clickableTelNr = document.createElement("a");
-        clickableTelNr.setAttribute("href", "tel: " + activitiesDataTel);
-
-        if (!selectedEntry.phone_number) {
-            document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
-        } else {
-            document.getElementById("activityTel").innerHTML = "";
-            document.getElementById("activityTel").appendChild(clickableTelNr);
-            let telIcon = document.createElement("img");
-            telIcon.setAttribute("src", "../img/phone.png");
-            clickableTelNr.appendChild(telIcon);
-        }
-
-        if (selectedEntry.outdoors == "Y") {
-            document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Ja"
-        }
-        else {
-            document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Nej"
-        }
-        let clickableWWW = document.createElement("a");
-        clickableWWW.setAttribute("href", activitiesDataWebsite);
-        let linkIcon = document.createElement("img");
-        linkIcon.setAttribute("src", "../img/otherclick.png")
-        clickableWWW.appendChild(linkIcon);
-        // clickableWWW.textContent = activitiesDataWebsite;
-        document.getElementById("activityWebsite").innerHTML = "";
-        document.getElementById("activityWebsite").appendChild(clickableWWW);
-        document.getElementById("activityAddress").innerHTML = "Adress:" + activitiesDataAddress;
-        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange;
-        document.getElementById("activityRating").innerHTML = "Omdöme:" + activitiesDataRating + " / 5";
-        document.getElementById("activityAddress").innerHTML = "Adress: " + activitiesDataAddress;
-        document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange + ":-";
-        document.getElementById("activityRating").innerHTML = "Omdöme: " + activitiesDataRating + " / 5";
-
-
-        displayMap(lat, lng);
-        document.getElementById("directions-btn").addEventListener("click", function () {
-            getDirections(userLocationLat, userLocationLng);
-        });
     }
 }
 
@@ -241,35 +173,38 @@ function getDirections(userLocationLat, userLocationLng) {
 }
 
 function showFilters() {
-    activityFilters.forEach(function (activityFilter) {
-        activityFilter.style.display = "block";
+    activityFilters.forEach(function (activityFilters) {
+        activityFilters.style.display = "block";
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";
         scrollBtns.style.display = "none";
+        activityInfo.style.display = "none";
     });
     changeFiltersBtn.style.display = "none";
 }
 
 function displayedOption() {
     document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
-
+    let activities = activityData.payload;
+    activities.sort(() => Math.random() - 0.5);
     let selectedEntry = activityData.payload[currentOptionIndex - 1];
 
     let lat = selectedEntry.lat;
     let lng = selectedEntry.lng;
-    let activitiesDataName = selectedEntry.name;
-    let activitiesDataDescription = selectedEntry.description;
-    let activitiesDataTel = selectedEntry.phone_number;
-    let activitiesDataAddress = selectedEntry.address;
-    let activitiesDataPriceRange = selectedEntry.price_range;
-    let activitiesDataWebsite = selectedEntry.website;
-    let activitiesDataRating = Number(selectedEntry.rating).toFixed(1);
+    let activityCity = selectedEntry.city;
+    let activityName = selectedEntry.name;
+    let activityDescription = selectedEntry.description;
+    let activityTel = selectedEntry.phone_number;
+    let activityAddress = selectedEntry.address;
+    let activityPriceRange = selectedEntry.price_range;
+    let activityWebsite = selectedEntry.website;
+    let activityRating = Number(selectedEntry.rating).toFixed(1);
 
     // Utskrift av information i HTML
-    document.getElementById("activityName").innerHTML = activitiesDataName;
-    document.getElementById("activityDescription").innerHTML = activitiesDataDescription;
+    document.getElementById("activityName").innerHTML = activityName;
+    document.getElementById("activityDescription").innerHTML = activityDescription;
     let clickableTelNr = document.createElement("a");
-    clickableTelNr.setAttribute("href", "tel: " + activitiesDataTel);
+    clickableTelNr.setAttribute("href", "tel: " + activityTel);
 
     if (!selectedEntry.phone_number) {
         document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
@@ -288,20 +223,20 @@ function displayedOption() {
         document.getElementById("activityOutdoors").innerHTML = "Utomhusaktivitet: Nej"
     }
     let clickableWWW = document.createElement("a");
-    clickableWWW.setAttribute("href", activitiesDataWebsite);
+    clickableWWW.setAttribute("href", activityWebsite);
     let linkIcon = document.createElement("img");
     linkIcon.setAttribute("src", "../img/otherclick.png")
     clickableWWW.appendChild(linkIcon);
     // clickableWWW.textContent = activitiesDataWebsite;
     document.getElementById("activityWebsite").innerHTML = "";
     document.getElementById("activityWebsite").appendChild(clickableWWW);
-    document.getElementById("activityAddress").innerHTML = "Adress:" + activitiesDataAddress;
-    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange;
-    document.getElementById("activityRating").innerHTML = "Omdöme:" + activitiesDataRating + " / 5";
-    document.getElementById("activityAddress").innerHTML = "Adress: " + activitiesDataAddress;
-    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activitiesDataPriceRange + ":-";
-    document.getElementById("activityRating").innerHTML = "Omdöme: " + activitiesDataRating + " / 5";
-
+    document.getElementById("activityCity").innerHTML = "Stad: " + activityCity;
+    document.getElementById("activityAddress").innerHTML = "Adress:" + activityAddress;
+    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange;
+    document.getElementById("activityRating").innerHTML = "Omdöme:" + activityRating + " / 5";
+    document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
+    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + ":-";
+    document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").addEventListener("click", function () {
