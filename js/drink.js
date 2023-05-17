@@ -278,5 +278,6 @@ function slumpaFilm(kategorier) {
   
 
   var resultatTagg = document.getElementById("resultat-" + kategorier);
-  resultatTagg.textContent = "Din valda film är " + film;
+  resultatTagg.style.textAlign = "center";
+  resultatTagg.textContent = "" + film;
 }
