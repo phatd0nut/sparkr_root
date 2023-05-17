@@ -266,6 +266,7 @@ img {
 #establishmentDescription {
     text-align: left;
     color: #3f0c5c;
+    margin: 0;
 }
 
 #establishmentRating {
@@ -379,7 +380,7 @@ h3 {
     text-align: center;
 }
 
-.container2 {
+.container-Resullts-filters {
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -504,7 +505,7 @@ h3 {
 }
 
 input {
-    accent-color: #4d13ca;
+    accent-color: rgb(147, 33, 162)
 }
 
 
@@ -623,6 +624,7 @@ input {
     margin-top: -50px;
     text-align: center;
     color: #994dc7;
+    
 }
 
 .indexBtns p {
