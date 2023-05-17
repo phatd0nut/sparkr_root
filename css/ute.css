@@ -2,16 +2,19 @@
 
 .bakgrund-ute {
     background-position: center center;
-    background-repeat: no-repeat; background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(/img/purple2-01.png);
-
+    margin: 0;
 }
 
 /* bakgrund för inne.html. */
 .bakgrund-inne {
     background-position: center center;
-    background-repeat: no-repeat; background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(/img/blue-01.png);
+    margin: 0;
 }
 
 /* ---------------------------------------------------------------------------------- */
@@ -47,13 +50,16 @@
 }
 
 
-
-body {
+html, body {
+    margin: 0;
+    min-height: 100%;
     font-family: "anchor-web", sans-serif;
     font-weight: 500;
     font-style: normal;
     margin: 0;
 }
+
+
 
 h1 {
     font-size: 4rem;
@@ -72,17 +78,13 @@ h1 {
 
 }
 
-#establishmentWebsite img {
-    width: 40%;
-    position: relative;
-    left: 25%;
-}
 
+#establishmentWebsite img,
 #establishmentTel img {
-    width: 40%;
-    position: relative;
-    left: 85%;
-    transform: rotate(0deg);
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-right: 5px;
 }
 
 img {
@@ -125,7 +127,7 @@ img {
     transform: scale(1.05);
 }
 
- @keyframes button3-color  {
+@keyframes button3-color {
     25% {
         background-position: 0% 50%;
     }
@@ -137,7 +139,7 @@ img {
     100% {
         background-position: 0 50%;
     }
-    }
+}
 
 .arrow {
     border: solid #ffffff;
@@ -181,7 +183,7 @@ img {
     transform: scale(1.05);
 }
 
-@keyframes button4-color  {
+@keyframes button4-color {
     25% {
         background-position: 0% 50%;
     }
@@ -193,7 +195,8 @@ img {
     100% {
         background-position: 0 50%;
     }
-    }
+}
+
 /* STILLSÄTTNING för ute.html */
 
 .container-arrowh2 {
@@ -222,6 +225,10 @@ img {
 
 }
 
+.searchFilters {
+    text-align: center;
+
+}
 
 .container-sectionTitle a {
     margin-right: -50px;
@@ -252,13 +259,12 @@ img {
     color: #994dc7;
     text-align: left;
     text-transform: uppercase;
-    padding: 0em;
-    margin-top: 0;
+    margin: 0;
+    font-size: 40px;
 }
 
 #establishmentDescription {
     text-align: left;
-    margin-top: -60px;
     color: #3f0c5c;
 }
 
@@ -299,8 +305,6 @@ img {
 }
 
 
-
-
 .infoBar {
     border-top: 10px solid #994dc7;
     border-bottom: 10px solid #994dc7;
@@ -334,7 +338,7 @@ img {
 
 h3 {
     font-size: 25px;
-    
+
 }
 
 #foodType {
@@ -390,7 +394,8 @@ h3 {
     border-radius: 50px;
     color: white;
     border-style: solid;
-    font-family:"anchor-web", sans-serif;
+    font-family: "anchor-web", sans-serif;
+    margin-top: -35px;
 }
 
 #changeFilters {
@@ -401,7 +406,7 @@ h3 {
     border-radius: 50px;
     color: white;
     border-style: solid;
-    font-family:"anchor-web", sans-serif;
+    font-family: "anchor-web", sans-serif;
     font-size: large;
 }
 
@@ -446,7 +451,6 @@ h3 {
 
 .infoBar-line {
     display: flex;
-    align-items: center;
 }
 
 #restaurangPubName {
@@ -454,16 +458,20 @@ h3 {
     margin-right: 10px;
 }
 
-#restaurangPubTel {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
+
 
 #restaurangPubTel img,
 #restaurangPubWebsite img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-right: 5px;
+
+}
+
+.wrapper-telwebsite {
+    display: flex;
+    margin-left: auto;
 }
 
 
@@ -496,7 +504,7 @@ h3 {
 }
 
 input {
-    accent-color: #994dc7;
+    accent-color: #4d13ca;
 }
 
 
@@ -560,18 +568,15 @@ input {
     color: #3f0c5c;
     margin: 0;
 }
-#activityTel,
+
+#activityTel img,
 #activityWebsite img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-right: 5px;
 }
 
-#activityTel img {
-    width: 40%;
-    position: relative;
-    left: 85%;
-    transform: rotate(0deg);
-}
 
 .activityFilters {
     text-align: center;
@@ -582,11 +587,8 @@ input {
     color: white;
 }
 
-#activityName {
-    white-space: nowrap;
-}
 
-/* Stillsättning för slidebar radies och föregående och nästgående sida */ 
+/* Stillsättning för slidebar radies och föregående och nästgående sida */
 
 #changeRadius {
     display: flex;
@@ -600,13 +602,13 @@ input {
     text-align: center;
 }
 
-.container-scrollBtns{
+.container-scrollBtns {
     display: flex;
     justify-content: center;
 }
 
 
-#scrollBtns  {
+#scrollBtns {
     text-align: center;
     color: white;
 }
@@ -623,10 +625,10 @@ input {
     color: #994dc7;
 }
 
-.indexBtns p {   
-  font-size: 50px;
-  margin: 0;
-  text-align: center;
+.indexBtns p {
+    font-size: 50px;
+    margin: 0;
+    text-align: center;
 }
 
 
@@ -635,10 +637,10 @@ input {
 .indexBtns:active {
     background-color: #ddd;
     color: black;
-  }
+}
 
-  #indexCounter {
+#indexCounter {
     text-align: center;
     color: white;
     font-size: 1.5rem;
-  } 
+}
