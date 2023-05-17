@@ -13,26 +13,21 @@
 </head>
 
 <body class="bakgrund-ute">
-    <img src="/img/logotyp_sparkr_v3_3.png" alt="">
-
+    <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
     <div class="container-sectionTitle">
         <a href="ute.html"><i class="arrow left"></i></a>
         <h1 class="sectionTitle">Nattliv</h1>
     </div>
-
     <div class="searchFilters">
-        <button id="generateResults">Sök</button>
-        <button id="changeFilters">Ändra filtrering</button>
         <div id="changeRadius">
             <label for="radius">Utöka ditt område:</label>
             <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
             <span id="radiusValue">10 km</span>
-          </div>
-          <div id="scrollBtns">
-            <p id="indexCounter"></p>
-            <button id="previousOption" class="indexBtns">Föregående</button>
-            <button id="nextOption" class="indexBtns">Nästa</button>
-          </div>
+        </div>
+        <div class="container-Resullts-filters">
+            <button id="generateResults">Sök</button>
+            <button id="changeFilters">Ändra filtrering</button>
+        </div>
     </div>
 
     <div id="establishmentInfo">
@@ -43,16 +38,33 @@
         <div class="infoBar">
             <div class="infoBar-line">
                 <h2 id="establishmentName"></h2>
-                <p id="establishmentTel"></p>
-                <p id="establishmentWebsite"></p>
+                <div class="wrapper-telwebsite">
+                    <p id="establishmentTel"></p>
+                    <p id="establishmentWebsite"></p>
+                </div>
             </div>
+
             <h3 id="establishmentDescription"></h3>
             <p id="establishmentCity"></p>
             <p id="establishmentAddress"></p>
             <p id="establishmentPriceRng"></p>
             <p id="establishmentRating"></p>
-        </div>
+
+       </div>
+    <p id="indexCounter"></p>
+    <div class="container-scrollBtns">
+      <div id="scrollBtns">
+
+
+        <button id="previousOption" class="indexBtns">
+          <p>&#8249;</p>
+        </button> <button id="nextOption" class="indexBtns">
+          <p>&#8250;</p>
+        </button>
+
+      </div>
     </div>
+  </div>
 </body>
 
 </html>
