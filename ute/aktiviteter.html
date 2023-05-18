@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/ute.css" />
+    
     <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
     <script src="../js/aktiviteter.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"></script>
@@ -13,6 +14,7 @@
 </head>
 
 <body class="bakgrund-ute">
+    <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
     <div class="container-sectionTitle">
         <a href="ute.html"><i class="arrow left"></i></a>
         <h1 class="sectionTitle">Aktiviteter</h1>
@@ -46,7 +48,7 @@
         <label class="activityOpt"><input type="radio" name="activity" value="Sevärdhet">Sevärdhet</label>
     </div>
 
-    <div class="container2">
+    <div class="container-Resullts-filters">
         <button id="generateResults">Sök</button>
         <button id="changeFilters">Ändra filtrering</button>
     </div>
@@ -58,26 +60,36 @@
                 <button id="directions-btn">Vägbeskrivning</button>
             </div>
             <div class="infoBar">
-                <h2 id="activityName"></h2>
+                <div class="infoBar-line">
+                    <h2 id="activityName"></h2>
+                    <div class="wrapper-telwebsite">
+                        <p id="activityTel"></p>
+                        <p id="activityWebsite"></p>
+                    </div>
+                </div>
+
                 <h3 id="activityDescription"></h3>
                 <p id="activityCity"></p>
                 <p id="activityAddress"></p>
                 <p id="activityPriceRng"></p>
                 <p id="activityRating"></p>
                 <p id="activityOutdoors"></p>
-                <div class="infoBar-line">
-                    <p id="activityTel"></p>
-                    <p id="activityWebsite"></p>
-                </div>
+
             </div>
+            <p id="indexCounter"></p>
             <div class="container-scrollBtns">
                 <div id="scrollBtns">
-                    <p id="indexCounter"></p>
-                    <button id="previousOption" class="indexBtns">&#8249;</button>
-                    <button id="nextOption" class="indexBtns">&#8250;</button>
+
+
+                    <button id="previousOption" class="indexBtns">
+                      <img src="/img/leftarrowpurple.png" alt="pil som pekar vänster">
+                    </button> <button id="nextOption" class="indexBtns">
+                        <img src="/img/rightarrowpurple-01.png" alt="pil som pekar höger">
+                    </button>
+
                 </div>
             </div>
-        </diV>
+        </div>
 </body>
 
 </html>

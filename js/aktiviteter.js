@@ -234,7 +234,7 @@ function displayedOption() {
     document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange;
     document.getElementById("activityRating").innerHTML = "Omdöme:" + activityRating + " / 5";
     document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
-    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + ":-";
+    document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + " kr";
     document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
 
     displayMap(lat, lng);
