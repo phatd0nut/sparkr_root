@@ -6,30 +6,61 @@
   <title>Sparkr</title>
   <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANvWghf0VuGtg3EQCXSu9NoxS0blD-3NE"></script>
+  <script src="js/random.js"></script>
 </head>
 
 <body>
   <img src="/img/logotyp_sparkr_v3_3.png" alt="">
-  <p id="activity">Välj din aktivitet</p>
-  <div class="container">
+
+  <div id="frontPageDiv">
+    <p id="random">Välj din aktivitet</p>
+    <div class="container">
+    </div>
+    <div class="choice1">
+      <a href="/inne/inne.html" class="button1">
+        <p>Inne</p>
+        <img src="img/husroundedcorners-01.png" alt="Bild som visar ett hus" class="scaled-image">
+      </a>
+      <a href="/ute/ute.html" class="button2">
+        <img src="img/locationicon-03.png" alt="Bild som visar en 
+      stad" class="scaled-image">
+        <p>Ute</p>
+      </a>
+    </div>
+    <div class="choose">
+      <p>Svårt att välja?</p>
+      <p>Låt Sparkr avgöra vad du ska göra!
+      </p>
+      <!-- <a href="random.html" class="button3">SLUMPA ÅT MIG</a> -->
+      <button id="randomBtn" class="button3"> SLUMPA ÅT MIG</button>
+    </div>
   </div>
-  <div class="choice1">
-    <a href="/inne/inne.html" class="button1">  
-     <p>Inne</p>
-     <img src="img/husroundedcorners-01.png" alt="Bild som visar ett hus" class="scaled-image">
-    </a>
-    <a href="/ute/ute.html" class="button2">
-      <img src="img/locationicon-03.png" alt="Bild som visar en 
-      stad" class="scaled-image"> 
-      <p>Ute</p>
-    </a>
+
+
+  <div id="randomInfo">
+    <button id="undoBtn" class="button3">Gå tillbaka</button>
+    <div id="googleMap"></div>
+    <div id="directions-btn-placement">
+      <button id="directions-btn">Vägbeskrivning</button>
+    </div>
+    <div class="infoBar">
+      <div class="infoBar-line">
+        <h2 id="randomName"></h2>
+        <div class="wrapper-telwebsite">
+          <p id="randomTel"></p>
+          <p id="randomWebsite"></p>
+        </div>
+      </div>
+
+      <h3 id="randomDescription"></h3>
+      <p id="randomCity"></p>
+      <p id="randomAddress"></p>
+      <p id="randomPriceRng"></p>
+      <p id="randomRating"></p>
+      <p id="randomOutdoors"></p>
+    </div>
   </div>
-  <div class="choose">
-    <p>Svårt att välja?</p>
-    <p>Låt Sparkr avgöra vad du ska göra!
-    </p>
-  </div>
-  <a href="random.html" class="button3">SLUMPA ÅT MIG</a>
 </body>
 
 </html>
