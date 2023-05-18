@@ -118,6 +118,7 @@ function getData(responseText) {
     }
 
     else {
+        activityData.payload.sort(() => Math.random() - 0.5);
         activityInfo.style.display = "block";
         nrOfOptions = activityData.payload.length;
         initialNrOfOptions = nrOfOptions;
@@ -185,8 +186,6 @@ function showFilters() {
 
 function displayedOption() {
     document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
-    let activities = activityData.payload;
-    activities.sort(() => Math.random() - 0.5);
     let selectedEntry = activityData.payload[currentOptionIndex - 1];
 
     let lat = selectedEntry.lat;

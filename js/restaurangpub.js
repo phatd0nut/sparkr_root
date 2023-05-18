@@ -128,6 +128,7 @@ function getData(responseText) {
     }
 
     else {
+        restaurangPubData.payload.sort(() => Math.random() - 0.5);
         nrOfOptions = restaurangPubData.payload.length;
         initialNrOfOptions = nrOfOptions;
         displayedOption();
@@ -195,8 +196,6 @@ function showFilters() {
 
 function displayedOption() {
     document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
-    let restPubs = restaurangPubData.payload;
-    restPubs.sort(() => Math.random() - 0.5);
     let selectedEntry = restaurangPubData.payload[currentOptionIndex - 1];
 
     let lat = selectedEntry.lat;

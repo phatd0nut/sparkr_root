@@ -98,6 +98,7 @@ function getData(responseText) {
         return;
     }
     else {
+        nightlifeData.payload.sort(() => Math.random() - 0.5);
         nightlifeInfo.style.display = "block";
         nrOfOptions = nightlifeData.payload.length;
         initialNrOfOptions = nrOfOptions;
@@ -165,8 +166,6 @@ function showFilters() {
 
 function displayedOption() {
     document.getElementById("indexCounter").innerHTML = currentOptionIndex + " / " + initialNrOfOptions;
-    let nightlife = nightlifeData.payload;
-    nightlife.sort(() => Math.random() - 0.5); // Slumpar nattklubb efter innehåll i payload. Kod tagen från ChatGPT
     let selectedEntry = nightlifeData.payload[currentOptionIndex - 1];
 
     let lat = selectedEntry.lat;
