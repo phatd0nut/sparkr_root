@@ -40,6 +40,32 @@ body {
   align-items: center;
 }
 
+.container-sectionTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchFilters {
+  text-align: center;
+}
+
+.container-sectionTitle a {
+  margin-right: -50px;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #FFF;
+  padding: 1%;
+  margin-bottom: 0;
+  font-size: 35px;
+  background-color: #994dc7;
+  width: 50%;
+  border-radius: 0px 200px 200px 0px;
+}
+
+
+
 .bakgrund-inne {
   background-position: center center;
   background-repeat: no-repeat; background-size: cover;
