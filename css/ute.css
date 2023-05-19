@@ -230,6 +230,7 @@ img {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
+    max-width: 80%;
 }
 
 #establishmentDescription {
@@ -402,6 +403,7 @@ h3 {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
+    max-width: 80%;
 }
 
 #restaurangPubinfo {
@@ -532,6 +534,7 @@ input {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
+    max-width: 80%;
 }
 
 #activityDescription {
