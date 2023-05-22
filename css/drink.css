@@ -59,11 +59,10 @@ body {
   padding: 1%;
   margin-bottom: 0;
   font-size: 35px;
-  background-color: #994dc7;
+  background-color: #6AB6E8;
   width: 50%;
-  border-radius: 0px 200px 200px 0px;
+  border-radius: 200px 0px 0px 200px;
 }
-
 
 
 .bakgrund-inne {
@@ -260,6 +259,10 @@ ul {
   }
 }
 
+#resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, p {
+  text-align: center;
+  font-size: 2rem;
+}
 
 .kategorier {
   background-color: #FFFFFF;
@@ -300,3 +303,4 @@ ul {
     margin-bottom: 3px;
   }
 }
+
