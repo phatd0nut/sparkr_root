@@ -166,10 +166,11 @@ ul {
   
   .kategorier h2 {
   font-size: 2rem;
-  text-align: center;
-  margin-top: 30px;
   padding: 0;
+  margin: 0;
   }
+
+
   
   
   /* CSS för kolumner och kategorier */
@@ -260,16 +261,18 @@ ul {
 }
 
 #resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, p {
-  text-align: center;
   font-size: 2rem;
-}
-
-#resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, h3 {
-  text-align: center;
-  color: white;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
 }
 
 .kategorier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: #FFFFFF;
   overflow: hidden;
   flex-basis: calc(30% - 10px); /* Uppdaterat värde för smalare kolumner */
