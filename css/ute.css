@@ -1,4 +1,3 @@
-
 .bakgrund-ute {
     background-position: center center;
     background-repeat: no-repeat;
@@ -13,13 +12,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(/img/blue-01.png);
-   
+
 }
 
 /* ---------------------------------------------------------------------------------- */
 
 
-html, body {
+html,
+body {
     margin: 0;
     min-height: 100%;
     font-family: "anchor-web", sans-serif;
@@ -146,6 +146,7 @@ img {
     margin: 25px;
     animation: color 10s ease-out infinite;
     background-size: 200% 200%;
+    transition: 0.1s;
 }
 
 .button4:active {
@@ -233,6 +234,29 @@ img {
     max-width: 80%;
 }
 
+#establishmentAbstract {
+    margin: 0;
+    font-size: 20px;
+    color: #994dc7;
+    font-style: italic;
+}
+
+.establishment-container {
+    display: flex;
+}
+
+.establishment-wrapper-left {
+    flex: 1;
+    text-align: left;
+}
+
+.establishment-wrapper-right {
+    flex: 1;
+    text-align: right;
+    margin: 0;
+    margin-right: 5%;
+}
+
 #establishmentDescription {
     text-align: left;
     color: #3f0c5c;
@@ -313,7 +337,7 @@ h3 {
 }
 
 #foodType {
-    
+
     text-align: center;
 }
 
@@ -613,7 +637,7 @@ input {
     border-radius: 50%;
     border-style: none;
     margin: 30px;
-    margin-top: -50px;    
+    margin-top: -50px;
 }
 
 .indexBtns:active {
@@ -626,5 +650,3 @@ input {
     color: white;
     font-size: 1.5rem;
 }
-
-
