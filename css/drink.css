@@ -183,7 +183,7 @@ ul {
   background: linear-gradient(90deg, #81e8ff,#95ecff, #d1f7ff 100%);
   background-size: 200% 100%;
   animation: color-enkel 10s ease-in-out infinite;
-  height: 100px;
+  min-height: 100px;
 }
 
 
@@ -191,18 +191,21 @@ ul {
   background: linear-gradient(90deg, #2bbaea,#27a3da, #036ea2 100%);
   background-size: 200% 100%;
   animation: color-sorglig 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
 .kategori-djup {
   background: linear-gradient(90deg, #5DADE2,#2f6f95, #073952 100%);
   background-size: 200% 100%;
   animation: color-djup 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
 .kategori-spannande {
   background: linear-gradient(90deg, #036ea2,#4bacd2, #81e8ff 100%);
   background-size: 200% 100%;
   animation: color-spannande 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
 
