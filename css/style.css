@@ -1,17 +1,16 @@
-body {
-  font-family: "anchor-web", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(/img/backgroundforsparkr5-01.png);
-  background-image: auto;
-  background-size: auto;
 
-}
+  body {
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-image: url(/img/backgroundforsparkr5-01.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
 
 img {
   display: block;
