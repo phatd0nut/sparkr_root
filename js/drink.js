@@ -44,6 +44,14 @@ drinkar.forEach(function(drink) {
 //Slut på js för drinkar
 
 function slumpaFilmEnkel() {
+  var kategoriEnkel = document.getElementById('enkelFilmerBtn');
+  kategoriEnkel.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriEnkel.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+  
   var titleElement = document.querySelector('.kategori-enkel .title');
   titleElement.style.display = 'none';
 
