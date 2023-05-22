@@ -9,6 +9,8 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
   }
   
 
@@ -167,7 +169,7 @@ label {
 
 .left {
   transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+
 }
 
 

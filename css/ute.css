@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(/img/blue-01.png);
-    margin: 0;
+   
 }
 
 /* ---------------------------------------------------------------------------------- */
@@ -313,6 +313,7 @@ h3 {
 }
 
 #foodType {
+    
     text-align: center;
 }
 
@@ -367,7 +368,21 @@ h3 {
     border-style: solid;
     font-family: "anchor-web", sans-serif;
     font-size: large;
-    margin-top: -35px;
+    margin-bottom: 20px;
+}
+
+#generateResultsNattliv {
+    padding: 10px;
+    width: 150px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid;
+    font-family: "anchor-web", sans-serif;
+    font-size: large;
+    margin-top: 180px;
+    margin-bottom: 20px;
 }
 
 #changeFilters {
@@ -381,6 +396,11 @@ h3 {
     font-family: "anchor-web", sans-serif;
     font-size: large;
 }
+
+#generateResultsNattliv:hover {
+    background-color: #651860;
+}
+
 
 #generateResults:hover {
     background-color: #651860;

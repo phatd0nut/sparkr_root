@@ -23,7 +23,7 @@ var nightlifeInfo; // Referens för resultatsrutan från SMAPI
 
 function init() {
     getUserLocation();
-    generateBtn = document.getElementById("generateResults");
+    generateBtn = document.getElementById("generateResultsNattliv");
     searchFilters = document.querySelectorAll(".searchFilters");
     changeFiltersBtn = document.getElementById("changeFilters");
     nightlifeInfo = document.getElementById("establishmentInfo");
