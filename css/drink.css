@@ -4,7 +4,7 @@ body {
   grid-template-columns: 1fr;
   font-family: "anchor-web", sans-serif;
   gap: 10px;
-  padding: 20px;
+  padding: 0px;
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
@@ -13,13 +13,58 @@ body {
 .logo {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .logo img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 250px;
+  max-height: 250px;
 }
+
+.arrow {
+  border: solid #FFFFFF;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  margin: 10px;
+  padding: 13px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.containerwh2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-sectionTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchFilters {
+  text-align: center;
+}
+
+.container-sectionTitle a {
+  margin-right: -50px;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #FFF;
+  padding: 1%;
+  margin-bottom: 0;
+  font-size: 35px;
+  background-color: #994dc7;
+  width: 50%;
+  border-radius: 0px 200px 200px 0px;
+}
+
+
 
 .bakgrund-inne {
   background-position: center center;
@@ -38,11 +83,10 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 0px;
   padding: 0px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
 
 .background-image {
   background-position: center center;
