@@ -204,7 +204,7 @@ function displayedOption() {
     document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
     document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
     displayMap(lat, lng);
-    document.getElementById("establishmentAbstract").innerHTML =  estAbstract;
+    document.getElementById("establishmentAbstract").innerHTML =   estAbstract;
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });

@@ -21,7 +21,7 @@
     <div class="searchFilters">
         <div id="changeRadius">
             <label for="radius">Utöka ditt område:</label>
-            <input type="range" id="radiusSlider" min="10" max="100" step="10" value="10">
+            <input type="range" id="radiusSlider" min="10" max="300" step="10" value="10">
             <span id="radiusValue">10 km</span>
         </div>
         <div class="container-Resullts-filters">
@@ -42,30 +42,35 @@
                     <p id="establishmentTel"></p>
                     <p id="establishmentWebsite"></p>
                 </div>
+
             </div>
+            <div class="establishment-container">
+                <div class="establishment-wrapper-left">
+                    <h3 id="establishmentDescription"></h3>
+                    <p id="establishmentCity"></p>
+                    <p id="establishmentAddress"></p>
+                    <p id="establishmentPriceRng"></p>
+                    <p id="establishmentRating"></p>
+                </div>
+                <div class="establishment-wrapper-right">
+                    <p id="establishmentAbstract"></p>
+                </div>
+            </div>
+        </div>
+        <p id="indexCounter"></p>
+        <div class="container-scrollBtns">
+            <div id="scrollBtns">
 
-            <h3 id="establishmentDescription"></h3>
-            <p id="establishmentCity"></p>
-            <p id="establishmentAddress"></p>
-            <p id="establishmentPriceRng"></p>
-            <p id="establishmentRating"></p>
-            <p id="establishmentAbstract"></p>
 
-       </div>
-    <p id="indexCounter"></p>
-    <div class="container-scrollBtns">
-      <div id="scrollBtns">
+                <button id="previousOption" class="indexBtns">
+                    <img src="/img/leftarrowpurple.png" alt="pil som pekar vänster">
+                </button> <button id="nextOption" class="indexBtns">
+                    <img src="/img/rightarrowpurple-01.png" alt="pil som pekar höger">
+                </button>
 
-
-        <button id="previousOption" class="indexBtns">
-            <img src="/img/leftarrowpurple.png" alt="pil som pekar vänster">
-        </button> <button id="nextOption" class="indexBtns">
-            <img src="/img/rightarrowpurple-01.png" alt="pil som pekar höger">
-        </button>
-
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
