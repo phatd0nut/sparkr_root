@@ -19,19 +19,19 @@ window.addEventListener("load", init);
 
 var drinkar = document.querySelectorAll('.drinkar');
 
-drinkar.forEach(function(drink) {
+drinkar.forEach(function (drink) {
   const h1 = drink.querySelector('h1');
   const pElements = drink.querySelectorAll('p');
 
   // Dölj alla p-element i början
-  pElements.forEach(function(pElement) {
+  pElements.forEach(function (pElement) {
     pElement.style.display = 'none';
   });
 
   // Lägg till klickhändelse på h1-elementet
-  h1.addEventListener('click', function() {
+  h1.addEventListener('click', function () {
     // Visa eller dölj p-elementen
-    pElements.forEach(function(pElement) {
+    pElements.forEach(function (pElement) {
       if (pElement.style.display === 'none') {
         pElement.style.display = 'block';
       } else {
@@ -227,24 +227,24 @@ function slumpaFilmDjup() {
 
 function slumpaFilmSpannande() {
   var filmerSpannande = [
-    "The Babadook",  
-    "Hereditary",  
+    "The Babadook",
+    "Hereditary",
     "A Quiet Place",
-    "The Conjuring",  
-    "The Witch",  
-    "It Follows",  
-    "The Descent", 
-    "The Strangers",  
-    "Sinister",  
-    "Insidious",  
-    "Don't Breathe",  
-    "Midsommar",  
-    "Us",  
-    "The Invisible Man",  
-    "Train to Busan",  
-    "The Ritual",  
-    "The Autopsy of Jane Doe",  
-    "The Visit",  
+    "The Conjuring",
+    "The Witch",
+    "It Follows",
+    "The Descent",
+    "The Strangers",
+    "Sinister",
+    "Insidious",
+    "Don't Breathe",
+    "Midsommar",
+    "Us",
+    "The Invisible Man",
+    "Train to Busan",
+    "The Ritual",
+    "The Autopsy of Jane Doe",
+    "The Visit",
     "Annihilation",
     "Inception",
     "The Dark Knight",
@@ -303,67 +303,76 @@ function slumpaFilmSpannande() {
   resultat.textContent = slumpadFilm;
 }
 
+//Slut på js för filmer
+
+//js för spel
+
+function slumpaSpel() {
+  var spel = [
+      {
+          namn: "Poker",
+          beskrivning: "Poker är ett kortspel där spelarna satsar på den bästa kombinationen av kort i sin hand. Målet är att vinna potten genom att antingen ha den bästa handen eller genom att bluffa andra spelare att ge upp sina insatser.",
+          bild: "/img/poker.jpg"
+      },
+      {
+          namn: "Uno",
+          beskrivning: "Uno är ett kortspel där spelarna försöker bli av med sina kort genom att matcha dem efter färg, nummer eller symbol. Spelet innehåller även specialkort som kan ställa till det för motspelarna.",
+          bild: "/img/uno.jpg"
+      },
+      // Add more games with their descriptions and images here
+  ];
+
+  var slumpatIndex = Math.floor(Math.random() * spel.length);
+  var slumpatSpel = spel[slumpatIndex];
+  var resultat = document.getElementById("resultat-spel");
+  var beskrivning = document.getElementById("beskrivning-spel");
+  var bild = document.getElementById("bild-spel");
+
+  resultat.textContent = slumpatSpel.namn;
+  beskrivning.textContent = slumpatSpel.beskrivning;
+  bild.src = slumpatSpel.bild;
+}
+
+var slumpaSpelBtn = document.getElementById("slumpaSpelBtn");
+slumpaSpelBtn.addEventListener("click", slumpaSpel);
 
 
+// function slumpaSpel() {
+//   var spel = [
+//     "Poker",
+//     "Uno",
+//     "Monopol",
+//     "Scrabble",
+//     "Yatzy",
+//     "Schack",
+//     "Cluedo",
+//     "Twister",
+//     "Kubb",
+//     "Biljard",
+//     "Minecraft",
+//     "Fortnite",
+//     "Among Us",
+//     "League of Legends",
+//     "Counter-Strike: Global Offensive",
+//     "Overwatch",
+//     "Super Mario Bros",
+//     "The Legend of Zelda",
+//     "Final Fantasy",
+//     "World of Warcraft",
+//     "Call of Duty",
+//     "GTA V",
+//     "Red Dead Redemption 2",
+//     "FIFA",
+//     "NBA 2K",
+//     "Madden NFL",
+//     "Animal Crossing: New Horizons"
+//   ];
 
- 
-//   var kategorier = Object.keys(filmer); // Hämta alla kategorier
+//   var slumpatSpel = spel[Math.floor(Math.random() * spel.length)];
+//   var resultat = document.getElementById("resultat-spel");
 
-//   // Slumpa en kategori
-//   var slumpadKategori = kategorier[Math.floor(Math.random() * kategorier.length)];
-//   var filmerIKategori = filmer[slumpadKategori];
-
-//   var resultatTagg = document.getElementById("resultat-" + slumpadKategori);
-//   var räknareTagg = document.getElementById("räknare-" + slumpadKategori);
-
-//   if (filmerIKategori.length === 0) {
-//     resultatTagg.textContent = "Du har sett alla filmer i denna kategori.";
-//     räknareTagg.textContent = "0";
-//     return;
-//   }
-
-//   var filmerVisade = filmer.visade || {}; // Array för visade filmer (initieras första gången)
-
-//   if (!filmerVisade[slumpadKategori] || filmerVisade[slumpadKategori].length === 0) {
-//     // Om alla filmer har visats eller ingen har visats än, återställ arrayen
-//     filmerVisade[slumpadKategori] = [...filmerIKategori];
-//   }
-
-//   // Hämta nuvarande räknare
-//   var räknare = parseInt(räknareTagg.textContent);
-
-//   // Slumpa en ny film från den valda kategorin
-//   var index = Math.floor(Math.random() * filmerVisade[slumpadKategori].length);
-//   var film = filmerVisade[slumpadKategori][index];
-
-//   // Ta bort den visade filmen från arrayen
-//   filmerVisade[slumpadKategori].splice(index, 1);
-
-//   // Uppdatera räknaren för nästa gång
-//   räknare = (räknare + 1) % filmerIKategori.length;
-//   räknareTagg.textContent = räknare;
-
-//   // Spara uppdaterad array för visade filmer
-//   filmer.visade = filmerVisade;
-
-//   // Visa den slumpade filmen
-//   resultatTagg.style.textAlign = "center";
-//   resultatTagg.textContent = film;
+//   resultat.textContent = slumpatSpel;
 // }
 
-
-
-  // // Hämta nästa film baserat på räknaren
-  // var räknareTagg = document.getElementById("räknare-" + kategorier);
-  // var räknare = parseInt(räknareTagg.textContent);
-  // var film = filmer[kategorier][räknare];
-
-  // // Öka räknaren för nästa gång
-  // räknare++;
-  // räknareTagg.textContent = räknare;
-
-  
-
-  // var resultatTagg = document.getElementById("resultat-" + kategorier);
-  // resultatTagg.style.textAlign = "center";
-  // resultatTagg.textContent = "" + film;
+// var slumpaSpelBtn = document.getElementById("slumpaSpelBtn");
+// slumpaSpelBtn.addEventListener("click", slumpaSpel);
