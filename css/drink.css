@@ -8,6 +8,7 @@ body {
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -22,10 +23,9 @@ body {
 }
 
 .arrow {
-  border: solid #FFFFFF;
+  border: solid #ffffff;
   border-width: 0 6px 6px 0;
   display: inline-block;
-  margin: 10px;
   padding: 13px;
 }
 
@@ -58,8 +58,7 @@ body {
 .sectionTitle {
   text-align: center;
   color: #FFF;
-  padding: 1%;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   font-size: 35px;
   background-color: #6AB6E8;
   width: 50%;
@@ -157,29 +156,19 @@ ul {
   margin: 20px;
   user-select: none;
   }
+
+  #filmInstructions {
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+  }
   
   .kategorier h2 {
-  font-size: 24px;
-  padding: 20px;
-  margin: 0;
+  font-size: 2rem;
   text-align: center;
+  padding-top: 3px;
   }
   
- .kategorier button {
-  display: block;
-  width: 100%;
-  padding: 0px;
-  border: none;
-  background-color: transparent;
-  color: #FFFFFF;
-  font-size: 18px;
-  cursor: pointer;
-  }
-  
-  .kategorier button:hover {
-
-  background-color: transparent;
-  }
   
   /* CSS för kolumner och kategorier */
 .flex-container {
@@ -192,6 +181,7 @@ ul {
   background: linear-gradient(90deg, #81e8ff,#95ecff, #d1f7ff 100%);
   background-size: 200% 100%;
   animation: color-enkel 10s ease-in-out infinite;
+  height: 100px;
 }
 
 
@@ -267,8 +257,6 @@ ul {
 #resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, p {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 #resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, h3 {
@@ -281,9 +269,10 @@ ul {
   overflow: hidden;
   flex-basis: calc(30% - 10px); /* Uppdaterat värde för smalare kolumner */
   margin-bottom: 0px;
-  padding: 0px;
+  padding: 10px;
   border-radius: 80px; /* Uppdaterat värde för rundare kanter */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 100px;
 }
 
 .flex-container {
