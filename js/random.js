@@ -64,6 +64,7 @@ function getData(responseText) {
 
     let lat = randomData.payload[0].lat;
     let lng = randomData.payload[0].lng;
+    let randomAbstract = randomData.payload[0].abstract;
     let randomCity = randomData.payload[0].city;
     let randomName = randomData.payload[0].name;
     let randomDescription = randomData.payload[0].description;
@@ -110,6 +111,7 @@ function getData(responseText) {
     document.getElementById("randomAddress").innerHTML = "Adress: " + randomAddress;
     document.getElementById("randomPriceRng").innerHTML = "Pris: " + randomPriceRange + " kr";
     document.getElementById("randomRating").innerHTML = "Omdöme: " + randomRating + " / 5";
+    document.getElementById("randomAbstract").innerHTML = randomAbstract;
 
     displayMap(lat, lng);
 
