@@ -178,6 +178,7 @@ function displayedOption() {
     let estPriceRange = selectedEntry.price_range;
     let estWebsite = selectedEntry.website;
     let estRating = Number(selectedEntry.rating).toFixed(1);
+    let estAbstract = selectedEntry.abstract;
 
     // Utskrift av information i HTML
     document.getElementById("establishmentName").innerHTML = estName;
@@ -202,8 +203,8 @@ function displayedOption() {
     document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
     document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
     document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
-
     displayMap(lat, lng);
+    document.getElementById("establishmentAbstract").innerHTML =  estAbstract;
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });
