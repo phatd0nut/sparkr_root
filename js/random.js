@@ -9,14 +9,14 @@ var directionsService; // Variabel för vägbeskrivningar
 var directionsRenderer; // Variabel som ritar ut vägbeskrivningar
 var frontPageDiv; // Referens för innehållet på förstasidan
 var randomInfo; // Referens för slumpa åt mig resultatet
-var undoBtn; // Referens för knapp som ångrar slumpa åt mig resultatet
+
 
 function init() {
   let randomBtn = document.getElementById("randomBtn").addEventListener("click", getUserLocation);
   frontPageDiv = document.getElementById("frontPageDiv");
   randomInfo = document.getElementById("randomInfo");
   randomInfo.style.display = "none";
-  undoBtn = document.getElementById("undoBtn");
+
 }
 
 window.addEventListener("load", init);
@@ -112,7 +112,7 @@ function getData(responseText) {
     document.getElementById("randomRating").innerHTML = "Omdöme: " + randomRating + " / 5";
 
     displayMap(lat, lng);
-    undoBtn.addEventListener("click", undoResults);
+
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });
@@ -166,7 +166,3 @@ function getDirections(userLocationLat, userLocationLng) {
   });
 }
 
-function undoResults() {
-  randomInfo.style.display = "none";
-  frontPageDiv.style.display = "block";
-}
