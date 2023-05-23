@@ -58,7 +58,6 @@ function init() {
      });
      
      let backArrow = document.querySelector(".left-arrow");
-
      backArrow.addEventListener('touchstart', function () {
          this.style.transform = 'scale(1.15)';
      });
