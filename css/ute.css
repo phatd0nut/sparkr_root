@@ -92,7 +92,7 @@ img {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background-color: #6AB6E8;
+    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgb(4, 54, 95) 100%);
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -104,7 +104,7 @@ img {
     justify-content: center;
     width: auto;
     margin: 25px;
-    animation: color 10s ease-out infinite;
+    animation: color 1s ease-out infinite;
     background-size: 200% 200%;
 }
 
@@ -163,7 +163,7 @@ img {
     justify-content: center;
     width: auto;
     margin: 25px;
-    animation: color 10s ease-out infinite;
+    animation: color 1s ease-out infinite;
     background-size: 200% 200%;
     transition: 0.1s;
 }
