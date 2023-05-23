@@ -44,6 +44,14 @@ drinkar.forEach(function(drink) {
 //Slut på js för drinkar
 
 function slumpaFilmEnkel() {
+  var kategoriEnkel = document.getElementById('enkelFilmerBtn');
+  kategoriEnkel.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriEnkel.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-enkel .title');
   titleElement.style.display = 'none';
 
@@ -108,6 +116,14 @@ function slumpaFilmEnkel() {
 }
 
 function slumpaFilmSorglig() {
+  var kategoriSorglig = document.getElementById('sorgligFilmerBtn');
+  kategoriSorglig.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriSorglig.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-sorglig .title');
   titleElement.style.display = 'none';
 
@@ -171,6 +187,14 @@ function slumpaFilmSorglig() {
 }
 
 function slumpaFilmDjup() {
+  var kategoriDjup = document.getElementById('djupFilmerBtn');
+  kategoriDjup.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriDjup.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-djup .title');
   titleElement.style.display = 'none';
 
@@ -235,6 +259,14 @@ function slumpaFilmDjup() {
 }
 
 function slumpaFilmSpannande() {
+  var kategoriSpannande = document.getElementById('spannandeFilmerBtn');
+  kategoriSpannande.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriSpannande.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-spannande .title');
   titleElement.style.display = 'none';
 

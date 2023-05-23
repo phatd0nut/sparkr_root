@@ -181,6 +181,7 @@ ul {
   background-size: 200% 100%;
   animation: color-enkel 10s ease-in-out infinite;
   min-height: 100px;
+
 }
 
 .kategori-sorglig {
@@ -204,9 +205,7 @@ ul {
   min-height: 100px;
 }
 
-.kategori-enkel:active, .kategori-sorglig:active, .kategori-djup:active, .kategori-spannande:active {
-  transform: scale(1.05);
-}
+
 
 
 @keyframes color-enkel {
