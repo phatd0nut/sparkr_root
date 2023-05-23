@@ -113,6 +113,7 @@ function requestSmapi(activityType) {
     let request = new XMLHttpRequest();
     request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&types=activity&descriptions=" + activityType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius + "&debug=true", true)
     request.send(null);
+    // console.log(activityType);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
             if (request.status == 200) getData(request.responseText);
@@ -216,15 +217,20 @@ function displayedOption() {
     document.getElementById("activityDescription").innerHTML = activityDescription;
     let clickableTelNr = document.createElement("a");
     clickableTelNr.setAttribute("href", "tel: " + activityTel);
-
     if (!selectedEntry.phone_number) {
-        document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+        // document.getElementById("activityTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+        document.getElementById("activityTel").innerHTML = "";
+        document.getElementById("activityTel").appendChild(clickableTelNr);
+        let telIcon1 = document.createElement("img");
+        telIcon1.setAttribute("src", "../img/phone3.png");
+        clickableTelNr.appendChild(telIcon1);
+        clickableTelNr.style.pointerEvents = "none";
     } else {
         document.getElementById("activityTel").innerHTML = "";
         document.getElementById("activityTel").appendChild(clickableTelNr);
-        let telIcon = document.createElement("img");
-        telIcon.setAttribute("src", "../img/phone.png");
-        clickableTelNr.appendChild(telIcon);
+        let telIcon2 = document.createElement("img");
+        telIcon2.setAttribute("src", "../img/phone.png");
+        clickableTelNr.appendChild(telIcon2);
     }
 
     if (selectedEntry.outdoors == "Y") {

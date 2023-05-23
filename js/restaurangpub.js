@@ -222,17 +222,22 @@ function displayedOption() {
     // Utskrift av information i HTML
     document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
     document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
-
     let clickableTelNr = document.createElement("a");
     clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
     if (!selectedEntry.phone_number) {
-        document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades.";
+        // document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+        document.getElementById("restaurangPubTel").innerHTML = "";
+        document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+        let telIcon1 = document.createElement("img");
+        telIcon1.setAttribute("src", "../img/phone3.png");
+        clickableTelNr.appendChild(telIcon1);
+        clickableTelNr.style.pointerEvents = "none";
     } else {
         document.getElementById("restaurangPubTel").innerHTML = "";
         document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
-        let telIcon = document.createElement("img");
-        telIcon.setAttribute("src", "../img/phone.png");
-        clickableTelNr.appendChild(telIcon);
+        let telIcon2 = document.createElement("img");
+        telIcon2.setAttribute("src", "../img/phone.png");
+        clickableTelNr.appendChild(telIcon2);
     }
 
     let clickableWWW = document.createElement("a");
