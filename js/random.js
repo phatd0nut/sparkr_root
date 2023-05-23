@@ -46,13 +46,13 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     button.style.MozUserSelect = 'none';
 
     button.addEventListener('touchstart', function () {
-        this.style.transform = 'scale(1.15)';
+      this.style.transform = 'scale(1.15)';
     });
 
     button.addEventListener('touchend', function () {
-        this.style.transform = 'none';
+      this.style.transform = 'none';
     });
-});
+  });
 
 }
 
@@ -60,7 +60,6 @@ function requestSmapi() {
   let request = new XMLHttpRequest();
   request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=100&debug=true", true)
   request.send(null);
-  console.log(userLocationLat);
   request.onreadystatechange = function () {
     if (request.readyState == 4)
       if (request.status == 200) getData(request.responseText);
@@ -92,27 +91,31 @@ function getData(responseText) {
     let randomWebsite = randomData.payload[0].website;
     let randomRating = Number(randomData.payload[0].rating).toFixed(1);
 
-     // Utskrift av information i HTML
+    // Utskrift av information i HTML
     document.getElementById("randomName").innerHTML = randomName;
     document.getElementById("randomDescription").innerHTML = randomDescription;
     let clickableTelNr = document.createElement("a");
     clickableTelNr.setAttribute("href", "tel: " + randomTel);
-
     if (!randomData.phone_number) {
-        document.getElementById("randomTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+      // document.getElementById("randomTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+      document.getElementById("randomTel").innerHTML = "";
+      document.getElementById("randomTel").appendChild(clickableTelNr);
+      let telIcon1 = document.createElement("img");
+      telIcon1.setAttribute("src", "../img/phone3.png");
+      clickableTelNr.appendChild(telIcon1);
+      clickableTelNr.style.pointerEvents = "none";
     } else {
-        document.getElementById("randomTel").innerHTML = "";
-        document.getElementById("randomTel").appendChild(clickableTelNr);
-        let telIcon = document.createElement("img");
-        telIcon.setAttribute("src", "../img/phone.png");
-        clickableTelNr.appendChild(telIcon);
+      document.getElementById("randomTel").innerHTML = "";
+      document.getElementById("randomTel").appendChild(clickableTelNr);
+      let telIcon2 = document.createElement("img");
+      telIcon2.setAttribute("src", "../img/phone.png");
+      clickableTelNr.appendChild(telIcon2);
     }
-
     if (randomData.outdoors == "Y") {
-        document.getElementById("randomOutdoors").innerHTML = "Utomhusaktivitet: Ja"
+      document.getElementById("randomOutdoors").innerHTML = "Utomhusaktivitet: Ja"
     }
     else {
-        document.getElementById("randomOutdoors").innerHTML = "Utomhusaktivitet: Nej"
+      document.getElementById("randomOutdoors").innerHTML = "Utomhusaktivitet: Nej"
     }
     let clickableWWW = document.createElement("a");
     clickableWWW.setAttribute("href", randomWebsite);
@@ -134,7 +137,7 @@ function getData(responseText) {
     displayMap(lat, lng);
 
     document.getElementById("directions-btn").addEventListener("click", function () {
-        getDirections(userLocationLat, userLocationLng);
+      getDirections(userLocationLat, userLocationLng);
     });
 
   }
