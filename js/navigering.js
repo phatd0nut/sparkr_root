@@ -1,11 +1,11 @@
 function init() {
     inneMeny();
     uteMeny();
-    
+
     let backArrow = document.querySelector(".left-arrow");
 
     backArrow.addEventListener('touchstart', function () {
-        this.style.transform = 'scale(1.05)';
+        this.style.transform = 'scale(1.15)';
     });
 
     backArrow.addEventListener('touchend', function () {
