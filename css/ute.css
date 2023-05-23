@@ -245,7 +245,7 @@ img {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #establishmentAbstract, #activityAbstract, #restaurangPubAbstract {
@@ -299,6 +299,9 @@ img {
     font-size: 150%;
 }
 
+#directions-btn:hover {
+    background-color:#651860;
+}
 
 .infoBar {
     border-top: 10px solid #994dc7;
@@ -447,7 +450,7 @@ h3 {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #restaurangPubinfo {
@@ -473,6 +476,7 @@ h3 {
 #restaurangPubName {
     flex-shrink: 0;
     margin-right: 10px;
+    max-width: 70%;
 }
 
 
@@ -578,7 +582,7 @@ input {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #activityDescription {
@@ -625,6 +629,14 @@ input {
     justify-content: center;
 }
 
+input[type="range" i] {
+    appearance: auto;
+    cursor: default;
+    color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+    padding: initial;
+    border: initial;
+    height: 20px;
+}
 
 #scrollBtns {
     text-align: center;
