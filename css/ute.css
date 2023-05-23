@@ -56,6 +56,22 @@ h1 {
     margin-right: 5px;
 }
 
+.ute-categories-container {
+    display: flex;
+}
+
+.categories-wrapper-left {
+    flex: 1;
+    text-align: left;
+}
+
+.categories-wrapper-right {
+    flex: 1;
+    text-align: right;
+    margin: 0;
+    margin-right: 5%;
+}
+
 img {
     display: block;
     margin-left: auto;
@@ -233,28 +249,14 @@ img {
     max-width: 80%;
 }
 
-#establishmentAbstract {
+#establishmentAbstract, #activityAbstract, #restaurangPubAbstract {
     margin: 0;
     font-size: 20px;
     color: #994dc7;
     font-style: italic;
 }
 
-.establishment-container {
-    display: flex;
-}
 
-.establishment-wrapper-left {
-    flex: 1;
-    text-align: left;
-}
-
-.establishment-wrapper-right {
-    flex: 1;
-    text-align: right;
-    margin: 0;
-    margin-right: 5%;
-}
 
 #establishmentDescription {
     text-align: left;
@@ -404,7 +406,7 @@ h3 {
     border-style: solid;
     font-family: "anchor-web", sans-serif;
     font-size: large;
-    margin-top: 180px;
+    margin-top: 280px;
     margin-bottom: 20px;
 }
 
