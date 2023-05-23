@@ -251,6 +251,7 @@ label {
   text-align: left;
   color: #3f0c5c;
   margin: 0;
+  font-size: 25px;
 }
 
 #randomTel img,
@@ -292,11 +293,13 @@ label {
 
 .random-categories-container {
   display: flex;
+  
 }
 
-.categories-wrapper-left {
+.categories-wrapper-left p {
   flex: 1;
   text-align: left;
+  margin: 0;
 }
 
 .categories-wrapper-right {
