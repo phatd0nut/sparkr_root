@@ -245,7 +245,7 @@ img {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #establishmentAbstract, #activityAbstract, #restaurangPubAbstract {
@@ -450,7 +450,7 @@ h3 {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #restaurangPubinfo {
@@ -476,6 +476,7 @@ h3 {
 #restaurangPubName {
     flex-shrink: 0;
     margin-right: 10px;
+    max-width: 70%;
 }
 
 
@@ -581,7 +582,7 @@ input {
     text-transform: uppercase;
     margin: 0;
     font-size: 40px;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 #activityDescription {
