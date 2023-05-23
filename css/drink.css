@@ -18,8 +18,10 @@ body {
 }
 
 .logo img {
-  max-width: 250px;
-  max-height: 250px;
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .arrow {
@@ -27,13 +29,17 @@ body {
   border-width: 0 6px 6px 0;
   display: inline-block;
   padding: 13px;
+  margin-top: 40px;
+  margin-left: 25px;
+}
+
+.left {
+  transform: rotate(135deg);
 }
 
 .left-arrow {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  margin-bottom: 60px;
-  margin-left: 40px;
+  margin-right: 10px;
+  margin-left: 30px;
 }
 
 .container h2 {
@@ -58,11 +64,13 @@ body {
 .sectionTitle {
   text-align: center;
   color: #FFF;
-  margin-bottom: 0px;
+  padding: 1%;
+  margin-bottom: 0;
   font-size: 35px;
   background-color: #6AB6E8;
-  width: 50%;
+  width: 45%;
   border-radius: 200px 0px 0px 200px;
+  
 }
 
 
