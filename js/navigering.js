@@ -7,18 +7,22 @@ window.addEventListener("load", init);
 
 function inneMeny() {
     var scalingButtons = document.querySelectorAll(".button3");
-
+  
     scalingButtons.forEach(function(button) {
+      button.style.userSelect = 'none';  // Disable user selection
+      button.style.webkitUserSelect = 'none';  // For webkit-based browsers (e.g., Chrome, Safari)
+      button.style.MozUserSelect = 'none';  // For Firefox
+  
       button.addEventListener('touchstart', function() {
         this.style.transform = 'scale(1.05)';
       });
-    
+  
       button.addEventListener('touchend', function() {
         this.style.transform = 'none';
       });
     });
-    
-}
+  }
+  
 
 function uteMeny() {
     var scalingButtons = document.querySelectorAll(".button4");
