@@ -282,3 +282,26 @@ label {
   width: 45%;
   border-radius: 200px 0px 0px 200px;
 }
+
+#randomAbstract {
+    margin: 0;
+    font-size: 20px;
+    color: #994dc7;
+    font-style: italic;
+}
+
+.random-categories-container {
+  display: flex;
+}
+
+.categories-wrapper-left {
+  flex: 1;
+  text-align: left;
+}
+
+.categories-wrapper-right {
+  flex: 1;
+  text-align: right;
+  margin: 0;
+  margin-right: 5%;
+}
