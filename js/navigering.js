@@ -1,16 +1,7 @@
 function init() {
     inneMeny();
     uteMeny();
-
-    let backArrow = document.querySelector(".left-arrow");
-
-    backArrow.addEventListener('touchstart', function () {
-        this.style.transform = 'scale(1.15)';
-    });
-
-    backArrow.addEventListener('touchend', function () {
-        this.style.transform = 'none';
-    });
+    tillbakaPil();
 }
 
 window.addEventListener("load", init);
@@ -53,4 +44,16 @@ function uteMeny() {
         });
     });
 
+}
+
+function tillbakaPil() {
+    let backArrow = document.querySelector(".left-arrow");
+
+    backArrow.addEventListener('touchstart', function () {
+        this.style.transform = 'scale(1.15)';
+    });
+
+    backArrow.addEventListener('touchend', function () {
+        this.style.transform = 'none';
+    });
 }

@@ -36,6 +36,24 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
   } else {
     console.log("Platstjänster stöds inte av din webbläsare."); // Om webbläsaren inte stödjer geolocation api:t
   }
+
+  var scalingButtons = document.querySelectorAll(".choice1");
+
+  scalingButtons.forEach(function (button) {
+    // Stänger av att man kan markera för flera olika webbläsare
+    button.style.userSelect = 'none';
+    button.style.webkitUserSelect = 'none';
+    button.style.MozUserSelect = 'none';
+
+    button.addEventListener('touchstart', function () {
+        this.style.transform = 'scale(1.15)';
+    });
+
+    button.addEventListener('touchend', function () {
+        this.style.transform = 'none';
+    });
+});
+
 }
 
 function requestSmapi() {

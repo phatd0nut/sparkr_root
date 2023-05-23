@@ -76,6 +76,17 @@ function init() {
             getUserLocation();
         }
     });
+
+    let backArrow = document.querySelector(".left-arrow");
+
+    backArrow.addEventListener('touchstart', function () {
+        this.style.transform = 'scale(1.15)';
+    });
+
+    backArrow.addEventListener('touchend', function () {
+        this.style.transform = 'none';
+    });
+    
 }
 
 
