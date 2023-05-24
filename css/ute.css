@@ -675,6 +675,10 @@ input[type="range" i] {
 
 }
 
+.etaIcons:first-child {
+    margin-left: 0px;
+}
+
 #walkingIcon {
     width: 28px;
     height: auto; /* Maintain aspect ratio */
