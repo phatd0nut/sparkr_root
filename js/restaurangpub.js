@@ -173,23 +173,62 @@ function displayMap(lat, lng) {
 function getDirections(userLocationLat, userLocationLng) {
     let myLocation = new google.maps.LatLng(parseFloat(userLocationLat), parseFloat(userLocationLng));
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+
     let requestDirections = {
         origin: myLocation,
         destination: destination,
         travelMode: google.maps.TravelMode.DRIVING
     };
+
+    let drivingTime, bikingTime, walkingTime;
+
     directionsService.route(requestDirections, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             // Tar bort den tidigare markören (så att det inte blir dubbla markörer på destinationen)
             if (marker) {
                 marker.setMap(null);
             }
+
             // Visar vägbeskrivningarna på kartan
             directionsRenderer.setDirections(result);
             directionsRenderer.setMap(map);
+
+            // Retrieve ETA for different travel modes
+            drivingTime = result.routes[0].legs[0].duration.text;
+
+            requestDirections.travelMode = google.maps.TravelMode.WALKING;
+            directionsService.route(requestDirections, function (walkingResult, walkingStatus) {
+                if (walkingStatus == google.maps.DirectionsStatus.OK) {
+                    walkingTime = walkingResult.routes[0].legs[0].duration.text;
+
+                    requestDirections.travelMode = google.maps.TravelMode.BICYCLING;
+                    directionsService.route(requestDirections, function (bikingResult, bikingStatus) {
+                        if (bikingStatus == google.maps.DirectionsStatus.OK) {
+                            bikingTime = bikingResult.routes[0].legs[0].duration.text;
+
+                            // Skriv ut uppskattad tid för åtkomst
+
+
+                        }
+
+                        let carEta = '<img src="../img/carEta.png" class="etaIcons" alt="Uppskattad ankomst: Bil"><span class="etaText">' + drivingTime + '</span>';
+                        let bikeEta = '<img src="../img/bikeEta.png" class="etaIcons" alt="Uppskattad ankomst: Cykel"><span class="etaText">' + bikingTime + '</span>';
+                        let walkEta = '<img src="../img/walkingEta.png" id="walkingIcon" class="etaIcons" alt="Uppskattad ankomst: Promenera"><span class="etaText">' + walkingTime + '</span>';
+
+                        let etaContainer = document.createElement("div");
+                        etaContainer.classList.add("etaIconsContainer");
+                        etaContainer.innerHTML = carEta + bikeEta + walkEta;
+
+                        document.getElementById("eta").appendChild(etaContainer);
+
+
+                    });
+                }
+            });
         }
     });
 }
+
 
 function showFilters() {
     searchFilters.forEach(function (filter) {
@@ -250,7 +289,7 @@ function displayedOption() {
     document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
     document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-    document.getElementById("restaurangPubAbstract").innerHTML =  restaurangPubAbstract;
+    document.getElementById("restaurangPubAbstract").innerHTML = restaurangPubAbstract;
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").addEventListener("click", function () {
