@@ -320,7 +320,7 @@ img {
     width: 30px;
     height: 30px;
     margin: 0;
-    margin-right: 5px;
+    margin-right: 10px;
 
 }
 
@@ -526,4 +526,92 @@ input {
     text-align: center;
     color: white;
     font-size: 1.5rem;
+}
+
+
+.etaText {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.etaIcons {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+
+.etaIcons:first-child {
+    margin-left: 0px;
+}
+
+#walkingIcon {
+    width: 16px;
+    height: auto; 
+}
+
+.etaIconsContainer {
+    margin-top: 5%;
+    position: relative;
+    top: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#eta::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #000000; 
+    margin-top: 10px; 
+  }
+
+
+  /* bakgrund för inne.html. */
+.bakgrund-inne {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/blue-01.png);
+   
+}
+
+.button3 {
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 200%;
+    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgba(66,136,182,1) 100%);
+    padding: 33px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 25px;
+    animation: color 1s ease-out infinite;
+    background-size: 200% 200%;
+}
+
+.button3:active {
+    transform: scale(1.05);
+}
+
+@keyframes button3-color {
+    25% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
 }
