@@ -668,7 +668,7 @@ input[type="range" i] {
 }
 
 .etaIcons {
-    width: 50px; /* Adjust the width as desired */
+    width: 30px; /* Adjust the width as desired */
     height: auto; /* Maintain aspect ratio */
     margin-right: 10px;
     margin-left: 25px;
@@ -680,7 +680,7 @@ input[type="range" i] {
 }
 
 #walkingIcon {
-    width: 28px;
+    width: 16px;
     height: auto; /* Maintain aspect ratio */
 }
 
