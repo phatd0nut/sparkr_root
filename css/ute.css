@@ -111,7 +111,8 @@ img {
 /* CSS för nattliv.html----------------------------------------------------------------------*/
 
 
-.container-sectionTitle { /* Container för Nattliv.html + aktiviteter.html */
+.container-sectionTitle {
+    /* Container för Nattliv.html + aktiviteter.html */
     display: flex;
     justify-content: space-between;
 
@@ -141,7 +142,8 @@ img {
     text-align: center;
 }
 
-.container-Resullts-filters { /*Container för nattliv, aktiviter, restaurangpub.html */
+.container-Resullts-filters {
+    /*Container för nattliv, aktiviter, restaurangpub.html */
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -166,12 +168,14 @@ img {
     background-color: #651860;
 }
 
-#establishmentInfo {  /*div för nattliv, rp o aktiviter.html */ 
+#establishmentInfo {
+    /*div för nattliv, rp o aktiviter.html */
     text-align: left;
     font-size: 1rem;
 }
 
-#googleMap {   /* Karta för nattliv, rp o aktiviter.html) */
+#googleMap {
+    /* Karta för nattliv, rp o aktiviter.html) */
     display: flex;
     justify-content: center;
     width: auto;
@@ -181,7 +185,8 @@ img {
     margin-top: 10%;
 }
 
-.infoBar { /* Nattliv, restaurangpub + aktiviter.html div */
+.infoBar {
+    /* Nattliv, restaurangpub + aktiviter.html div */
     border-top: 10px solid #994dc7;
     border-bottom: 10px solid #994dc7;
     border-radius: 10px;
@@ -196,7 +201,8 @@ img {
 
 }
 
-.infoBar-line { /*Nattliv + Restaurangochpub + aktiviter.html */
+.infoBar-line {
+    /*Nattliv + Restaurangochpub + aktiviter.html */
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -231,7 +237,8 @@ img {
     margin-right: 5px;
 }
 
-.categories-wrapper-left P { /*wrapper för nattliv.html + restaurangpub.html + aktiviter.html) */
+.categories-wrapper-left P {
+    /*wrapper för nattliv.html + restaurangpub.html + aktiviter.html) */
     flex: 1;
     text-align: left;
     margin: 0;
@@ -350,7 +357,7 @@ img {
     font-style: italic;
 }
 
-/*aktiviter.html------------------------------------------------------------------------------*/ 
+/*aktiviter.html------------------------------------------------------------------------------*/
 
 .activityFilters {
     text-align: center;
@@ -398,7 +405,8 @@ img {
     color: #994dc7;
     font-style: italic;
 }
-/*Stillsättning av olika knappar--------------------------------------------------------------*/ 
+
+/*Stillsättning av olika knappar--------------------------------------------------------------*/
 
 
 #directions-btn-placement {
@@ -547,7 +555,7 @@ input {
 
 #walkingIcon {
     width: 16px;
-    height: auto; 
+    height: auto;
 }
 
 .etaIconsContainer {
@@ -558,6 +566,7 @@ input {
     align-items: center;
     justify-content: center;
 }
+
 
 #eta::after {
     content: "";
@@ -614,4 +623,21 @@ input {
     100% {
         background-position: 0 50%;
     }
+
+#eta {
+    position: relative;
+    text-align: center;
+}
+
+#eta::after {
+    content: "";
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 5px;
+
 }
