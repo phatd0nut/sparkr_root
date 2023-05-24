@@ -58,6 +58,7 @@ h1 {
 
 .ute-categories-container {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .categories-wrapper-left P {
@@ -485,7 +486,7 @@ h3 {
     width: 30px;
     height: 30px;
     margin: 0;
-    margin-right: 5px;
+    margin-right: 15px;
 
 }
 
@@ -668,11 +669,10 @@ input[type="range" i] {
 }
 
 .etaIcons {
-    width: 30px; /* Adjust the width as desired */
-    height: auto; /* Maintain aspect ratio */
+    width: 30px;
+    height: auto;
     margin-right: 10px;
     margin-left: 25px;
-
 }
 
 .etaIcons:first-child {
@@ -681,7 +681,7 @@ input[type="range" i] {
 
 #walkingIcon {
     width: 16px;
-    height: auto; /* Maintain aspect ratio */
+    height: auto; 
 }
 
 .etaIconsContainer {
