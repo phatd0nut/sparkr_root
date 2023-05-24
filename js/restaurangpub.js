@@ -33,6 +33,7 @@ function init() {
     searchFilters = document.querySelectorAll(".searchFilters");
     scrollBtns = document.getElementById("scrollBtns");
     scrollBtns.style.display = "none";
+    document.getElementById("directions-btn").style.display = "none"
     let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
         nextOption();
         displayedOption();
@@ -95,6 +96,8 @@ function init() {
     backArrow.addEventListener('touchend', function () {
         this.style.transform = 'none';
     });
+
+    
 }
 
 window.addEventListener("load", init);
@@ -292,6 +295,7 @@ function displayedOption() {
     document.getElementById("restaurangPubAbstract").innerHTML = restaurangPubAbstract;
 
     displayMap(lat, lng);
+    document.getElementById("directions-btn").style.display = "block"
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });
