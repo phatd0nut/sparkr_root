@@ -569,14 +569,17 @@ input {
 
 #eta {
     position: relative;
+    text-align: center;
 }
 
 #eta::after {
     content: "";
     position: absolute;
-    top: 50px;
-    left: 25%;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
     height: 3px;
     width: 200px;
     background-color: #ffffff;
+    border-radius: 5px;
 }

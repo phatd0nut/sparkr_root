@@ -111,6 +111,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocationLng = position.coords.longitude;
             //  userLocationLat = "56.878017011624685";
             //  userLocationLng = "14.807412906905228";
+            requestMetWeather(userLocationLat, userLocationLng);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -319,3 +320,34 @@ function previousOption() {
     displayedOption();
 }
 
+function requestMetWeather() {
+    let request = new XMLHttpRequest();
+    request.open("GET", "https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=" + userLocationLat + "&lon=" + userLocationLng, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+      if (request.readyState == 4) {
+        if (request.status == 200) {
+          getWeather(request.responseXML);
+        } else {
+          restaurangPubInfo.innerHTML = "<p>Den begärda resursen hittades inte.</p>";
+        }
+      }
+    };
+  }
+  
+  function getWeather(responseXML) {
+    // Find the temperature element within the XML
+    let temperatureElement = responseXML.getElementsByTagName("temperature")[0];
+    
+    if (temperatureElement) {
+      // Get the temperature value and unit
+      let temperatureValue = temperatureElement.getAttribute("value");
+      let temperatureUnit = temperatureElement.getAttribute("unit");
+      
+      // Print the temperature information
+      console.log("Temperature: " + temperatureValue + " " + temperatureUnit);
+    } else {
+      console.log("Temperature information not found");
+    }
+  }
+  
