@@ -92,7 +92,7 @@ img {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgb(4, 54, 95) 100%);
+    background: linear-gradient(90deg, rgba(106, 182, 232, 1) 0%, rgb(4, 54, 95) 100%);
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -222,11 +222,13 @@ img {
 .sectionTitle {
     text-align: center;
     color: #FFF;
-    padding: 1%;
     font-size: 35px;
     background-color: #994dc7;
     width: 45%;
     border-radius: 200px 0px 0px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #establishmentInfo {
@@ -247,7 +249,9 @@ img {
     max-width: 70%;
 }
 
-#establishmentAbstract, #activityAbstract, #restaurangPubAbstract {
+#establishmentAbstract,
+#activityAbstract,
+#restaurangPubAbstract {
     margin: 0;
     font-size: 20px;
     color: #994dc7;
@@ -299,7 +303,7 @@ img {
 }
 
 #directions-btn:hover {
-    background-color:#651860;
+    background-color: #651860;
 }
 
 .infoBar {
@@ -327,6 +331,7 @@ img {
     margin: 0;
     padding: 0;
 }
+
 
 
 /* STILLSÄTTNING FÖR restaurangochpub.HTML */
