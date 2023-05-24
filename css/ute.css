@@ -1,23 +1,3 @@
-.bakgrund-ute {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(/img/purple2-01.png);
-    margin: 0;
-}
-
-/* bakgrund för inne.html. */
-.bakgrund-inne {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(/img/blue-01.png);
-    margin: 0;
-}
-
-/* ---------------------------------------------------------------------------------- */
-
-
 html,
 body {
     margin: 0;
@@ -28,103 +8,28 @@ body {
     margin: 0;
 }
 
-
-
-h1 {
-    font-size: 4rem;
-}
-
-#Inne {
-    text-align: center;
-    color: #00DBDE;
-    font-size: 3.5rem;
-}
-
-#googleMap {
-    width: 350px;
-    height: 200px;
-    border: solid rgba(238, 13, 13, 1);
-
-}
-
-
-#establishmentWebsite img,
-#establishmentTel img {
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    margin-right: 5px;
-}
-
-.ute-categories-container {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.categories-wrapper-left P {
-    flex: 1;
-    text-align: left;
-    margin: 0;
-}
-
-.categories-wrapper-right {
-    flex: 1;
-    text-align: right;
-    margin: 0;
-    margin-right: 5%;
-}
-
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-
 }
 
-#ute {
-    text-align: center;
-    color: white;
-    font-size: 3.5rem;
+
+/* CSS för ute.html ---------------------------------------------------------------------*/
+.bakgrund-ute {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/purple2-01.png);
+    margin: 0;
 }
 
-.button3 {
-    font-family: "anchor-web", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 200%;
-    background-color: #6AB6E8;
-    padding: 33px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #FFF;
-    border-radius: 50px;
-    cursor: pointer;
+.container-arrowh2 {
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: auto;
-    margin: 25px;
-    animation: color 10s ease-out infinite;
-    background-size: 200% 200%;
-}
-
-.button3:active {
-    transform: scale(1.05);
-}
-
-@keyframes button3-color {
-    25% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0 50%;
-    }
+    text-align: center;
 }
 
 .arrow {
@@ -145,6 +50,17 @@ img {
     margin-bottom: 30px;
 }
 
+.centered-text {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 55px;
+}
+
+#ute {
+    text-align: center;
+    color: white;
+    font-size: 3.5rem;
+}
 
 .button4 {
     font-family: "anchor-web", sans-serif;
@@ -164,7 +80,7 @@ img {
     justify-content: center;
     width: auto;
     margin: 25px;
-    animation: color 10s ease-out infinite;
+    animation: color 1s ease-out infinite;
     background-size: 200% 200%;
     transition: 0.1s;
 }
@@ -187,215 +103,49 @@ img {
     }
 }
 
-/* STILLSÄTTNING för ute.html */
-
-.container-arrowh2 {
+.ute-categories-container {
+    /*Container för nattliv.html + restaurangpub.html + y) */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.centered-text {
-    flex-grow: 1;
-    text-align: center;
-    margin-right: 55px;
-}
+/* CSS för nattliv.html----------------------------------------------------------------------*/
 
-/* STILLSÄTTNING FÖR nattliv.HTML */
 
-.container-sectionTitle {
+.container-sectionTitle { /* Container för Nattliv.html + aktiviteter.html */
     display: flex;
     justify-content: space-between;
-
-}
-
-.searchFilters {
-    text-align: center;
 
 }
 
 .container-sectionTitle a {
+    /* Stillsättning för Nattliv.html + Restaurangochpub.html */
     margin-right: -50px;
 
 }
 
+
 .sectionTitle {
+    /* Stillsättning för Nattliv.html + Restaurangochpub.html + aktiviteter.html */
     text-align: center;
     color: #FFF;
-    padding: 1%;
     font-size: 35px;
     background-color: #994dc7;
     width: 45%;
     border-radius: 200px 0px 0px 200px;
-}
-
-#establishmentInfo {
-    text-align: left;
-    font-size: 1rem;
-}
-
-#establishmentTel a {
-    color: #3f0c5c;
-}
-
-#establishmentName {
-    color: #994dc7;
-    text-align: left;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 40px;
-    max-width: 70%;
-}
-
-#establishmentAbstract, #activityAbstract, #restaurangPubAbstract {
-    margin: 0;
-    font-size: 20px;
-    color: #994dc7;
-    font-style: italic;
-}
-
-
-
-#establishmentDescription {
-    text-align: left;
-    color: #3f0c5c;
-    margin: 0;
-}
-
-#establishmentRating {
-    margin-bottom: 2%;
-}
-
-#googleMap {
     display: flex;
     justify-content: center;
-    width: auto;
-    height: 140px;
-    border: solid 3px #994dc7;
-    margin: 20px;
-    margin-top: 10%;
+    align-items: center;
 }
 
-#directions-btn-placement {
-    display: flex;
-    justify-content: center;
-}
-
-#directions-btn {
-    border-radius: 50px;
-    background-color: #440d66;
-    color: white;
-    border-style: none;
-    padding: 10px;
-    cursor: pointer;
-    font-family: "anchor-web", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 150%;
-}
-
-#directions-btn:hover {
-    background-color:#651860;
-}
-
-.infoBar {
-    border-top: 10px solid #994dc7;
-    border-bottom: 10px solid #994dc7;
-    border-radius: 10px;
-    margin: 20px;
-    padding-left: 2%;
-    background-color: #fcf9ff;
-}
-
-.infoBar h1 {
-    position: absolute;
-    left: 50%;
-
-}
-
-.contact p {
-    display: inline-block;
-}
-
-.infoBar-line {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* STILLSÄTTNING FÖR restaurangochpub.HTML */
-
-
-
-h3 {
-    font-size: 25px;
-
-}
-
-#foodType {
-
+.searchFilters {
     text-align: center;
 }
 
-#foodType h2 {
-    font-size: 35px;
-}
-
-#foodType h3 {
-    color: white;
-}
-
-#foodType label {
-    display: inline-block;
-    text-align: center;
-}
-
-#foodPrice {
-    text-align: center;
-}
-
-#foodPrice label {
-    text-align: center;
-    display: inline-block;
-
-}
-
-
-
-#foodPrice h3 {
-    text-align: center;
-    color: white;
-}
-
-#foodPrice {
-    text-align: center;
-}
-
-.container-Resullts-filters {
+.container-Resullts-filters { /*Container för nattliv, aktiviter, restaurangpub.html */
     display: flex;
     justify-content: center;
     margin-top: 50px;
 
-}
-
-#generateResults {
-    padding: 10px;
-    width: 150px;
-    background-color: #994dc7;
-    border-color: rgb(226, 225, 225);
-    border-radius: 50px;
-    color: white;
-    border-style: solid;
-    font-family: "anchor-web", sans-serif;
-    font-size: large;
-    margin-bottom: 20px;
 }
 
 #generateResultsNattliv {
@@ -412,36 +162,148 @@ h3 {
     margin-bottom: 20px;
 }
 
-#changeFilters {
-    padding: 10px;
-    width: 150px;
-    background-color: #994dc7;
-    border-color: rgb(226, 225, 225);
-    border-radius: 50px;
-    color: white;
-    border-style: solid;
-    font-family: "anchor-web", sans-serif;
-    font-size: large;
-}
-
 #generateResultsNattliv:hover {
     background-color: #651860;
 }
 
-
-#generateResults:hover {
-    background-color: #651860;
+#establishmentInfo {  /*div för nattliv, rp o aktiviter.html */ 
+    text-align: left;
+    font-size: 1rem;
 }
 
-#changeFilters:hover {
-    background-color: #651860;
+#googleMap {   /* Karta för nattliv, rp o aktiviter.html) */
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 140px;
+    border: solid 3px #994dc7;
+    margin: 20px;
+    margin-top: 10%;
+}
+
+.infoBar { /* Nattliv, restaurangpub + aktiviter.html div */
+    border-top: 10px solid #994dc7;
+    border-bottom: 10px solid #994dc7;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 2%;
+    background-color: #fcf9ff;
+}
+
+.infoBar h1 {
+    position: absolute;
+    left: 50%;
+
+}
+
+.infoBar-line { /*Nattliv + Restaurangochpub + aktiviter.html */
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
 }
 
 
-#restaurangPubDescription {
+#establishmentName {
+    color: #994dc7;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 40px;
+    max-width: 70%;
+}
+
+.wrapper-telwebsite {
+    /* Wrapper för Nattliv.html + Restaurangpub.html + aktiviter.html*/
+    display: flex;
+    margin-left: auto;
+}
+
+#establishmentTel a {
+    color: #3f0c5c;
+}
+
+#establishmentWebsite img,
+#establishmentTel img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.categories-wrapper-left P { /*wrapper för nattliv.html + restaurangpub.html + aktiviter.html) */
+    flex: 1;
+    text-align: left;
+    margin: 0;
+}
+
+#establishmentDescription {
     text-align: left;
     color: #3f0c5c;
     margin: 0;
+}
+
+#establishmentRating {
+    margin-bottom: 2%;
+}
+
+.categories-wrapper-right {
+    /* Wrapper för Nattliv.html + restaurangpub.html + aktiviter.html) */
+    flex: 1;
+    text-align: right;
+    margin: 0;
+    margin-right: 5%;
+}
+
+#establishmentAbstract {
+    margin: 0;
+    font-size: 20px;
+    color: #994dc7;
+    font-style: italic;
+}
+
+/*Restaurangochpub.html------------------------------------------------------------------------*/
+
+#foodType h2 {
+    font-size: 35px;
+}
+
+#foodType h3 {
+    color: white;
+}
+
+#foodType label {
+    display: inline-block;
+    text-align: center;
+}
+
+#foodType {
+
+    text-align: center;
+}
+
+#foodPrice {
+    text-align: center;
+}
+
+#foodPrice label {
+    text-align: center;
+    display: inline-block;
+
+}
+
+#foodPrice h3 {
+    text-align: center;
+    color: white;
+}
+
+#foodPrice {
+    text-align: center;
+}
+
+
+#restaurangPubinfo {
+    text-align: left;
 }
 
 #restaurangPubName {
@@ -453,8 +315,19 @@ h3 {
     max-width: 70%;
 }
 
-#restaurangPubinfo {
+#restaurangPubTel img,
+#restaurangPubWebsite img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-right: 10px;
+
+}
+
+#restaurangPubDescription {
     text-align: left;
+    color: #3f0c5c;
+    margin: 0;
 }
 
 #restaurangPubAddress {
@@ -469,49 +342,21 @@ h3 {
     text-align: left;
 }
 
-.infoBar-line {
-    display: flex;
-}
 
-#restaurangPubName {
-    flex-shrink: 0;
-    margin-right: 10px;
-    max-width: 70%;
-}
-
-
-
-#restaurangPubTel img,
-#restaurangPubWebsite img {
-    width: 30px;
-    height: 30px;
+#restaurangPubAbstract {
     margin: 0;
-    margin-right: 15px;
-
+    font-size: 20px;
+    color: #994dc7;
+    font-style: italic;
 }
 
-.wrapper-telwebsite {
-    display: flex;
-    margin-left: auto;
+/*aktiviter.html------------------------------------------------------------------------------*/ 
+
+.activityFilters {
+    text-align: center;
 }
 
-
-/* för radio knapparna------ */
-
-.priceOpt,
-.foodOpt {
-    padding: 10px;
-    background-color: #994dc7;
-    border-radius: 100px;
-    margin: 5px;
-    color: white;
-}
-
-.radiobuttons {
-    padding: 10px;
-    background-color: #994dc7;
-    border-radius: 100px;
-    margin: 5px;
+.activityFilters h3 {
     color: white;
 }
 
@@ -523,58 +368,6 @@ h3 {
     margin: 5px;
     color: white;
 }
-
-input {
-    accent-color: rgb(147, 33, 162);
-}
-
-
-/*CSS för random.html */
-
-.container-random-word {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 80vh;
-}
-
-
-#box {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(226, 226, 232);
-    transition: all 1.25s ease;
-    border-radius: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'SFUIText-Bold';
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-}
-
-.box.flipped {
-    transform: rotateY(360deg);
-    background-color: rgb(185, 182, 182);
-}
-
-#textbox {
-    font-size: 50px;
-    margin: 0;
-    padding: 0;
-}
-
-#generate {
-    text-align: center;
-}
-
-/* stillsättning för aktiviteter.html */
 
 #activityName {
     color: #994dc7;
@@ -599,16 +392,98 @@ input {
     margin-right: 5px;
 }
 
+#activityAbstract {
+    margin: 0;
+    font-size: 20px;
+    color: #994dc7;
+    font-style: italic;
+}
+/*Stillsättning av olika knappar--------------------------------------------------------------*/ 
 
-.activityFilters {
-    text-align: center;
+
+#directions-btn-placement {
+    display: flex;
+    justify-content: center;
+}
+
+#directions-btn {
+    border-radius: 50px;
+    background-color: #440d66;
+    color: white;
+    border-style: none;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "anchor-web", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 150%;
+}
+
+#directions-btn:hover {
+    background-color: #651860;
+}
+
+#generateResults {
+    padding: 10px;
+    width: 150px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid;
+    font-family: "anchor-web", sans-serif;
+    font-size: large;
+    margin-bottom: 20px;
 }
 
 
-.activityFilters h3 {
+#changeFilters {
+    padding: 10px;
+    width: 150px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid;
+    font-family: "anchor-web", sans-serif;
+    font-size: large;
+}
+
+
+#generateResults:hover {
+    background-color: #651860;
+}
+
+#changeFilters:hover {
+    background-color: #651860;
+}
+
+/* för radio knapparna------ */
+
+.priceOpt,
+.foodOpt {
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
     color: white;
 }
 
+.radiobuttons {
+    padding: 10px;
+    background-color: #994dc7;
+    border-radius: 100px;
+    margin: 5px;
+    color: white;
+}
+
+input {
+    accent-color: rgb(147, 33, 162);
+}
 
 /* Stillsättning för slidebar radies och föregående och nästgående sida */
 
@@ -629,20 +504,10 @@ input {
     justify-content: center;
 }
 
-input[type="range" i] {
-    appearance: auto;
-    cursor: default;
-    color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
-    padding: initial;
-    border: initial;
-    height: 20px;
-}
-
 #scrollBtns {
     text-align: center;
     color: white;
 }
-
 
 .indexBtns {
     padding: 20px 25px;
@@ -662,6 +527,7 @@ input[type="range" i] {
     color: white;
     font-size: 1.5rem;
 }
+
 
 .etaText {
     color: #ffffff;
