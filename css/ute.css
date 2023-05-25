@@ -567,6 +567,63 @@ input {
     justify-content: center;
 }
 
+
+#eta::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #000000; 
+    margin-top: 10px; 
+  }
+
+
+  /* bakgrund för inne.html. */
+.bakgrund-inne {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/blue-01.png);
+   
+}
+
+.button3 {
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 200%;
+    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgba(66,136,182,1) 100%);
+    padding: 33px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 25px;
+    animation: color 1s ease-out infinite;
+    background-size: 200% 200%;
+}
+
+.button3:active {
+    transform: scale(1.05);
+}
+
+@keyframes button3-color {
+    25% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+
 #eta {
     position: relative;
     text-align: center;
@@ -582,4 +639,5 @@ input {
     width: 200px;
     background-color: #ffffff;
     border-radius: 5px;
+
 }
