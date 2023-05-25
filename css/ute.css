@@ -193,8 +193,6 @@ img {
     margin: 20px;
     padding-left: 2%;
     background-color: #fcf9ff;
-    padding-top: 8px;
-    padding-bottom: 8px;
 }
 
 .infoBar h1 {
@@ -412,16 +410,20 @@ img {
 }
 
 #directions-btn {
-    padding: 10px;
-    width: 150px;
-    background-color: #994dc7;
-    border-color: rgb(226, 225, 225);
     border-radius: 50px;
+    background-color: #440d66;
     color: white;
-    border-style: solid;
+    border-style: none;
+    padding: 10px;
+    cursor: pointer;
     font-family: "anchor-web", sans-serif;
-    font-size: large;
-    margin-left: 15px;
+    font-weight: 700;
+    font-style: normal;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 150%;
 }
 
 #directions-btn:hover {
@@ -575,12 +577,7 @@ input {
     justify-content: center;
 }
 
-#eta {
-    position: relative;
-    text-align: center;
-}
-
-#eta::after {
+.etaIconsContainer::after {
     content: "";
     position: absolute;
     top: 55px;
@@ -590,7 +587,6 @@ input {
     width: 300px;
     background-color: #ffffff;
     border-radius: 5px;
-
 }
 
 #weatherInfo {
@@ -603,5 +599,5 @@ input {
 }
 
 .visible ~ #weatherInfo {
-    margin-top: 35px;
+    margin-top: 40px;
 }
