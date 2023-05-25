@@ -1,4 +1,3 @@
-
 body {
   display: grid;
   grid-template-columns: 1fr;
@@ -8,6 +7,8 @@ body {
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 .logo {
@@ -22,19 +23,20 @@ body {
 }
 
 .arrow {
-  border: solid #FFFFFF;
+  border: solid #ffffff;
   border-width: 0 6px 6px 0;
   display: inline-block;
-  margin: 10px;
   padding: 13px;
 }
 
-.left {
+.left-arrow {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
+  margin-bottom: 60px;
+  margin-left: 40px;
 }
 
-.containerwh2 {
+.container h2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,8 +58,7 @@ body {
 .sectionTitle {
   text-align: center;
   color: #FFF;
-  padding: 1%;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   font-size: 35px;
   background-color: #6AB6E8;
   width: 50%;
@@ -67,7 +68,8 @@ body {
 
 .bakgrund-inne {
   background-position: center center;
-  background-repeat: no-repeat; background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(/img/blue-01.png);
 }
 
@@ -90,14 +92,16 @@ body {
 
 .drinkar p {
   text-align: left;
-  
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .background-image {
   background-position: center center;
   background-size: cover;
   position: relative;
-  padding-top: 50%; /* förhållandet mellan bredden och höjden av bilden */
+  padding-top: 50%;
+  /* förhållandet mellan bredden och höjden av bilden */
 }
 
 .background-image h1 {
@@ -107,7 +111,6 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
   color: white;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .background-image::before {
@@ -123,18 +126,20 @@ body {
 }
 
 /* H1 och P elementen */
-h1, p {
+.sectionTitle {
   color: #FFFFFF;
-  margin: 0;
-  padding: 0;
+  margin: -10px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
-h2, title {
+.title {
   color: #FFFFFF;
 }
 
 /* Stil för h1 elementen */
-h1 {  
+h1 {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -142,7 +147,7 @@ h1 {
 
 /* Stil för p elementen */
 p {
-  font-size: 18px;
+  font-size: 10px;
   margin-bottom: 5px;
 }
 
@@ -151,78 +156,71 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 /*CSS för filmer*/
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   margin: 20px;
-  }
-  
-  .kategorier h2 {
-  font-size: 24px;
-  padding: 20px;
-  margin: 0;
-  text-align: center;
-  }
-  
- .kategorier button {
-  display: block;
-  width: 100%;
-  padding: 0px;
-  border: none;
-  background-color: transparent;
-  color: #FFFFFF;
-  font-size: 18px;
-  cursor: pointer;
-  }
-  
-  .kategorier button:hover {
-
-  background-color: transparent;
-  }
-  
-  /* CSS för kolumner och kategorier */
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  user-select: none;
 }
 
+#filmInstructions {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 50px;
+}
+
+.kategorier h2 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* CSS för kolumner och kategorier */
 .kategori-enkel {
-  background: linear-gradient(90deg, #81e8ff,#95ecff, #d1f7ff 100%);
+  background: linear-gradient(90deg, #81e8ff, #95ecff, #d1f7ff 100%);
   background-size: 200% 100%;
   animation: color-enkel 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
-
 .kategori-sorglig {
-  background: linear-gradient(90deg, #2bbaea,#27a3da, #036ea2 100%);
+  background: linear-gradient(90deg, #2bbaea, #27a3da, #036ea2 100%);
   background-size: 200% 100%;
   animation: color-sorglig 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
 .kategori-djup {
-  background: linear-gradient(90deg, #5DADE2,#2f6f95, #073952 100%);
+  background: linear-gradient(90deg, #5DADE2, #2f6f95, #073952 100%);
   background-size: 200% 100%;
   animation: color-djup 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
 .kategori-spannande {
-  background: linear-gradient(90deg, #036ea2,#4bacd2, #81e8ff 100%);
+  background: linear-gradient(90deg, #036ea2, #4bacd2, #81e8ff 100%);
   background-size: 200% 100%;
   animation: color-spannande 10s ease-in-out infinite;
+  min-height: 100px;
 }
 
+.kategori-enkel:active, .kategori-sorglig:active, .kategori-djup:active, .kategori-spannande:active {
+  transform: scale(1.05);
+}
 
 
 @keyframes color-enkel {
   25% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -232,10 +230,12 @@ ul {
   25% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
 
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -245,9 +245,11 @@ ul {
   25% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -257,28 +259,52 @@ ul {
   25% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 
 #resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, p {
   text-align: center;
   font-size: 24px;
 }
 
+#resultat-enkel,
+#resultat-sorglig,
+#resultat-djup,
+#resultat-spannande,
+p {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+
+}
+
 .kategorier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: #FFFFFF;
   overflow: hidden;
   flex-basis: calc(30% - 10px); /* Uppdaterat värde för smalare kolumner */
   text-align: left;
+  flex-basis: calc(30% - 10px);
+  /* Uppdaterat värde för smalare kolumner */
   margin-bottom: 0px;
-  padding: 0px;
-  border-radius: 80px; /* Uppdaterat värde för rundare kanter */
+  padding: 10px;
+  border-radius: 80px;
+  /* Uppdaterat värde för rundare kanter */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 100px;
 
 }
 
@@ -297,18 +323,19 @@ ul {
     gap: 5px;
     padding: 10px;
   }
-  
+
   .drinkar {
     padding: 10px;
     margin-bottom: 5px;
   }
+
   h1 {
     font-size: 22px;
     margin-bottom: 5px;
   }
+
   p {
     font-size: 16px;
     margin-bottom: 3px;
   }
 }
-

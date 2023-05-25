@@ -200,6 +200,7 @@ function displayedOption() {
 
     let lat = selectedEntry.lat;
     let lng = selectedEntry.lng;
+    let restaurangPubAbstract = selectedEntry.abstract;
     let restaurangPubCity = selectedEntry.city;
     let restaurangPubName = selectedEntry.name;
     let restaurangPubDescription = selectedEntry.description;
@@ -236,6 +237,7 @@ function displayedOption() {
     document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
     document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
+    document.getElementById("restaurangPubAbstract").innerHTML =  restaurangPubAbstract;
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").addEventListener("click", function () {

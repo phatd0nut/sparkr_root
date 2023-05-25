@@ -44,6 +44,9 @@ drinkar.forEach(function (drink) {
 //Slut på js för drinkar
 
 function slumpaFilmEnkel() {
+  var titleElement = document.querySelector('.kategori-enkel .title');
+  titleElement.style.display = 'none';
+
   var filmerEnkel = [
     "The Devil Wears Prada",
     "Easy A",
@@ -105,6 +108,9 @@ function slumpaFilmEnkel() {
 }
 
 function slumpaFilmSorglig() {
+  var titleElement = document.querySelector('.kategori-sorglig .title');
+  titleElement.style.display = 'none';
+
   var filmerSorglig = [
     "The Fault in Our Stars",
     "A Monster Calls",
@@ -165,6 +171,9 @@ function slumpaFilmSorglig() {
 }
 
 function slumpaFilmDjup() {
+  var titleElement = document.querySelector('.kategori-djup .title');
+  titleElement.style.display = 'none';
+
   var filmerDjup = [
     "Inception",
     "Interstellar",
@@ -226,6 +235,9 @@ function slumpaFilmDjup() {
 }
 
 function slumpaFilmSpannande() {
+  var titleElement = document.querySelector('.kategori-spannande .title');
+  titleElement.style.display = 'none';
+
   var filmerSpannande = [
     "The Babadook",
     "Hereditary",

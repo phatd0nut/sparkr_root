@@ -198,6 +198,7 @@ function displayedOption() {
     let activityPriceRange = selectedEntry.price_range;
     let activityWebsite = selectedEntry.website;
     let activityRating = Number(selectedEntry.rating).toFixed(1);
+    let activityAbstract = selectedEntry.abstract;
 
     // Utskrift av information i HTML
     document.getElementById("activityName").innerHTML = activityName;
@@ -236,6 +237,7 @@ function displayedOption() {
     document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
     document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + " kr";
     document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
+    document.getElementById("activityAbstract").innerHTML = activityAbstract;
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").addEventListener("click", function () {
