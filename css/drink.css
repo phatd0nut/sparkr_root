@@ -9,10 +9,12 @@ body {
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
+
   overflow-x: hidden;  
   /* Döljer horisontell skroll om innehållet blir bredare än body-elementet. */
   height: 100%;
 } /*CSS för generell stilsättning*/
+
 
 
 .logo {
@@ -22,6 +24,7 @@ body {
 }
 
 .logo img {
+
   max-width: 250px;  /* Begränsar bildens maximala bredd till 250px. */
   max-height: 250px;  /* Begränsar bildens maximala höjd till 250px. */
 }
@@ -38,6 +41,29 @@ body {
   -webkit-transform: rotate(135deg);  /* Fallback för äldre webbläsare som kräver ett prefix. */
   margin-bottom: 60px;  /* Lägger till en marginal (mellanrum) nedåt från pilen. */
   margin-left: 40px;  /* Lägger till en marginal (mellanrum) åt vänster från pilen. */
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.arrow {
+  border: solid #ffffff;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 13px;
+  margin-top: 40px;
+  margin-left: -15px;
+}
+
+.left {
+  transform: rotate(135deg);
+}
+
+.left-arrow {
+  margin-right: 10px;
+  margin-left: 30px;
+
 }
 
 .container h2 {
@@ -63,19 +89,24 @@ body {
 .sectionTitle {
   text-align: center;
   color: #FFF;
-  margin-bottom: 0px;
+  padding: 1%;
+  margin-bottom: 0;
   font-size: 35px;
   background-color: #6AB6E8;
-  width: 50%;
+  width: 45%;
   border-radius: 200px 0px 0px 200px;
+  
 }
 
+/* bakgrund för inne.html. */
 
 .bakgrund-inne {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(/img/blue-01.png);
+  margin: 0;
+  background-attachment: fixed;
 }
 
 /* Bakgrundsfärg för den vänstra kolumnen */
@@ -245,6 +276,7 @@ ul {
   background-size: 200% 100%;
   animation: color-enkel 10s ease-in-out infinite;
   min-height: 100px;
+
 }
 
 .kategori-sorglig {
@@ -268,9 +300,7 @@ ul {
   min-height: 100px;
 }
 
-.kategori-enkel:active, .kategori-sorglig:active, .kategori-djup:active, .kategori-spannande:active {
-  transform: scale(1.05);
-}
+
 
 
 @keyframes color-enkel {

@@ -10,9 +10,6 @@ function init() {
 
   var spannandeFilmerBtn = document.getElementById("spannandeFilmerBtn");
   spannandeFilmerBtn.addEventListener("click", slumpaFilmSpannande);
-
-  var slumpaSpelBtn = document.getElementById("slumpaSpelBtn");
-  slumpaSpelBtn.addEventListener("click", slumpaSpel);
 }
 
 window.addEventListener("load", init);
@@ -46,6 +43,14 @@ drinkar.forEach(function (drink) {
 //Slut på js för drinkar
 
 function slumpaFilmEnkel() {
+  var kategoriEnkel = document.getElementById('enkelFilmerBtn');
+  kategoriEnkel.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriEnkel.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-enkel .title');
   titleElement.style.display = 'none';
 
@@ -110,6 +115,14 @@ function slumpaFilmEnkel() {
 }
 
 function slumpaFilmSorglig() {
+  var kategoriSorglig = document.getElementById('sorgligFilmerBtn');
+  kategoriSorglig.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriSorglig.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-sorglig .title');
   titleElement.style.display = 'none';
 
@@ -173,6 +186,14 @@ function slumpaFilmSorglig() {
 }
 
 function slumpaFilmDjup() {
+  var kategoriDjup = document.getElementById('djupFilmerBtn');
+  kategoriDjup.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriDjup.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-djup .title');
   titleElement.style.display = 'none';
 
@@ -237,6 +258,14 @@ function slumpaFilmDjup() {
 }
 
 function slumpaFilmSpannande() {
+  var kategoriSpannande = document.getElementById('spannandeFilmerBtn');
+  kategoriSpannande.addEventListener('touchstart', function() {
+    this.style.transform = 'scale(1.05)';
+  });
+  kategoriSpannande.addEventListener('touchend', function() {
+    this.style.transform = 'none';
+  });
+
   var titleElement = document.querySelector('.kategori-spannande .title');
   titleElement.style.display = 'none';
 
@@ -378,42 +407,64 @@ games.forEach(function (game) {
 
 
 
-// function slumpaSpel() {
-//   var spel = [
-//     "Poker",
-//     "Uno",
-//     "Monopol",
-//     "Scrabble",
-//     "Yatzy",
-//     "Schack",
-//     "Cluedo",
-//     "Twister",
-//     "Kubb",
-//     "Biljard",
-//     "Minecraft",
-//     "Fortnite",
-//     "Among Us",
-//     "League of Legends",
-//     "Counter-Strike: Global Offensive",
-//     "Overwatch",
-//     "Super Mario Bros",
-//     "The Legend of Zelda",
-//     "Final Fantasy",
-//     "World of Warcraft",
-//     "Call of Duty",
-//     "GTA V",
-//     "Red Dead Redemption 2",
-//     "FIFA",
-//     "NBA 2K",
-//     "Madden NFL",
-//     "Animal Crossing: New Horizons"
-//   ];
+ 
+//   var kategorier = Object.keys(filmer); // Hämta alla kategorier
 
-//   var slumpatSpel = spel[Math.floor(Math.random() * spel.length)];
-//   var resultat = document.getElementById("resultat-spel");
+//   // Slumpa en kategori
+//   var slumpadKategori = kategorier[Math.floor(Math.random() * kategorier.length)];
+//   var filmerIKategori = filmer[slumpadKategori];
 
-//   resultat.textContent = slumpatSpel;
+//   var resultatTagg = document.getElementById("resultat-" + slumpadKategori);
+//   var räknareTagg = document.getElementById("räknare-" + slumpadKategori);
+
+//   if (filmerIKategori.length === 0) {
+//     resultatTagg.textContent = "Du har sett alla filmer i denna kategori.";
+//     räknareTagg.textContent = "0";
+//     return;
+//   }
+
+//   var filmerVisade = filmer.visade || {}; // Array för visade filmer (initieras första gången)
+
+//   if (!filmerVisade[slumpadKategori] || filmerVisade[slumpadKategori].length === 0) {
+//     // Om alla filmer har visats eller ingen har visats än, återställ arrayen
+//     filmerVisade[slumpadKategori] = [...filmerIKategori];
+//   }
+
+//   // Hämta nuvarande räknare
+//   var räknare = parseInt(räknareTagg.textContent);
+
+//   // Slumpa en ny film från den valda kategorin
+//   var index = Math.floor(Math.random() * filmerVisade[slumpadKategori].length);
+//   var film = filmerVisade[slumpadKategori][index];
+
+//   // Ta bort den visade filmen från arrayen
+//   filmerVisade[slumpadKategori].splice(index, 1);
+
+//   // Uppdatera räknaren för nästa gång
+//   räknare = (räknare + 1) % filmerIKategori.length;
+//   räknareTagg.textContent = räknare;
+
+//   // Spara uppdaterad array för visade filmer
+//   filmer.visade = filmerVisade;
+
+//   // Visa den slumpade filmen
+//   resultatTagg.style.textAlign = "center";
+//   resultatTagg.textContent = film;
 // }
 
-// var slumpaSpelBtn = document.getElementById("slumpaSpelBtn");
-// slumpaSpelBtn.addEventListener("click", slumpaSpel);
+
+
+  // // Hämta nästa film baserat på räknaren
+  // var räknareTagg = document.getElementById("räknare-" + kategorier);
+  // var räknare = parseInt(räknareTagg.textContent);
+  // var film = filmer[kategorier][räknare];
+
+  // // Öka räknaren för nästa gång
+  // räknare++;
+  // räknareTagg.textContent = räknare;
+
+  
+
+  // var resultatTagg = document.getElementById("resultat-" + kategorier);
+  // resultatTagg.style.textAlign = "center";
+  // resultatTagg.textContent = "" + film;

@@ -33,6 +33,7 @@ function init() {
     searchFilters = document.querySelectorAll(".searchFilters");
     scrollBtns = document.getElementById("scrollBtns");
     scrollBtns.style.display = "none";
+    document.getElementById("directions-btn").style.display = "none"
     let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
         nextOption();
         displayedOption();
@@ -87,6 +88,16 @@ function init() {
             getUserLocation();
         }
     });
+    let backArrow = document.querySelector(".left-arrow");
+    backArrow.addEventListener('touchstart', function () {
+        this.style.transform = 'scale(1.15)';
+    });
+
+    backArrow.addEventListener('touchend', function () {
+        this.style.transform = 'none';
+    });
+
+    
 }
 
 window.addEventListener("load", init);
@@ -100,6 +111,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocationLng = position.coords.longitude;
             //  userLocationLat = "56.878017011624685";
             //  userLocationLng = "14.807412906905228";
+            requestMetWeather(userLocationLat, userLocationLng);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -165,23 +177,62 @@ function displayMap(lat, lng) {
 function getDirections(userLocationLat, userLocationLng) {
     let myLocation = new google.maps.LatLng(parseFloat(userLocationLat), parseFloat(userLocationLng));
     let destination = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+
     let requestDirections = {
         origin: myLocation,
         destination: destination,
         travelMode: google.maps.TravelMode.DRIVING
     };
+
+    let drivingTime, bikingTime, walkingTime;
+
     directionsService.route(requestDirections, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             // Tar bort den tidigare markören (så att det inte blir dubbla markörer på destinationen)
             if (marker) {
                 marker.setMap(null);
             }
+
             // Visar vägbeskrivningarna på kartan
             directionsRenderer.setDirections(result);
             directionsRenderer.setMap(map);
+
+            // Retrieve ETA for different travel modes
+            drivingTime = result.routes[0].legs[0].duration.text;
+
+            requestDirections.travelMode = google.maps.TravelMode.WALKING;
+            directionsService.route(requestDirections, function (walkingResult, walkingStatus) {
+                if (walkingStatus == google.maps.DirectionsStatus.OK) {
+                    walkingTime = walkingResult.routes[0].legs[0].duration.text;
+
+                    requestDirections.travelMode = google.maps.TravelMode.BICYCLING;
+                    directionsService.route(requestDirections, function (bikingResult, bikingStatus) {
+                        if (bikingStatus == google.maps.DirectionsStatus.OK) {
+                            bikingTime = bikingResult.routes[0].legs[0].duration.text;
+
+                            // Skriv ut uppskattad tid för åtkomst
+
+
+                        }
+
+                        let carEta = '<img src="../img/carEta.png" class="etaIcons" alt="Uppskattad ankomst: Bil"><span class="etaText">' + drivingTime + '</span>';
+                        let bikeEta = '<img src="../img/bikeEta.png" class="etaIcons" alt="Uppskattad ankomst: Cykel"><span class="etaText">' + bikingTime + '</span>';
+                        let walkEta = '<img src="../img/walkingEta.png" id="walkingIcon" class="etaIcons" alt="Uppskattad ankomst: Promenera"><span class="etaText">' + walkingTime + '</span>';
+
+                        let etaContainer = document.createElement("div");
+                        etaContainer.classList.add("etaIconsContainer");
+                        etaContainer.innerHTML = carEta + bikeEta + walkEta;
+
+                        document.getElementById("eta").appendChild(etaContainer);
+
+
+                    });
+                }
+            });
         }
     });
 }
+
 
 function showFilters() {
     searchFilters.forEach(function (filter) {
@@ -213,17 +264,22 @@ function displayedOption() {
     // Utskrift av information i HTML
     document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
     document.getElementById("restaurangPubDescription").innerHTML = restaurangPubDescription;
-
     let clickableTelNr = document.createElement("a");
     clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
     if (!selectedEntry.phone_number) {
-        document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades.";
+        // document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
+        document.getElementById("restaurangPubTel").innerHTML = "";
+        document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
+        let telIcon1 = document.createElement("img");
+        telIcon1.setAttribute("src", "../img/phone3.png");
+        clickableTelNr.appendChild(telIcon1);
+        clickableTelNr.style.pointerEvents = "none";
     } else {
         document.getElementById("restaurangPubTel").innerHTML = "";
         document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
-        let telIcon = document.createElement("img");
-        telIcon.setAttribute("src", "../img/phone.png");
-        clickableTelNr.appendChild(telIcon);
+        let telIcon2 = document.createElement("img");
+        telIcon2.setAttribute("src", "../img/phone.png");
+        clickableTelNr.appendChild(telIcon2);
     }
 
     let clickableWWW = document.createElement("a");
@@ -237,9 +293,10 @@ function displayedOption() {
     document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
     document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-    document.getElementById("restaurangPubAbstract").innerHTML =  restaurangPubAbstract;
+    document.getElementById("restaurangPubAbstract").innerHTML = restaurangPubAbstract;
 
     displayMap(lat, lng);
+    document.getElementById("directions-btn").style.display = "block"
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });
@@ -263,3 +320,34 @@ function previousOption() {
     displayedOption();
 }
 
+function requestMetWeather() {
+    let request = new XMLHttpRequest();
+    request.open("GET", "https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=" + userLocationLat + "&lon=" + userLocationLng, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+      if (request.readyState == 4) {
+        if (request.status == 200) {
+          getWeather(request.responseXML);
+        } else {
+          restaurangPubInfo.innerHTML = "<p>Den begärda resursen hittades inte.</p>";
+        }
+      }
+    };
+  }
+  
+  function getWeather(responseXML) {
+    // Find the temperature element within the XML
+    let temperatureElement = responseXML.getElementsByTagName("temperature")[0];
+    
+    if (temperatureElement) {
+      // Get the temperature value and unit
+      let temperatureValue = temperatureElement.getAttribute("value");
+      let temperatureUnit = temperatureElement.getAttribute("unit");
+      
+      // Print the temperature information
+      console.log("Temperature: " + temperatureValue + " " + temperatureUnit);
+    } else {
+      console.log("Temperature information not found");
+    }
+  }
+  

@@ -14,16 +14,20 @@
 </head>
 
 <body class="bakgrund-ute">
-    <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
+    <a href="/index.html">
+        <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
+      </a>
     <div class="container-sectionTitle">
-        <a href="ute.html"><i class="arrow left"></i></a>
+        <div class="left-arrow">
+            <a href="/ute/ute.html"><i class="arrow left"></i></a>
+        </div>
         <h1 class="sectionTitle">Aktiviteter</h1>
     </div>
 
     <div class="activityFilters">
-        <div id="changeRadius">
+        <div id ="changeRadius">
             <label for="radius">Utöka ditt område:</label>
-            <input type="range" id="radiusSlider" min="10" max="300" step="10" value="10">
+            <input type="range" id="radiusSlider" min="10" max="150" step="10" value="10">
             <span id="radiusValue">10 km</span>
         </div>
         <h3>Välj en aktivitet:</h3>
@@ -67,15 +71,21 @@
                         <p id="activityWebsite"></p>
                     </div>
                 </div>
-
-                <h3 id="activityDescription"></h3>
-                <p id="activityCity"></p>
-                <p id="activityAddress"></p>
-                <p id="activityPriceRng"></p>
-                <p id="activityRating"></p>
-                <p id="activityOutdoors"></p>
-                <p id="activityAbstract"></p>
+                <div class="ute-categories-container">
+                    <div class="categories-wrapper-left">
+                        <h3 id="activityDescription"></h3>
+                        <p id="activityCity"></p>
+                        <p id="activityAddress"></p>
+                        <p id="activityPriceRng"></p>
+                        <p id="activityRating"></p>
+                        <p id="activityOutdoors"></p>
+                    </div>
+                    <div class="categories-wrapper-right">
+                        <p id="activityAbstract"></p>
+                    </div>
+                </div>
             </div>
+
             <p id="indexCounter"></p>
             <div class="container-scrollBtns">
                 <div id="scrollBtns">
