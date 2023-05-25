@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spel och samtal</title>
+    <title>Spel</title>
     <link rel="stylesheet" href="/css/drink.css" />
     <link rel="stylesheet" href="https://use.typekit.net/djw4nov.css">
     <script src="../js/navigering.js"></script>
 </head>
+
 <body class="bakgrund-inne">
     <div class="logo">
-        <a href="/index.html">
-            <img src="/img/logotyp_sparkr_v3_3.png" alt="Bild på Sparkr loggan">
-          </a>
+        <img src="/img/logotyp_sparkr_v3_3.png" alt="">
     </div>
     <div class="container-sectionTitle">
         <div class="left-arrow">
@@ -22,17 +22,32 @@
         <h1 class="sectionTitle">Spel</h1>
     </div>
     <ul>
-        <li class="drinkar">
-            <div class="background-image" style="background-image: url('/img/cocktail-1869865__480.jpg')">
-            <h1 class="title">Spela kort</h1>
+        <li class="games">
+            <div class="game-column">
+              <h1 class="game-title">Kortspel 1</h1>
+              <img class="game-image" src="/img/kort.jpg" alt="Kortspel 1">
+              <div class="expanded-content">
+                <p class="instructions"></p>
+              </div>
             </div>
-            <p>Vändtia</p>
-            <p>Maja</p>
-            <p>Slav och president</p>
-            <p>Chicago</p>
-            <p>Bluff</p>
+          </li>
+          
+          
+
+        <li class="drinkar">
+            <h1 class="title">Brädspel</h1>
+            <p id="resultat-spel"></p>
+            <p id="beskrivning-spel"></p>
+            <img id="bild-spel" src="" alt="Spelbild">
+        </li>
+        <li class="drinkar">
+            <h1 class="title">Datorspel</h1>
+            <p id="resultat-spel"></p>
+            <p id="beskrivning-spel"></p>
+            <img id="bild-spel" src="" alt="Spelbild">
         </li>
     </ul>
     <script src="/js/drink.js"></script>
 </body>
+
 </html>
