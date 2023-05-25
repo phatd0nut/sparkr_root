@@ -10,38 +10,27 @@ function init() {
 
   var spannandeFilmerBtn = document.getElementById("spannandeFilmerBtn");
   spannandeFilmerBtn.addEventListener("click", slumpaFilmSpannande);
-
-  let backArrow = document.querySelector(".left-arrow");
-    backArrow.addEventListener('touchstart', function () {
-        this.style.transform = 'scale(1.15)';
-    });
-
-    backArrow.addEventListener('touchend', function () {
-        this.style.transform = 'none';
-    });
-
 }
 
 window.addEventListener("load", init);
-
 
 //Js för drinkar
 
 var drinkar = document.querySelectorAll('.drinkar');
 
-drinkar.forEach(function(drink) {
+drinkar.forEach(function (drink) {
   const h1 = drink.querySelector('h1');
   const pElements = drink.querySelectorAll('p');
 
   // Dölj alla p-element i början
-  pElements.forEach(function(pElement) {
+  pElements.forEach(function (pElement) {
     pElement.style.display = 'none';
   });
 
   // Lägg till klickhändelse på h1-elementet
-  h1.addEventListener('click', function() {
+  h1.addEventListener('click', function () {
     // Visa eller dölj p-elementen
-    pElements.forEach(function(pElement) {
+    pElements.forEach(function (pElement) {
       if (pElement.style.display === 'none') {
         pElement.style.display = 'block';
       } else {
@@ -281,24 +270,24 @@ function slumpaFilmSpannande() {
   titleElement.style.display = 'none';
 
   var filmerSpannande = [
-    "The Babadook",  
-    "Hereditary",  
+    "The Babadook",
+    "Hereditary",
     "A Quiet Place",
-    "The Conjuring",  
-    "The Witch",  
-    "It Follows",  
-    "The Descent", 
-    "The Strangers",  
-    "Sinister",  
-    "Insidious",  
-    "Don't Breathe",  
-    "Midsommar",  
-    "Us",  
-    "The Invisible Man",  
-    "Train to Busan",  
-    "The Ritual",  
-    "The Autopsy of Jane Doe",  
-    "The Visit",  
+    "The Conjuring",
+    "The Witch",
+    "It Follows",
+    "The Descent",
+    "The Strangers",
+    "Sinister",
+    "Insidious",
+    "Don't Breathe",
+    "Midsommar",
+    "Us",
+    "The Invisible Man",
+    "Train to Busan",
+    "The Ritual",
+    "The Autopsy of Jane Doe",
+    "The Visit",
     "Annihilation",
     "Inception",
     "The Dark Knight",
@@ -357,6 +346,64 @@ function slumpaFilmSpannande() {
   resultat.textContent = slumpadFilm;
 }
 
+//Slut på js för filmer
+
+//js för spel
+// var spel = document.querySelectorAll('.spel');
+
+// drinkar.forEach(function (drink) {
+//   const h1 = drink.querySelector('h1');
+//   const pElements = drink.querySelectorAll('p');
+
+//   // Dölj alla p-element i början
+//   pElements.forEach(function (pElement) {
+//     pElement.style.display = 'none';
+//   });
+
+//   // Lägg till klickhändelse på h1-elementet
+//   h1.addEventListener('click', function () {
+//     // Visa eller dölj p-elementen
+//     pElements.forEach(function (pElement) {
+//       if (pElement.style.display === 'none') {
+//         pElement.style.display = 'block';
+//       } else {
+//         pElement.style.display = 'none';
+//       }
+//     });
+//   });
+// });
+
+
+var games = document.querySelectorAll('.games');
+
+games.forEach(function (game) {
+  var pElement = game.querySelector('.instructions');
+  var gameImage = game.querySelector('.game-image');
+  var gameTitle = game.querySelector('.game-title');
+
+  var spelData = [
+    { title: "Spansk skitgubbe",instructions: "Kortlek: Spansk 40-kortlek (utan åttor och nior). Varje spelare får tre kort och fyra kort placeras med framsidan uppåt på bordet.Målet är att bli av med alla dina kort genom att matcha dina kort med korten på bordet.Om du inte kan matcha ett kort måste du lägga ner ett kort från din hand på bordet.Om du inte har några kort kvar i handen blir du 'skitgubbe'.Spelet fortsätter tills en spelare blir 'skitgubbe' tre gånger. Den spelaren blir förloraren." },
+
+    { title: "Spaderdam", instructions: "Antal spelare 2-6: Spelarna får i given sex kort var, och de återstående korten bildar en talong, från vilken spelarna kompletterar sina händer under spelets gång. Den som är i tur att spela ut lägger upp ett valfritt antal kort i en och samma färg. Nästa spelare ska försöka sticka över, det vill säga matcha dessa kort med högre kort i samma färg eller spela trumf. Lyckas detta vänds korten bort och utgår ut spelet. De kort som inte gått att sticka över får spelaren ta upp på hand. En spelare som kunnat sticka över alla kort får göra nästa utspel. Om spelaren varit tvungen att ta upp kort på hand blir det i stället nästa spelare som får spela ut.Spader dam, benämnd Svarta Maja eller Maja, är spelets viktigaste kort. Det kan inte användas för att sticka över med och kan heller inte stickas över av något annat kort. En utlagd spader dam måste tas upp på hand men får användas som utspelskort vid ett senare tillfälle. Mot slutet av partiet blir deltagarna en efter en av med alla sina kort och utgår ur spelet. Den som är sist kvar sitter med spader dam på handen och har förlorat." },
+
+    { title: "Plump", instructions: "Här är instruktionerna för Kortspel 3..." },
+  ];
+
+  var currentIndex = 0;
+  updateGame(currentIndex);
+
+  pElement.addEventListener('click', function () {
+    currentIndex = (currentIndex + 1) % spelData.length;
+    updateGame(currentIndex);
+  });
+
+  function updateGame(index) {
+    var spel = spelData[index];
+    gameTitle.textContent = spel.title;
+    gameImage.src = spel.image;
+    pElement.textContent = spel.instructions;
+  }
+});
 
 
 
