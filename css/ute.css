@@ -553,17 +553,16 @@ input {
     height: auto;
 }
 
-#etaInfo {
+#eta {
     opacity: 0;
-   
 }
 
-.visible {
+#eta.visible {
     opacity: 1;
-    transition: opacity 1s ease;
+    transition: opacity 3s ease;
 }
 
-.modified {
+#eta.modified {
     opacity: 0;
 }
 

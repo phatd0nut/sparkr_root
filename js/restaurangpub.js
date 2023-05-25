@@ -37,7 +37,6 @@ function init() {
     scrollBtns.style.display = "none";
     document.getElementById("directions-btn").style.display = "none"
     etaInfo = document.getElementById("eta");
-    etaInfo.classList.remove("visible");
     let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
         nextOption();
         displayedOption();
@@ -111,10 +110,10 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     if (navigator.geolocation) { // Kontrollerar om webbläsaren stödjer geolocation-API:t
         navigator.geolocation.getCurrentPosition(function (position) { //Om webbläsaren stödjer API:t sparar den den geografiska platsen i userLocation
             userLocation = position.coords; // Användarens koordinater
-            userLocationLat = position.coords.latitude;
-            userLocationLng = position.coords.longitude;
-            //  userLocationLat = "56.878017011624685";
-            //  userLocationLng = "14.807412906905228";
+            // userLocationLat = position.coords.latitude;
+            // userLocationLng = position.coords.longitude;
+             userLocationLat = "56.878017011624685";
+             userLocationLng = "14.807412906905228";
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -358,8 +357,4 @@ function getWeather(responseXML) {
     } else {
         document.getElementById("weatherInfo").innerHTML = "<p>Ingen väderdata hittades.</p>"
     }
-}
-
-function hideEta() {
-    
 }
