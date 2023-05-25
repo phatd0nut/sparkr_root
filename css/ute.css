@@ -308,11 +308,6 @@ img {
     text-align: center;
 }
 
-
-#restaurangPubinfo {
-    text-align: left;
-}
-
 #restaurangPubName {
     color: #994dc7;
     text-align: left;
@@ -558,7 +553,22 @@ input {
     height: auto;
 }
 
+#etaInfo {
+    opacity: 0;
+   
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.modified {
+    opacity: 0;
+}
+
 .etaIconsContainer {
+
     margin-top: 5%;
     position: relative;
     top: 0.8rem;
@@ -567,19 +577,27 @@ input {
     justify-content: center;
 }
 
-#eta {
-    position: relative;
-    text-align: center;
-}
-
-#eta::after {
+.etaIconsContainer::after {
     content: "";
     position: absolute;
     top: 55px;
     left: 50%;
     transform: translateX(-50%);
     height: 3px;
-    width: 200px;
+    width: 300px;
     background-color: #ffffff;
     border-radius: 5px;
+}
+
+#weatherInfo {
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    top: 2.3rem;
+    margin-bottom: 60px;
+    font-size: 1.2rem;
+}
+
+.visible ~ #weatherInfo {
+    margin-top: 35px;
 }

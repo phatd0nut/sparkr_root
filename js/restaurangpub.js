@@ -22,6 +22,8 @@ var selectedRadius = 10; // Initialt värde på radius
 var radiusDiv; // Referens för radius slidern
 var generateBtn; // Referens för sök knappen
 var scrollBtns; // Referens för scroll-knapparna
+var etaInfo; // Referens för estimerad ankomst
+var etaContainer;
 
 
 function init() {
@@ -34,6 +36,8 @@ function init() {
     scrollBtns = document.getElementById("scrollBtns");
     scrollBtns.style.display = "none";
     document.getElementById("directions-btn").style.display = "none"
+    etaInfo = document.getElementById("eta");
+    etaInfo.classList.remove("visible");
     let nextOptionBtn = document.getElementById("nextOption").addEventListener("click", function () {
         nextOption();
         displayedOption();
@@ -97,7 +101,7 @@ function init() {
         this.style.transform = 'none';
     });
 
-    
+
 }
 
 window.addEventListener("load", init);
@@ -111,7 +115,6 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocationLng = position.coords.longitude;
             //  userLocationLat = "56.878017011624685";
             //  userLocationLng = "14.807412906905228";
-            requestMetWeather(userLocationLat, userLocationLng);
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -197,7 +200,7 @@ function getDirections(userLocationLat, userLocationLng) {
             directionsRenderer.setDirections(result);
             directionsRenderer.setMap(map);
 
-            // Retrieve ETA for different travel modes
+            // Estimerad ankomst för cykel och gång
             drivingTime = result.routes[0].legs[0].duration.text;
 
             requestDirections.travelMode = google.maps.TravelMode.WALKING;
@@ -210,22 +213,20 @@ function getDirections(userLocationLat, userLocationLng) {
                         if (bikingStatus == google.maps.DirectionsStatus.OK) {
                             bikingTime = bikingResult.routes[0].legs[0].duration.text;
 
-                            // Skriv ut uppskattad tid för åtkomst
-
-
                         }
+                        // Skriv ut uppskattad tid för ankomst
+                        etaInfo.innerHTML = "";
 
                         let carEta = '<img src="../img/carEta.png" class="etaIcons" alt="Uppskattad ankomst: Bil"><span class="etaText">' + drivingTime + '</span>';
                         let bikeEta = '<img src="../img/bikeEta.png" class="etaIcons" alt="Uppskattad ankomst: Cykel"><span class="etaText">' + bikingTime + '</span>';
                         let walkEta = '<img src="../img/walkingEta.png" id="walkingIcon" class="etaIcons" alt="Uppskattad ankomst: Promenera"><span class="etaText">' + walkingTime + '</span>';
 
-                        let etaContainer = document.createElement("div");
+                        etaContainer = document.createElement("div");
                         etaContainer.classList.add("etaIconsContainer");
                         etaContainer.innerHTML = carEta + bikeEta + walkEta;
-
-                        document.getElementById("eta").appendChild(etaContainer);
-
-
+                        etaInfo.appendChild(etaContainer);
+                        etaInfo.classList.remove("modified");
+                        etaInfo.classList.add("visible");
                     });
                 }
             });
@@ -251,6 +252,7 @@ function displayedOption() {
 
     let lat = selectedEntry.lat;
     let lng = selectedEntry.lng;
+    requestMetWeather(lat, lng);
     let restaurangPubAbstract = selectedEntry.abstract;
     let restaurangPubCity = selectedEntry.city;
     let restaurangPubName = selectedEntry.name;
@@ -267,7 +269,6 @@ function displayedOption() {
     let clickableTelNr = document.createElement("a");
     clickableTelNr.setAttribute("href", "tel: " + restaurangPubTel);
     if (!selectedEntry.phone_number) {
-        // document.getElementById("restaurangPubTel").innerHTML = "Telefonnummer: Inget telefonnummer hittades."
         document.getElementById("restaurangPubTel").innerHTML = "";
         document.getElementById("restaurangPubTel").appendChild(clickableTelNr);
         let telIcon1 = document.createElement("img");
@@ -309,6 +310,10 @@ function nextOption() {
         currentOptionIndex = 1; // Gå tillbaka till första valet
     }
     displayedOption();
+    etaInfo.classList.remove("visible");
+    etaInfo.classList.add("modified");
+    etaInfo.innerHTML = "";
+    
 }
 
 function previousOption() {
@@ -318,36 +323,43 @@ function previousOption() {
         currentOptionIndex--;
     }
     displayedOption();
+    etaInfo.classList.remove("visible");
+    etaInfo.classList.add("modified");
+    etaInfo.innerHTML = "";
 }
 
-function requestMetWeather() {
+// Funktion som hämtar väderdata från MET API
+function requestMetWeather(lat, lng) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=" + userLocationLat + "&lon=" + userLocationLng, true);
+    request.open("GET", "https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=" + lat + "&lon=" + lng, true);
     request.send(null);
     request.onreadystatechange = function () {
-      if (request.readyState == 4) {
-        if (request.status == 200) {
-          getWeather(request.responseXML);
-        } else {
-          restaurangPubInfo.innerHTML = "<p>Den begärda resursen hittades inte.</p>";
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+                getWeather(request.responseXML);
+            } else {
+                return;
+            }
         }
-      }
     };
-  }
-  
-  function getWeather(responseXML) {
-    // Find the temperature element within the XML
+}
+
+function getWeather(responseXML) {
+    // Hitta temperaturinformationen i XML-filen från METs API
     let temperatureElement = responseXML.getElementsByTagName("temperature")[0];
-    
+
     if (temperatureElement) {
-      // Get the temperature value and unit
-      let temperatureValue = temperatureElement.getAttribute("value");
-      let temperatureUnit = temperatureElement.getAttribute("unit");
-      
-      // Print the temperature information
-      console.log("Temperature: " + temperatureValue + " " + temperatureUnit);
+
+        // Få tag i temperaturvärden
+        let temperatureValue = temperatureElement.getAttribute("value");
+
+        // Skriv ut informationen
+        document.getElementById("weatherInfo").innerHTML = temperatureValue + " °C";
     } else {
-      console.log("Temperature information not found");
+        document.getElementById("weatherInfo").innerHTML = "<p>Ingen väderdata hittades.</p>"
     }
-  }
-  
+}
+
+function hideEta() {
+    
+}
