@@ -174,10 +174,11 @@ label {
 }
 
 #directions-btn {
-  border-radius: 50px;
-  background-color: #440d66;
+  background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
   color: white;
-  border-style: none;
+  border-style: solid;
   padding: 10px;
   cursor: pointer;
   font-family: "anchor-web", sans-serif;
@@ -189,6 +190,11 @@ label {
   padding-bottom: 2%;
   font-size: 150%;
 }
+
+#directions-btn:active {
+  background-color:  #651860;
+}
+
 
 
 .infoBar {
@@ -233,13 +239,22 @@ label {
   font-size: 25px;
 }
 
-#randomTel img,
 #randomWebsite img {
   width: 30px;
   height: 30px;
   margin: 0;
   margin-right: 5px;
+  margin-top: 5px;
 }
+
+#randomTel img {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
 
 .wrapper-telwebsite {
   display: flex;
