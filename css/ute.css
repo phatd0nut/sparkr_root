@@ -568,7 +568,6 @@ input {
 }
 
 .etaIconsContainer {
-
     margin-top: 5%;
     position: relative;
     top: 0.8rem;
@@ -599,5 +598,5 @@ input {
 }
 
 .visible ~ #weatherInfo {
-    margin-top: 40px;
+    margin-top: 37px;
 }
