@@ -1,46 +1,23 @@
 body {
-  display: grid;  
-  /* Använder CSS-grid för att definiera layouten för body-elementet. */
-  grid-template-columns: 1fr;  
-  /* Skapar en kolumn med flexibel storlek (1fr betyder att den tar upp all tillgänglig plats). */
+  display: grid;
+  grid-template-columns: 1fr;
   font-family: "anchor-web", sans-serif;
   gap: 10px;
   padding: 0px;
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
-
-  overflow-x: hidden;  
-  /* Döljer horisontell skroll om innehållet blir bredare än body-elementet. */
-  height: 100%;
-} /*CSS för generell stilsättning*/
-
-
+  overflow-x: hidden;
+  height: 100%;  
+}
 
 .logo {
-  display: flex;  /* Använder flexbox för att placera innehållet i mitten och på radens start. */
-  justify-content: center;  /* Centrerar innehållet horisontellt. */
-  align-items: flex-start;  /* Justerar innehållet till toppen av raden. */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .logo img {
-
-  max-width: 250px;  /* Begränsar bildens maximala bredd till 250px. */
-  max-height: 250px;  /* Begränsar bildens maximala höjd till 250px. */
-}
-
-.arrow {
-  border: solid #ffffff;  /* Sätter en solid vit kantlinje på pilen. */
-  border-width: 0 6px 6px 0;  /* Anger kantlinjens tjocklek för varje sida (topp, höger, botten, vänster). */
-  display: inline-block;  /* Gör pilen till en inline-block-element. */
-  padding: 13px;  /* Lägger till padding (mellanrum) runt pilen. */
-}
-
-.left-arrow {
-  transform: rotate(135deg);  /* Rotera pilen 135 grader (diagonal pil åt vänster). */
-  -webkit-transform: rotate(135deg);  /* Fallback för äldre webbläsare som kräver ett prefix. */
-  margin-bottom: 60px;  /* Lägger till en marginal (mellanrum) nedåt från pilen. */
-  margin-left: 40px;  /* Lägger till en marginal (mellanrum) åt vänster från pilen. */
    display: block;
     margin-left: auto;
     margin-right: auto;
@@ -63,20 +40,18 @@ body {
 .left-arrow {
   margin-right: 10px;
   margin-left: 30px;
-
 }
 
 .container h2 {
-  display: flex;  /* Använder flexbox för att placera innehållet i mitten. */
-  justify-content: center;  /* Centrerar innehållet horisontellt. */
-  align-items: center;  /* Centrerar innehållet vertikalt. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-sectionTitle {
-  display: flex;  /* Använder flexbox för att placera innehållet i en rad. */
-  justify-content: space-between;  /* Fördelar utrymmet mellan elementen jämnt längs raden. */
+  display: flex;
+  justify-content: space-between;
 }
-
 
 .searchFilters {
   text-align: center;
@@ -118,74 +93,11 @@ body {
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  text-align: left;
   gap: 0px;
   padding: 0px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
-
-.drinkar p {
-  text-align: left;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.game-background {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(/img/blue-01.png);
-}
-
-.games {
-  background: #56c4fa;
-  border: 4px solid transparent;
-  transition: transform 0.3s ease;
-  padding: 20px;
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  text-align: center;
-  gap: 0px;
-  padding: 0px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.games p {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.game-column {
-  position: relative;
-}
-
-.game-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  position: absolute;
-  top: -100px;
-  left: 0;
-  filter: brightness(0.7) blur(2px);
-}
-
-.game-title {
-  position: relative;
-  z-index: 1;
-  color: white;
-}
-
-.expanded-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  padding: 20px;
 }
 
 .background-image {
@@ -203,6 +115,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
   color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .background-image::before {
@@ -239,7 +152,7 @@ h1 {
 
 /* Stil för p elementen */
 p {
-  font-size: 10px;
+  font-size: 18px;
   margin-bottom: 5px;
 }
 
@@ -269,6 +182,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+
+
 
 /* CSS för kolumner och kategorier */
 .kategori-enkel {
@@ -360,12 +276,6 @@ ul {
   }
 }
 
-
-#resultat-enkel, #resultat-sorglig, #resultat-djup, #resultat-spannande, p {
-  text-align: center;
-  font-size: 24px;
-}
-
 #resultat-enkel,
 #resultat-sorglig,
 #resultat-djup,
@@ -375,7 +285,6 @@ p {
   color: #FFFFFF;
   margin: 0;
   padding: 0;
-
 }
 
 .kategorier {
@@ -386,8 +295,6 @@ p {
   text-align: center;
   background-color: #FFFFFF;
   overflow: hidden;
-  flex-basis: calc(30% - 10px); /* Uppdaterat värde för smalare kolumner */
-  text-align: left;
   flex-basis: calc(30% - 10px);
   /* Uppdaterat värde för smalare kolumner */
   margin-bottom: 0px;
@@ -396,7 +303,6 @@ p {
   /* Uppdaterat värde för rundare kanter */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   height: 100px;
-
 }
 
 .flex-container {
