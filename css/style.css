@@ -174,10 +174,11 @@ label {
 }
 
 #directions-btn {
-  border-radius: 50px;
-  background-color: #440d66;
+  background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
   color: white;
-  border-style: none;
+  border-style: solid;
   padding: 10px;
   cursor: pointer;
   font-family: "anchor-web", sans-serif;
@@ -190,6 +191,11 @@ label {
   font-size: 150%;
 }
 
+#directions-btn:active {
+  background-color:  #651860;
+}
+
+
 
 .infoBar {
   border-top: 10px solid #994dc7;
@@ -198,6 +204,8 @@ label {
   margin: 20px;
   padding-left: 2%;
   background-color: #fcf9ff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .infoBar h1 {
@@ -233,13 +241,22 @@ label {
   font-size: 25px;
 }
 
-#randomTel img,
 #randomWebsite img {
   width: 30px;
   height: 30px;
   margin: 0;
   margin-right: 5px;
+  margin-top: 5px;
 }
+
+#randomTel img {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
 
 .wrapper-telwebsite {
   display: flex;
@@ -286,4 +303,72 @@ label {
   text-align: right;
   margin: 0;
   margin-right: 5%;
+}
+
+.etaText {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.etaIcons {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 25px;
+}
+
+.etaIcons:first-child {
+  margin-left: 0px;
+}
+
+#walkingIcon {
+  width: 16px;
+  height: auto;
+}
+
+#eta {
+  opacity: 0;
+}
+
+#eta.visible {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+#eta.modified {
+  opacity: 0;
+}
+
+.etaIconsContainer {
+  margin-top: 5%;
+  position: relative;
+  top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etaIconsContainer::after {
+  content: "";
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+#weatherInfo {
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  top: 2.3rem;
+  margin-bottom: 60px;
+  font-size: 1.2rem;
+}
+
+.visible ~ #weatherInfo {
+  margin-top: 37px;
 }

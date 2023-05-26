@@ -193,6 +193,8 @@ img {
     margin: 20px;
     padding-left: 2%;
     background-color: #fcf9ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .infoBar h1 {
@@ -308,11 +310,6 @@ img {
     text-align: center;
 }
 
-
-#restaurangPubinfo {
-    text-align: left;
-}
-
 #restaurangPubName {
     color: #994dc7;
     text-align: left;
@@ -415,20 +412,16 @@ img {
 }
 
 #directions-btn {
-    border-radius: 50px;
-    background-color: #440d66;
-    color: white;
-    border-style: none;
     padding: 10px;
-    cursor: pointer;
+    width: 150px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid;
     font-family: "anchor-web", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 150%;
+    font-size: large;
+    margin-left: 15PX;
 }
 
 #directions-btn:hover {
@@ -558,6 +551,19 @@ input {
     height: auto;
 }
 
+#eta {
+    opacity: 0;
+}
+
+#eta.visible {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#eta.modified {
+    opacity: 0;
+}
+
 .etaIconsContainer {
     margin-top: 5%;
     position: relative;
@@ -567,23 +573,38 @@ input {
     justify-content: center;
 }
 
-
-#eta::after {
+.etaIconsContainer::after {
     content: "";
-    display: block;
-    height: 1px;
-    background-color: #000000; 
-    margin-top: 10px; 
-  }
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
 
+#weatherInfo {
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    top: 2.3rem;
+    margin-bottom: 60px;
+    font-size: 1.2rem;
+}
 
-  /* bakgrund för inne.html. */
+.visible ~ #weatherInfo {
+    margin-top: 37px;
+}
+
+/* bakgrund för inne.html. */
 .bakgrund-inne {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(/img/blue-01.png);
-   
+
 }
 
 .button3 {
@@ -623,21 +644,4 @@ input {
     100% {
         background-position: 0 50%;
     }
-
-#eta {
-    position: relative;
-    text-align: center;
-}
-
-#eta::after {
-    content: "";
-    position: absolute;
-    top: 55px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 3px;
-    width: 200px;
-    background-color: #ffffff;
-    border-radius: 5px;
-
 }
