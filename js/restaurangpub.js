@@ -293,12 +293,13 @@ function displayedOption() {
     document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
     document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-    if (selectedEntry.abstract) {
+    if (selectedEntry.abstract && selectedEntry.abstract.trim().length > 0) {
         document.getElementById("restaurangPubAbstract").innerHTML = '" ' + restaurangPubAbstract + ' "';
     }
     else {
         document.getElementById("restaurangPubAbstract").innerHTML = "";
     }
+    
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").style.display = "block";
