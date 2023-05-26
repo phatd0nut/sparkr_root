@@ -18,7 +18,7 @@ function init() {
 
   kortspel = document.getElementById("kortspel");
   bradspel = document.getElementById("bradpel");
-  tvspel = document-.getElementById("tvspel");
+  tvspel = document.getElementById("tvspel");
 
   kortspel.addEventListener("click", kortSpel);
   bradspel.addEventListener("click", boardGames);
@@ -387,7 +387,7 @@ function kortSpel() {
     gameTitle.textContent = spel.title;
     pElement.textContent = spel.instructions;
   }
-})();
+};
 
 
 kortSpel();
@@ -398,7 +398,6 @@ function boardGames() {
   games.forEach(function (game) {
     var pElement = game.querySelector("#beskrivning-bradspel");
     var gameTitle = game.querySelectorAll(".game-title");
-console.log("text")
     var boardGames = [
       { title: "Brädspel", instructions: "Tryck för att få förslag på ett brädspel med tillhörande instruktioner." },
 
