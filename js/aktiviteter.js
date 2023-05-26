@@ -293,8 +293,13 @@ function displayedOption() {
     document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
     document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + " kr";
     document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
-    document.getElementById("activityAbstract").innerHTML = activityAbstract;
-
+    if (selectedEntry.abstract) {
+        document.getElementById("activityAbstract").innerHTML = '" ' + activityAbstract + ' "';
+    }
+    else {
+        document.getElementById("activityAbstract").innerHTML = "";
+    }
+   
     displayMap(lat, lng);
     document.getElementById("directions-btn").style.display = "block";
     document.getElementById("directions-btn").addEventListener("click", function () {

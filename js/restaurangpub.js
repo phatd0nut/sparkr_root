@@ -111,8 +111,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             // userLocationLat = position.coords.latitude;
             // userLocationLng = position.coords.longitude;
-             userLocationLat = "56.878017011624685";
-             userLocationLng = "14.807412906905228";
+            userLocationLat = "56.878017011624685";
+            userLocationLng = "14.807412906905228";
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -251,7 +251,6 @@ function displayedOption() {
     let lat = selectedEntry.lat;
     let lng = selectedEntry.lng;
     requestMetWeather(lat, lng);
-    let restaurangPubAbstract = selectedEntry.abstract;
     let restaurangPubCity = selectedEntry.city;
     let restaurangPubName = selectedEntry.name;
     let restaurangPubDescription = selectedEntry.description;
@@ -260,6 +259,7 @@ function displayedOption() {
     let restaurangPubPriceRange = selectedEntry.price_range;
     let restaurangPubWebsite = selectedEntry.website;
     let restaurangPubRating = Number(selectedEntry.rating).toFixed(1);
+    let restaurangPubAbstract = selectedEntry.abstract;
 
     // Utskrift av information i HTML
     document.getElementById("restaurangPubName").innerHTML = restaurangPubName;
@@ -292,7 +292,12 @@ function displayedOption() {
     document.getElementById("restaurangPubAddress").innerHTML = "Adress: " + restaurangPubAddress;
     document.getElementById("restaurangPubPriceRng").innerHTML = "Pris: " + restaurangPubPriceRange + " kr";
     document.getElementById("restaurangPubRating").innerHTML = "Omdöme: " + restaurangPubRating + " / 5";
-    document.getElementById("restaurangPubAbstract").innerHTML = restaurangPubAbstract;
+    if (selectedEntry.abstract) {
+        document.getElementById("restaurangPubAbstract").innerHTML = '" ' + restaurangPubAbstract + ' "';
+    }
+    else {
+        document.getElementById("restaurangPubAbstract").innerHTML = "";
+    }
 
     displayMap(lat, lng);
     document.getElementById("directions-btn").style.display = "block";
@@ -311,7 +316,7 @@ function nextOption() {
     etaInfo.classList.remove("visible");
     etaInfo.classList.add("modified");
     etaInfo.innerHTML = "";
-    
+
 }
 
 function previousOption() {

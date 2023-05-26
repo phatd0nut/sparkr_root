@@ -251,8 +251,14 @@ function displayedOption() {
     document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
     document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
     document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
+    if (selectedEntry.abstract) {
+        document.getElementById("establishmentAbstract").innerHTML = '" ' + estAbstract + ' "';
+    }
+    else {
+        document.getElementById("establishmentAbstract").innerHTML = "";
+    }
+
     displayMap(lat, lng);
-    document.getElementById("establishmentAbstract").innerHTML = estAbstract;
     document.getElementById("directions-btn").style.display = "block";
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
