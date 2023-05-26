@@ -23,7 +23,6 @@ var radiusDiv; // Referens för radius slidern
 var generateBtn; // Referens för sök knappen
 var scrollBtns; // Referens för scroll-knapparna
 var etaInfo; // Referens för estimerad ankomst
-var etaContainer;
 
 
 function init() {
@@ -296,7 +295,7 @@ function displayedOption() {
     document.getElementById("restaurangPubAbstract").innerHTML = restaurangPubAbstract;
 
     displayMap(lat, lng);
-    document.getElementById("directions-btn").style.display = "block"
+    document.getElementById("directions-btn").style.display = "block";
     document.getElementById("directions-btn").addEventListener("click", function () {
         getDirections(userLocationLat, userLocationLng);
     });

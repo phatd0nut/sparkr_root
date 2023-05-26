@@ -559,7 +559,7 @@ input {
 
 #eta.visible {
     opacity: 1;
-    transition: opacity 3s ease;
+    transition: opacity 0.8s ease;
 }
 
 #eta.modified {
