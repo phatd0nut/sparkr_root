@@ -1,3 +1,8 @@
+var kortspel;
+var bradspel;
+var tvspel;
+
+
 function init() {
   var enkelFilmerBtn = document.getElementById("enkelFilmerBtn");
   enkelFilmerBtn.addEventListener("click", slumpaFilmEnkel);
@@ -10,6 +15,15 @@ function init() {
 
   var spannandeFilmerBtn = document.getElementById("spannandeFilmerBtn");
   spannandeFilmerBtn.addEventListener("click", slumpaFilmSpannande);
+
+  kortspel = document.getElementById("kortspel");
+  bradspel = document.getElementById("bradpel");
+  tvspel = document-.getElementById("tvspel");
+
+  kortspel.addEventListener("click", kortSpel);
+  bradspel.addEventListener("click", boardGames);
+  tvspel.addEventListener("click", tvSpel);
+
 }
 
 window.addEventListener("load", init);
@@ -349,122 +363,71 @@ function slumpaFilmSpannande() {
 //Slut på js för filmer
 
 //js för spel
-// var spel = document.querySelectorAll('.spel');
-
-// drinkar.forEach(function (drink) {
-//   const h1 = drink.querySelector('h1');
-//   const pElements = drink.querySelectorAll('p');
-
-//   // Dölj alla p-element i början
-//   pElements.forEach(function (pElement) {
-//     pElement.style.display = 'none';
-//   });
-
-//   // Lägg till klickhändelse på h1-elementet
-//   h1.addEventListener('click', function () {
-//     // Visa eller dölj p-elementen
-//     pElements.forEach(function (pElement) {
-//       if (pElement.style.display === 'none') {
-//         pElement.style.display = 'block';
-//       } else {
-//         pElement.style.display = 'none';
-//       }
-//     });
-//   });
-// });
-
-
-var games = document.querySelectorAll('.games');
-
-games.forEach(function (game) {
-  var pElement = game.querySelector('.instructions');
-  var gameImage = game.querySelector('.game-image');
-  var gameTitle = game.querySelector('.game-title');
-
-  var spelData = [
-    { title: "Spansk skitgubbe",instructions: "Kortlek: Spansk 40-kortlek (utan åttor och nior). Varje spelare får tre kort och fyra kort placeras med framsidan uppåt på bordet.Målet är att bli av med alla dina kort genom att matcha dina kort med korten på bordet.Om du inte kan matcha ett kort måste du lägga ner ett kort från din hand på bordet.Om du inte har några kort kvar i handen blir du 'skitgubbe'.Spelet fortsätter tills en spelare blir 'skitgubbe' tre gånger. Den spelaren blir förloraren." },
-
-    { title: "Spaderdam", instructions: "Antal spelare 2-6: Spelarna får i given sex kort var, och de återstående korten bildar en talong, från vilken spelarna kompletterar sina händer under spelets gång. Den som är i tur att spela ut lägger upp ett valfritt antal kort i en och samma färg. Nästa spelare ska försöka sticka över, det vill säga matcha dessa kort med högre kort i samma färg eller spela trumf. Lyckas detta vänds korten bort och utgår ut spelet. De kort som inte gått att sticka över får spelaren ta upp på hand. En spelare som kunnat sticka över alla kort får göra nästa utspel. Om spelaren varit tvungen att ta upp kort på hand blir det i stället nästa spelare som får spela ut.Spader dam, benämnd Svarta Maja eller Maja, är spelets viktigaste kort. Det kan inte användas för att sticka över med och kan heller inte stickas över av något annat kort. En utlagd spader dam måste tas upp på hand men får användas som utspelskort vid ett senare tillfälle. Mot slutet av partiet blir deltagarna en efter en av med alla sina kort och utgår ur spelet. Den som är sist kvar sitter med spader dam på handen och har förlorat." },
-
-    { title: "Plump", instructions: "Här är instruktionerna för Kortspel 3..." },
+function kortSpel() {
+  var pElement = document.querySelector('.instructions');
+  var kortSpel = [
+    { title: "Kortspel", instructions: "Tryck för att få förslag på ett kortspel med tillhörande instruktioner." },
+    { title: "Spansk skitgubbe", instructions: "Kortlek: Spansk 40-kortlek (utan åttor och nior). Varje spelare får tre kort och fyra kort placeras med framsidan uppåt på bordet. Målet är att bli av med alla dina kort genom att matcha dina kort med korten på bordet. Om du inte kan matcha ett kort måste du lägga ner ett kort från din hand på bordet. Om du inte har några kort kvar i handen blir du 'skitgubbe'. Spelet fortsätter tills en spelare blir 'skitgubbe' tre gånger. Den spelaren blir förloraren." },
+    { title: "Spaderdam", instructions: "Antal spelare 2-6: Spelarna får i given sex kort var, och de återstående korten bildar en talong, från vilken spelarna kompletterar sina händer under spelets gång. Den som är i tur att spela ut lägger upp ett valfritt antal kort i en och samma färg. Nästa spelare ska försöka sticka över, det vill säga matcha dessa kort med högre kort i samma färg eller spela trumf. Lyckas detta vänds korten bort och utgår ut spelet. De kort som inte gått att sticka över får spelaren ta upp på hand. En spelare som kunnat sticka över alla kort får göra nästa utspel. Om spelaren varit tvungen att ta upp kort på hand blir det i stället nästa spelare som får spela ut. Spader dam, benämnd Svarta Maja eller Maja, är spelets viktigaste kort. Det kan inte användas för att sticka över med och kan heller inte stickas över av något annat kort. En utlagd spader dam måste tas upp på hand men får användas som utspelskort vid ett senare tillfälle. Mot slutet av partiet blir deltagarna en efter en av med alla sina kort och utgår ur spelet. Den som är sist kvar sitter med spader dam på handen och har förlorat." },
+    { title: "Plump", instructions: "2-5 spelare: Man måste alltid följa färg. Saknar man kort i den färg som lagts får man lägga vilket kort man vill. Om man misslyckas sätts det en så kallad 'plump' i spelprotokollet, därav namnet på kortspelet. Att ta ett stick betyder att man har högsta kortet av de som är utlagda. Eller att man lagt en färg som ingen annan spelare har. Det är därför väldigt bra att ha många kort av samma kulör. Första omgången får alla spelare 10 kort vardera. Därefter börjar spelarna (medsols) att gissa hur många stick dessa tror att de kommer ta under denna spelrunda. Man får tippa på allt mellan 10 och 0 stick. Antalet förutspådda stick får aldrig gå jämnt ut på spelprotokollet. Sista spelaren kan alltså inte alltid välja det han vill. (EX om 3 spelare: Spelare 1 tippar på 5 stick, spelare 2 på 5 stick, spelare 3 får ej välja 0 stick) Efter att rundan spelats klart tittar man vilka som lyckats ta exakt så många stick de förutspått. Om en spelare lyckats får denne en etta framför antalet stick. När det är dags för en omgång med endast ett kort per person finns det flera olika varianter. Var spelare får titta på sitt kort och avgöra om det ger vinst eller ej (0 eller 1 stick). Var spelare håller upp kortet i pannan, utan att titta på det själv. Genom att se de andras kort avgör spelaren då om denne tror att det egna kortet är bättre eller sämre. Ingen spelare tittar på något kort och alla chansar på 0 eller 1 stick. I slutet räknas samtliga poäng och den spelare med flest poäng vinner." },
+    { title: "Gin Rummy", instructions: "I Gin Rummy ska varje spelare försöka samla tretal och fyrtal i samma färg eller en sekvens som går i följd och färg, alltså en stege. Ess räknas som lägst valör och de klädda korten har alla en valör på 10 poäng men om de spelas i en stege kommer de i ordningen knekt, dam och kung. Lyckas man få Gin så är alla kort på handen i en och samma sekvens. Det gäller att komma först till 100 poäng för att vinna hela spelet." },
+    { title: "Chicago", instructions: "Man spelar Chicago med en vanlig kortlek utan jokrar och det går bra att spela på 2 eller fler spelare. Man börjar med att välja ut vem som börjar att dela ut, till exempel genom att dra ett kort där den som får högst börjar vara 'giv'. Varje omgång börjar med att varje spelare får fem kort var. De ska nu skapa en så bra pokerhand som möjligt enligt poängen nedan genom att byta ut kort. Under dessa byten får man byta hur många av korten som helst. Väljer man att bara byta ut ett kort kan man få se ett öppet och antingen ta det eller få ett nytt stängt kort. Antal byten är 2-3 per runda beroende på vad man har kommit överens om från början. Vid varje byte, förutom det sista innan utspelet, frågar given vad spelarna har på handen och den som har bäst hand får poäng. Man berättar inte exakt vad man har men säger t ex ett par, triss eller stege. När alla spelare gjort sina byten spelar man en stickspelsrunda med de fem kort man har på hand. Spelaren till vänster om given (given roterar medurs efter varje spelomgång) börjar lägga ut ett av de fem korten denne har på handen. Därefter ska resten av spelarna följa färg och lyckas ta över kommandot på utspelet genom att 'slå' det lagda kortet. Den som lyckas ta sista sticket får poäng. Efter utspelet får spelaren med bäst hand poäng. Utspel - 2 poäng. 5 - poäng. Par - 1 poäng. Två par - 2 poäng. Triss - 3 poäng Stege - 4 poäng. Färg - 5 poäng. Kåk - 6 poäng. Fyrtal - ger 8 poäng (eller nollställa övriga spelares poäng). Färgstege - 11 poäng. Royal Flush - 20 p." },
   ];
 
   var currentIndex = 0;
   updateGame(currentIndex);
 
   pElement.addEventListener('click', function () {
-    currentIndex = (currentIndex + 1) % spelData.length;
+    currentIndex = (currentIndex + 1) % kortSpel.length;
     updateGame(currentIndex);
   });
 
   function updateGame(index) {
-    var spel = spelData[index];
+    var spel = kortSpel[index];
     gameTitle.textContent = spel.title;
-    gameImage.src = spel.image;
     pElement.textContent = spel.instructions;
   }
-});
+})();
 
 
+kortSpel();
 
- 
-//   var kategorier = Object.keys(filmer); // Hämta alla kategorier
+function boardGames() {
+  var games = document.querySelectorAll(".games");
 
-//   // Slumpa en kategori
-//   var slumpadKategori = kategorier[Math.floor(Math.random() * kategorier.length)];
-//   var filmerIKategori = filmer[slumpadKategori];
+  games.forEach(function (game) {
+    var pElement = game.querySelector("#beskrivning-bradspel");
+    var gameTitle = game.querySelectorAll(".game-title");
+console.log("text")
+    var boardGames = [
+      { title: "Brädspel", instructions: "Tryck för att få förslag på ett brädspel med tillhörande instruktioner." },
 
-//   var resultatTagg = document.getElementById("resultat-" + slumpadKategori);
-//   var räknareTagg = document.getElementById("räknare-" + slumpadKategori);
+      { title: "Monopol", instructions: "Monopol är ett klassiskt brädspel där spelarna försöker bygga upp en fastighetsimperium genom att köpa, sälja och handla med fastigheter. Målet är att driva sina motståndare i konkurs och bli den sista spelaren med pengar kvar." },
 
-//   if (filmerIKategori.length === 0) {
-//     resultatTagg.textContent = "Du har sett alla filmer i denna kategori.";
-//     räknareTagg.textContent = "0";
-//     return;
-//   }
+      { title: "Risk", instructions: "Risk är ett strategiskt brädspel där spelarna försöker erövra territorier och eliminera motståndarna. Genom att placera ut arméer, anfalla och försvara territorier, och använda strategiska kort kan spelarna försöka dominera världskartan och vinna spelet." },
 
-//   var filmerVisade = filmer.visade || {}; // Array för visade filmer (initieras första gången)
+      { title: "Catan", instructions: "Catan, även känt som Settlers of Catan, är ett resursbaserat brädspel där spelarna bygger och handlar med resurser för att skapa bosättningar och städer på ön Catan. Målet är att samla tillräckligt med poäng genom att bygga och utveckla för att vinna spelet." },
 
-//   if (!filmerVisade[slumpadKategori] || filmerVisade[slumpadKategori].length === 0) {
-//     // Om alla filmer har visats eller ingen har visats än, återställ arrayen
-//     filmerVisade[slumpadKategori] = [...filmerIKategori];
-//   }
+      { title: "Ticket to Ride", instructions: "Ticket to Ride är ett tågspelsbrädspel där spelarna försöker bygga järnvägslinjer mellan olika städer. Genom att samla och använda rätt färgade kort kan spelarna bygga sina rutter och försöka slutföra sina biljetter för att få poäng och vinna spelet." },
 
-//   // Hämta nuvarande räknare
-//   var räknare = parseInt(räknareTagg.textContent);
+      { title: "Scrabble", instructions: "Scrabble är ett ordspel där spelarna försöker bilda ord på spelbrädet genom att placera bokstavstegel med olika poängvärden. Varje spelare har en given mängd bokstavstegel och försöker maximera poängen genom att skapa ord på bästa möjliga sätt." }
+    ];
 
-//   // Slumpa en ny film från den valda kategorin
-//   var index = Math.floor(Math.random() * filmerVisade[slumpadKategori].length);
-//   var film = filmerVisade[slumpadKategori][index];
+    var currentIndex = 0;
+    updateGame(currentIndex);
 
-//   // Ta bort den visade filmen från arrayen
-//   filmerVisade[slumpadKategori].splice(index, 1);
+    pElement.addEventListener('click', function () {
+      currentIndex = (currentIndex + 1) % boardGames.length;
+      updateGame(currentIndex);
+    });
 
-//   // Uppdatera räknaren för nästa gång
-//   räknare = (räknare + 1) % filmerIKategori.length;
-//   räknareTagg.textContent = räknare;
+    function updateGame(index) {
+      var spel = boardGames[index];
+      gameTitle.textContent = spel.title;
+      pElement.textContent = spel.instructions;
+    }
+  });
+}
 
-//   // Spara uppdaterad array för visade filmer
-//   filmer.visade = filmerVisade;
+boardGames();
 
-//   // Visa den slumpade filmen
-//   resultatTagg.style.textAlign = "center";
-//   resultatTagg.textContent = film;
-// }
-
-
-
-  // // Hämta nästa film baserat på räknaren
-  // var räknareTagg = document.getElementById("räknare-" + kategorier);
-  // var räknare = parseInt(räknareTagg.textContent);
-  // var film = filmer[kategorier][räknare];
-
-  // // Öka räknaren för nästa gång
-  // räknare++;
-  // räknareTagg.textContent = räknare;
-
-  
-
-  // var resultatTagg = document.getElementById("resultat-" + kategorier);
-  // resultatTagg.style.textAlign = "center";
-  // resultatTagg.textContent = "" + film;
