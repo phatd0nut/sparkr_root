@@ -193,6 +193,8 @@ img {
     margin: 20px;
     padding-left: 2%;
     background-color: #fcf9ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .infoBar h1 {
@@ -410,20 +412,16 @@ img {
 }
 
 #directions-btn {
-    border-radius: 50px;
-    background-color: #440d66;
-    color: white;
-    border-style: none;
     padding: 10px;
-    cursor: pointer;
+    width: 150px;
+    background-color: #994dc7;
+    border-color: rgb(226, 225, 225);
+    border-radius: 50px;
+    color: white;
+    border-style: solid;
     font-family: "anchor-web", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 150%;
+    font-size: large;
+    margin-left: 15PX;
 }
 
 #directions-btn:hover {
@@ -598,4 +596,52 @@ input {
 
 .visible ~ #weatherInfo {
     margin-top: 37px;
+}
+
+/* bakgrund för inne.html. */
+.bakgrund-inne {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/blue-01.png);
+
+}
+
+.button3 {
+    font-family: "anchor-web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 200%;
+    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgba(66,136,182,1) 100%);
+    padding: 33px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 25px;
+    animation: color 1s ease-out infinite;
+    background-size: 200% 200%;
+}
+
+.button3:active {
+    transform: scale(1.05);
+}
+
+@keyframes button3-color {
+    25% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
 }

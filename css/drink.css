@@ -3,7 +3,7 @@ body {
   grid-template-columns: 1fr;
   font-family: "anchor-web", sans-serif;
   gap: 10px;
-  padding: 0px;
+  padding: 10px;
   background-color: #23a1df;
   font-weight: 500;
   font-style: normal;
@@ -93,11 +93,74 @@ body {
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  text-align: left;
   gap: 0px;
   padding: 0px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+}
+
+.drinkar p {
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.game-background {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/img/blue-01.png);
+}
+
+.games {
+  background: #56c4fa;
+  border: 4px solid transparent;
+  transition: transform 0.3s ease;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  text-align: center;
+  gap: 0px;
+  padding: 0px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.games p {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.game-column {
+  position: relative;
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  filter: brightness(0.7) blur(2px);
+}
+
+.game-title {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.expanded-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 20px;
 }
 
 .background-image {
