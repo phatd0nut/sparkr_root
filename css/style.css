@@ -108,12 +108,11 @@ h2 {
 #randomBtn {
   position: relative;
   z-index: 2;
-  border: solid white;
 }
 
 .button3 {
   font-size: 18px;
-  background: transparent;
+  background-color: #44a4ed;
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -142,7 +141,7 @@ h2 {
   height: 100%;
   background: linear-gradient(90deg, transparent 0%, rgba(153, 77, 199, 1) 10%, rgba(50, 208, 244, 1) 90%, transparent 100%);
   transform: translateX(-100%);
-  animation: waveAnimation 5s linear infinite;
+  animation: waveAnimation 7s linear infinite;
   z-index: -1;
 }
 
@@ -332,6 +331,7 @@ label {
   margin: 0;
   margin-right: 5%;
 }
+
 
 .etaText {
   color: #ffffff;
