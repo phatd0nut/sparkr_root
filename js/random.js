@@ -133,7 +133,7 @@ function getData(responseText) {
     document.getElementById("randomAddress").innerHTML = "Adress: " + randomAddress;
     document.getElementById("randomPriceRng").innerHTML = "Pris: " + randomPriceRange + " kr";
     document.getElementById("randomRating").innerHTML = "Omdöme: " + randomRating + " / 5";
-    if (randomData.payload[0].abstract) {
+    if (randomData.payload[0].abstract && randomData.payload[0].abstract.trim().length > 0) {
       document.getElementById("randomAbstract").innerHTML = '" ' + randomAbstract + ' "';
     }
     else {

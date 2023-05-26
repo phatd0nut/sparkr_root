@@ -252,7 +252,7 @@ function displayedOption() {
     document.getElementById("establishmentAddress").innerHTML = "Adress: " + estAddress;
     document.getElementById("establishmentPriceRng").innerHTML = "Pris: " + estPriceRange + " kr";
     document.getElementById("establishmentRating").innerHTML = "Omdöme: " + parseFloat(estRating) + " / 5";
-    if (selectedEntry.abstract) {
+    if (selectedEntry.abstract && selectedEntry.abstract.trim().length > 0) {
         document.getElementById("establishmentAbstract").innerHTML = '" ' + estAbstract + ' "';
     }
     else {

@@ -294,12 +294,13 @@ function displayedOption() {
     document.getElementById("activityAddress").innerHTML = "Adress: " + activityAddress;
     document.getElementById("activityPriceRng").innerHTML = "Pris: " + activityPriceRange + " kr";
     document.getElementById("activityRating").innerHTML = "Omdöme: " + activityRating + " / 5";
-    if (selectedEntry.abstract) {
+    if (selectedEntry.abstract && selectedEntry.abstract.trim().length > 0) {
         document.getElementById("activityAbstract").innerHTML = '" ' + activityAbstract + ' "';
     }
     else {
         document.getElementById("activityAbstract").innerHTML = "";
     }
+
    
     displayMap(lat, lng);
     document.getElementById("directions-btn").style.display = "block";
