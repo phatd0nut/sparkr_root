@@ -109,10 +109,10 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
     if (navigator.geolocation) { // Kontrollerar om webbläsaren stödjer geolocation-API:t
         navigator.geolocation.getCurrentPosition(function (position) { //Om webbläsaren stödjer API:t sparar den den geografiska platsen i userLocation
             userLocation = position.coords; // Användarens koordinater
-            // userLocationLat = position.coords.latitude;
-            // userLocationLng = position.coords.longitude;
-            userLocationLat = "56.878017011624685";
-            userLocationLng = "14.807412906905228";
+            userLocationLat = position.coords.latitude;
+            userLocationLng = position.coords.longitude;
+            // userLocationLat = "56.878017011624685";
+            // userLocationLng = "14.807412906905228";
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -123,7 +123,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi(foodType, foodPrice) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=" + selectedRadius + "&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=" + selectedRadius + "&debug=true", true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
@@ -235,6 +235,7 @@ function getDirections(userLocationLat, userLocationLng) {
 
 function showFilters() {
     searchFilters.forEach(function (filter) {
+        document.getElementById("directions-btn").style.display = "none"
         filter.style.display = "block";
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";

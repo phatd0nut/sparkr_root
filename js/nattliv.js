@@ -92,7 +92,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi() {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius + "&debug=true", true)
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=nattklubb&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius + "&debug=true", true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
@@ -202,6 +202,7 @@ function getDirections(userLocationLat, userLocationLng) {
 
 function showFilters() {
     searchFilters.forEach(function (searchFilters) {
+        document.getElementById("directions-btn").style.display = "none"
         searchFilters.style.display = "block";
         radiusDiv.style.display = "block";
         generateBtn.style.display = "block";
