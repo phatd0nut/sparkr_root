@@ -88,13 +88,16 @@ p {
   transform: scale(1.05);
 }
 
-.choose {
+#choose-text {
   text-align: center;
   color: white;
   height: auto;
   margin: 0;
   padding: 0;
+  margin-bottom: 20px;
 }
+
+
 
 h2 {
   text-align: center;
