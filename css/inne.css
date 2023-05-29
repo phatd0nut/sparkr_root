@@ -115,35 +115,35 @@ body {
 }
 
 .kortspel {
-  background: linear-gradient(to right, #56c4fa, #994dc7);
+  background: #56c4fa;
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   text-align: center;
   gap: 0px;
-  padding: 0px;
+  padding: 10px;
   border-radius: 40px;
   overflow: hidden;
 }
 .bradspel {
-  background: linear-gradient(to right, #56c4fa, #994dc7);
+  background: #56c4fa;
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   text-align: center;
   gap: 0px;
-  padding: 0px;
+  padding: 10px;
   border-radius: 40px;
   overflow: hidden;
 }
 .tvspel {
-  background: linear-gradient(to right, #56c4fa, #994dc7);
+  background: #56c4fa;
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   text-align: center;
   gap: 0px;
-  padding: 0px;
+  padding: 10px;
   border-radius: 40px;
   overflow: hidden;
 }
