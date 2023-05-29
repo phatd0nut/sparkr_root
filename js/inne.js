@@ -28,15 +28,16 @@ window.addEventListener("load", init);
 var drinkar = document.querySelectorAll('.drinkar');
 
 drinkar.forEach(function (drink) {
-  const h1 = drink.querySelector('h1');
-  const pElements = drink.querySelectorAll('p');
+  var container = drink.parentElement;
+  var h1 = drink.querySelector('h1');
+  var pElements = drink.querySelectorAll('p');
 
   // Dölj alla p-element i början
   pElements.forEach(function (pElement) {
     pElement.style.display = 'none';
   });
 
-  h1.addEventListener('click', function () {
+  container.addEventListener('click', function () {
     // Visa eller dölj p-elementen
     pElements.forEach(function (pElement) {
       if (pElement.style.display === 'none') {
