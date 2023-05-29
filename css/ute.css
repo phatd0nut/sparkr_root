@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+header {
+    margin-top: 1rem;
+  }
+
 img {
     display: block;
     margin-left: auto;
