@@ -67,7 +67,7 @@ img {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background-color: #D27ED7;
+    background-color: #3F0C5C;
 
     padding: 33px;
     text-align: center;
@@ -118,7 +118,7 @@ img {
     text-align: center;
     color: #FFF;
     font-size: 35px;
-    background-color: #D27ED7;
+    background-color: #3F0C5C;
     width: 45%;
     border-radius: 200px 0px 0px 200px;
     display: flex;
@@ -605,7 +605,7 @@ input {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background: #62C8EA;
+    background: #194F72;
     padding: 33px;
     text-align: center;
     text-decoration: none;
@@ -617,7 +617,6 @@ input {
     justify-content: center;
     width: auto;
     margin: 25px;
-    animation: color 1s ease-out infinite;
     background-size: 200% 200%;
 }
 
