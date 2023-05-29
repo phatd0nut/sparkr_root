@@ -12,6 +12,14 @@ function init() {
   window.addEventListener("load", init);
 
   function kortSpel() {
+    let touchingFx = document.getElementById("kortspel")
+    touchingFx.addEventListener('touchstart', function () {
+      this.style.transform = 'scale(1.05)';
+    });
+    touchingFx.addEventListener('touchend', function () {
+      this.style.transform = 'none';
+    });
+
     let request = new XMLHttpRequest();
     request.open('GET', '../json/kortspel.json', true);
     request.responseType = 'json';
@@ -40,6 +48,14 @@ function init() {
   }
 
   function bradSpel() {
+    let touchingFx = document.getElementById("kortspel")
+    touchingFx.addEventListener('touchstart', function () {
+      this.style.transform = 'scale(1.05)';
+    });
+    touchingFx.addEventListener('touchend', function () {
+      this.style.transform = 'none';
+    });
+
     let request = new XMLHttpRequest();
     request.open('GET', '../json/bradspel.json', true);
     request.responseType = 'json';
@@ -68,6 +84,14 @@ function init() {
   }
 
   function tvSpel() {
+    let touchingFx = document.getElementById("kortspel")
+    touchingFx.addEventListener('touchstart', function () {
+      this.style.transform = 'scale(1.05)';
+    });
+    touchingFx.addEventListener('touchend', function () {
+      this.style.transform = 'none';
+    });
+    
     let request = new XMLHttpRequest();
     request.open('GET', '../json/tvspel.json', true);
     request.responseType = 'json';
