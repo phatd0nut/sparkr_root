@@ -279,7 +279,6 @@ img {
 }
 
 #foodType {
-
     text-align: center;
 }
 
@@ -357,6 +356,7 @@ img {
 }
 
 .activityOpt {
+    text-decoration: none;
     display: inline-block;
     padding: 10px;
     background-color: #994dc7;
@@ -464,19 +464,12 @@ img {
 
 .priceOpt,
 .foodOpt {
+    text-decoration: none;
     padding: 10px;
     background-color: #994dc7;
     border-radius: 100px;
     margin: 5px;
-    color: white;
-}
-
-.radiobuttons {
-    padding: 10px;
-    background-color: #994dc7;
-    border-radius: 100px;
-    margin: 5px;
-    color: white;
+    color: #ffffff;
 }
 
 input {
