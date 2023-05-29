@@ -2,7 +2,6 @@ function init() {
   let recept = document.querySelectorAll('.recept');
 
   recept.forEach(function (recept) {
-    // const h1 = recept.querySelector('h1');
     const pElements = recept.querySelectorAll('p');
 
     // Dölj alla p-element i början

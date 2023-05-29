@@ -86,7 +86,6 @@ header img {
 .recept {
   background: #56c4fa;
   border: 1px solid transparent;
-  transition: transform 0.3s ease;
   padding: 20px;
   margin-bottom: 10px;
   display: grid;
@@ -103,8 +102,6 @@ header img {
   text-align: left;
   font-size: 18px;
 }
-
-
 
 .receptinstruktioner {
   font-weight: 700;

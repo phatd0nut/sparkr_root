@@ -1,21 +1,21 @@
 function init() {
-    var enkelFilmerBtn = document.getElementById("enkelFilmerBtn");
+    let enkelFilmerBtn = document.getElementById("enkelFilmerBtn");
     enkelFilmerBtn.addEventListener("click", slumpaFilmEnkel);
   
-    var sorgligFilmerBtn = document.getElementById("sorgligFilmerBtn");
+    let sorgligFilmerBtn = document.getElementById("sorgligFilmerBtn");
     sorgligFilmerBtn.addEventListener("click", slumpaFilmSorglig);
   
-    var djupFilmerBtn = document.getElementById("djupFilmerBtn");
+    let djupFilmerBtn = document.getElementById("djupFilmerBtn");
     djupFilmerBtn.addEventListener("click", slumpaFilmDjup);
   
-    var spannandeFilmerBtn = document.getElementById("spannandeFilmerBtn");
+    let spannandeFilmerBtn = document.getElementById("spannandeFilmerBtn");
     spannandeFilmerBtn.addEventListener("click", slumpaFilmSpannande);
   }
   
   window.addEventListener("load", init);
 
   function slumpaFilmEnkel() {
-    var kategoriEnkel = document.getElementById('enkelFilmerBtn');
+    let kategoriEnkel = document.getElementById('enkelFilmerBtn');
     kategoriEnkel.addEventListener('touchstart', function () {
       this.style.transform = 'scale(1.05)';
     });
@@ -23,10 +23,10 @@ function init() {
       this.style.transform = 'none';
     });
   
-    var titleElement = document.querySelector('.kategori-enkel .title');
+    let titleElement = document.querySelector('.kategori-enkel .title');
     titleElement.style.display = 'none';
   
-    var filmerEnkel = [
+    let filmerEnkel = [
       "The Devil Wears Prada",
       "Easy A",
       "Crazy, Stupid, Love",
@@ -80,14 +80,14 @@ function init() {
       "Crazy Rich Asians"
     ];
   
-    var slumpadFilm = filmerEnkel[Math.floor(Math.random() * filmerEnkel.length)];
-    var resultat = document.getElementById("resultat-enkel");
+    let slumpadFilm = filmerEnkel[Math.floor(Math.random() * filmerEnkel.length)];
+    let resultat = document.getElementById("resultat-enkel");
   
     resultat.textContent = slumpadFilm;
   }
   
   function slumpaFilmSorglig() {
-    var kategoriSorglig = document.getElementById('sorgligFilmerBtn');
+    let kategoriSorglig = document.getElementById('sorgligFilmerBtn');
     kategoriSorglig.addEventListener('touchstart', function () {
       this.style.transform = 'scale(1.05)';
     });
@@ -95,10 +95,10 @@ function init() {
       this.style.transform = 'none';
     });
   
-    var titleElement = document.querySelector('.kategori-sorglig .title');
+    let titleElement = document.querySelector('.kategori-sorglig .title');
     titleElement.style.display = 'none';
   
-    var filmerSorglig = [
+    let filmerSorglig = [
       "The Fault in Our Stars",
       "A Monster Calls",
       "Blue Valentine",
@@ -151,14 +151,14 @@ function init() {
       "Parasite"
     ];
   
-    var slumpadFilm = filmerSorglig[Math.floor(Math.random() * filmerSorglig.length)];
-    var resultat = document.getElementById("resultat-sorglig");
+    let slumpadFilm = filmerSorglig[Math.floor(Math.random() * filmerSorglig.length)];
+    let resultat = document.getElementById("resultat-sorglig");
   
     resultat.textContent = slumpadFilm;
   }
   
   function slumpaFilmDjup() {
-    var kategoriDjup = document.getElementById('djupFilmerBtn');
+    let kategoriDjup = document.getElementById('djupFilmerBtn');
     kategoriDjup.addEventListener('touchstart', function () {
       this.style.transform = 'scale(1.05)';
     });
@@ -166,10 +166,10 @@ function init() {
       this.style.transform = 'none';
     });
   
-    var titleElement = document.querySelector('.kategori-djup .title');
+    let titleElement = document.querySelector('.kategori-djup .title');
     titleElement.style.display = 'none';
   
-    var filmerDjup = [
+    let filmerDjup = [
       "Inception",
       "Interstellar",
       "The Social Network",
@@ -223,14 +223,14 @@ function init() {
       "Nightcrawler"
     ];
   
-    var slumpadFilm = filmerDjup[Math.floor(Math.random() * filmerDjup.length)];
-    var resultat = document.getElementById("resultat-djup");
+    let slumpadFilm = filmerDjup[Math.floor(Math.random() * filmerDjup.length)];
+    let resultat = document.getElementById("resultat-djup");
   
     resultat.textContent = slumpadFilm;
   }
   
   function slumpaFilmSpannande() {
-    var kategoriSpannande = document.getElementById('spannandeFilmerBtn');
+    let kategoriSpannande = document.getElementById('spannandeFilmerBtn');
     kategoriSpannande.addEventListener('touchstart', function () {
       this.style.transform = 'scale(1.05)';
     });
@@ -238,10 +238,10 @@ function init() {
       this.style.transform = 'none';
     });
   
-    var titleElement = document.querySelector('.kategori-spannande .title');
+    let titleElement = document.querySelector('.kategori-spannande .title');
     titleElement.style.display = 'none';
   
-    var filmerSpannande = [
+    let filmerSpannande = [
       "The Babadook",
       "Hereditary",
       "A Quiet Place",
@@ -312,8 +312,8 @@ function init() {
       "Get Out"
     ];
   
-    var slumpadFilm = filmerSpannande[Math.floor(Math.random() * filmerSpannande.length)];
-    var resultat = document.getElementById("resultat-spannande");
+    let slumpadFilm = filmerSpannande[Math.floor(Math.random() * filmerSpannande.length)];
+    let resultat = document.getElementById("resultat-spannande");
   
     resultat.textContent = slumpadFilm;
   }
