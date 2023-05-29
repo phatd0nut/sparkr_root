@@ -67,7 +67,7 @@ img {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background-color: rgb(111, 45, 168);
+    background-color: #6f2da8;
     background-image: linear-gradient(90deg, #af5de2 0%, #1a121a 100%);
     padding: 33px;
     text-align: center;
@@ -501,7 +501,7 @@ input {
     border-radius: 50px;
     width: auto;
     padding: 2%;
-    color: rgb(147, 33, 162);
+    color: #9321a2;
     text-align: center;
 }
 
@@ -617,12 +617,12 @@ input {
     font-weight: 500;
     font-style: normal;
     font-size: 200%;
-    background: linear-gradient(90deg, rgba(106,182,232,1) 0%, rgba(66,136,182,1) 100%);
+    background: #036EA2;
     padding: 33px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #FFF;
+    color: #FFFFFF;
     border-radius: 50px;
     cursor: pointer;
     display: flex;
