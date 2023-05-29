@@ -1,5 +1,5 @@
 function init() {
-  var recept = document.querySelectorAll('.recept');
+  let recept = document.querySelectorAll('.recept');
 
   recept.forEach(function (recept) {
     // const h1 = recept.querySelector('h1');

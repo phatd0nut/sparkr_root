@@ -8,7 +8,7 @@ body {
   font-weight: 500;
   font-style: normal;
   overflow-x: hidden;
-  height: 100%;  
+  min-height: 100%;
 }
 
 header {
@@ -85,7 +85,7 @@ header img {
 /* Bakgrundsfärg för den vänstra kolumnen */
 .recept {
   background: #56c4fa;
-  border: 4px solid transparent;
+  border: 1px solid transparent;
   transition: transform 0.3s ease;
   padding: 20px;
   margin-bottom: 10px;
@@ -103,6 +103,8 @@ header img {
   text-align: left;
   font-size: 18px;
 }
+
+
 
 .receptinstruktioner {
   font-weight: 700;
@@ -154,6 +156,7 @@ header img {
   background-size: cover;
   position: relative;
   padding-top: 50%;
+  border-radius: 20px;
 }
 
 .background-image h1 {
@@ -175,6 +178,7 @@ header img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
+  border-radius: 20px;
 
 }
 
