@@ -1,8 +1,3 @@
-// var kortspel;
-// var bradspel;
-// var tvspel;
-
-
 function init() {
   var enkelFilmerBtn = document.getElementById("enkelFilmerBtn");
   enkelFilmerBtn.addEventListener("click", slumpaFilmEnkel);
@@ -41,7 +36,6 @@ drinkar.forEach(function (drink) {
     pElement.style.display = 'none';
   });
 
-  // Lägg till klickhändelse på h1-elementet
   h1.addEventListener('click', function () {
     // Visa eller dölj p-elementen
     pElements.forEach(function (pElement) {
@@ -363,7 +357,6 @@ function slumpaFilmSpannande() {
 //Slut på js för filmer
 
 //js för spel
-
 function kortSpel() {
     var kortspel = document.querySelector(".kortspel");
     var pElement = kortspel.querySelector(".expanded-content p");
@@ -429,6 +422,7 @@ function boardGames() {
 
 boardGames();
 
+//js för tvspel
 function tvSpel() {
   var tvspel = document.querySelector(".tvspel");
   var pElement = tvspel.querySelector(".expanded-content p");
@@ -436,11 +430,14 @@ function tvSpel() {
 
   var tvSpelLista = [
     { title: "TV Spel", instructions: "Tryck för att få förslag på ett TV spel med tillhörande instruktioner." },
-    { title: "Monopol", instructions: "Monopol är ett klassiskt brädspel där spelarna försöker bygga upp en fastighetsimperium genom att köpa, sälja och handla med fastigheter. Målet är att driva sina motståndare i konkurs och bli den sista spelaren med pengar kvar." },
-    { title: "Risk", instructions: "Risk är ett strategiskt brädspel där spelarna försöker erövra territorier och eliminera motståndarna. Genom att placera ut arméer, anfalla och försvara territorier, och använda strategiska kort kan spelarna försöka dominera världskartan och vinna spelet." },
-    { title: "Catan", instructions: "Catan, även känt som Settlers of Catan, är ett resursbaserat brädspel där spelarna bygger och handlar med resurser för att skapa bosättningar och städer på ön Catan. Målet är att samla tillräckligt med poäng genom att bygga och utveckla för att vinna spelet." },
-    { title: "Ticket to Ride", instructions: "Ticket to Ride är ett tågspelsbrädspel där spelarna försöker bygga järnvägslinjer mellan olika städer. Genom att samla och använda rätt färgade kort kan spelarna bygga sina rutter och försöka slutföra sina biljetter för att få poäng och vinna spelet." },
-    { title: "Scrabble", instructions: "Scrabble är ett ordspel där spelarna försöker bilda ord på spelbrädet genom att placera bokstavstegel med olika poängvärden. Varje spelare har en given mängd bokstavstegel och försöker maximera poängen genom att skapa ord på bästa möjliga sätt." }
+    { title: "Grand Theft Auto V", instructions: "Grand Theft Auto V är ett actionäventyrsspel där spelarna får utforska en öppen värld och delta i olika uppdrag och aktiviteter. Spelet utspelar sig i staden Los Santos och dess omgivningar och ger spelarna möjlighet att styra tre huvudkaraktärer med unika egenskaper och berättelser. Spelarna kan navigera genom staden till fots eller med olika fordon, delta i bankrån, göra uppdrag åt olika karaktärer och uppleva en berättelse som rör sig mellan olika kriminella och korrupta världar. GTA V erbjuder även en online-läge där spelare kan samarbeta eller tävla mot varandra i en dynamisk och ständigt föränderlig onlinemiljö." },
+    { title: "Red Dead Redemption 2", instructions: "Red Dead Redemption 2 är ett actionäventyrsspel som utspelar sig i Vilda Västern. Du tar rollen som en brottsling och utforskar en öppen värld, genomför uppdrag, interagerar med karaktärer och lever ett liv som laglös eller laglydig individ." },
+    { title: "The Last of Us Part II", instructions: "The Last of Us Part II är ett actionäventyrsspel där du följer karaktärerna Ellie och Joel i en postapokalyptisk värld. Du navigerar genom farliga områden, möter fientliga varelser och människor, och upplever en gripande berättelse om överlevnad och moraliska val." },
+    { title: "FIFA 22", instructions: "FIFA 22 är en fotbollssimulator där du kan spela som dina favoritlag och spelare från olika ligor runt om i världen. Du kan delta i olika spellägen, som karriärläge eller online-multiplayer, och uppleva realistisk fotboll med spännande matcher och strategiskt spel." },
+    { title: "Assassin's Creed Valhalla", instructions: "Assassin's Creed Valhalla är ett actionrollspel som utspelar sig under vikingatiden. Du spelar som en vikingakrigare och utforskar en detaljerad öppen värld, strider mot fiender, bygger och uppgraderar din egen bosättning och upplever en rik historieberättelse." },
+    { title: "Call of Duty: Warzone", instructions: "Call of Duty: Warzone är en free-to-play battle royale-spelupplevelse där du slåss mot andra spelare i en stor karta. Du kan spela ensam, i duo eller i en grupp och strävar efter att överleva och vara det sista teamet eller spelaren kvar." },
+    { title: "Marvel's Spider-Man: Miles Morales", instructions: "Marvel's Spider-Man: Miles Morales är ett actionäventyrsspel där du spelar som den unga superhjälten Miles Morales. Utforska New York City, använd spindelmannenfärdigheter för att bekämpa brott och stå emot ondska i en spännande superhjälteberättelse." },
+    { title: "Halo Infinite", instructions: "Halo Infinite är en förstapersonsskjutare och det senaste tillskottet i Halo serien. Du tar rollen som Master Chief och ställs mot fiender i en science fictionmiljö. Utforska en öppen värld, bekämpa hot och delta i spännande multiplayer-strider." }
   ];
 
   var currentIndex = 0;
