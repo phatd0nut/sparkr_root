@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Grand Theft Auto V",
+        "instructions": "Grand Theft Auto V är ett actionäventyrsspel där spelarna får utforska en öppen värld och delta i olika uppdrag och aktiviteter. Spelet utspelar sig i staden Los Santos och dess omgivningar och ger spelarna möjlighet att styra tre huvudkaraktärer med unika egenskaper och berättelser. Spelarna kan navigera genom staden till fots eller med olika fordon, delta i bankrån, göra uppdrag åt olika karaktärer och uppleva en berättelse som rör sig mellan olika kriminella och korrupta världar. GTA V erbjuder även en online-läge där spelare kan samarbeta eller tävla mot varandra i en dynamisk och ständigt föränderlig onlinemiljö."
+    },
+    {
+        "title": "Red Dead Redemption 2",
+        "instructions": "Red Dead Redemption 2 är ett actionäventyrsspel som utspelar sig i Vilda Västern. Du tar rollen som en brottsling och utforskar en öppen värld, genomför uppdrag, interagerar med karaktärer och lever ett liv som laglös eller laglydig individ."
+    },
+    {
+        "title": "The Last of Us Part II",
+        "instructions": "The Last of Us Part II är ett actionäventyrsspel där du följer karaktärerna Ellie och Joel i en postapokalyptisk värld. Du navigerar genom farliga områden, möter fientliga varelser och människor, och upplever en gripande berättelse om överlevnad och moraliska val."
+    },
+    {
+        "title": "FIFA 22",
+        "instructions": "FIFA 22 är en fotbollssimulator där du kan spela som dina favoritlag och spelare från olika ligor runt om i världen. Du kan delta i olika spellägen, som karriärläge eller online-multiplayer, och uppleva realistisk fotboll med spännande matcher och strategiskt spel."
+    },
+    {
+        "title": "Assassin's Creed Valhalla",
+        "instructions": "Assassin's Creed Valhalla är ett actionrollspel som utspelar sig under vikingatiden. Du spelar som en vikingakrigare och utforskar en detaljerad öppen värld, strider mot fiender, bygger och uppgraderar din egen bosättning och upplever en rik historieberättelse."
+    },
+    {
+        "title": "Call of Duty: Warzone",
+        "instructions": "Call of Duty: Warzone är en free-to-play battle royale-spelupplevelse där du slåss mot andra spelare i en stor karta. Du kan spela ensam, i duo eller i en grupp och strävar efter att överleva och vara det sista teamet eller spelaren kvar."
+    },
+    {
+        "title": "Marvel's Spider-Man: Miles Morales",
+        "instructions": "Marvel's Spider-Man: Miles Morales är ett actionäventyrsspel där du spelar som den unga superhjälten Miles Morales. Utforska New York City, använd spindelmannenfärdigheter för att bekämpa brott och stå emot ondska i en spännande superhjälteberättelse."
+    },
+    {
+        "title": "Halo Infinite",
+        "instructions": "Halo Infinite är en förstapersonsskjutare och det senaste tillskottet i Halo serien. Du tar rollen som Master Chief och ställs mot fiender i en science fictionmiljö. Utforska en öppen värld, bekämpa hot och delta i spännande multiplayer-strider."
+    }
+]

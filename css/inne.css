@@ -85,7 +85,7 @@ body {
 }
 
 /* Bakgrundsfärg för den vänstra kolumnen */
-.drinkar {
+.recept {
   background: #56c4fa;
   border: 4px solid transparent;
   transition: transform 0.3s ease;
@@ -100,7 +100,7 @@ body {
   overflow: hidden;
 }
 
-.drinkar p {
+.recept p {
   text-align: left;
   font-size: 18px;
   margin-bottom: 15px;
@@ -114,37 +114,19 @@ body {
   background-image: url(/img/blue-01.png);
 }
 
-.kortspel {
-  background: #56c4fa;
-  margin-bottom: 10px;
+.games {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  text-align: center;
-  gap: 0px;
+  gap: 10px;
   padding: 10px;
-  border-radius: 40px;
-  overflow: hidden;
 }
-.bradspel {
+
+.games > div {
   background: #56c4fa;
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   text-align: center;
-  gap: 0px;
-  padding: 10px;
   border-radius: 40px;
-  overflow: hidden;
-}
-.tvspel {
-  background: #56c4fa;
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  text-align: center;
-  gap: 0px;
+  gap: 10px;
   padding: 10px;
-  border-radius: 40px;
   overflow: hidden;
 }
 
@@ -378,7 +360,7 @@ p {
     padding: 10px;
   }
 
-  .drinkar {
+  .recept {
     padding: 10px;
     margin-bottom: 5px;
   }

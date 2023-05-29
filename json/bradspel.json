@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Monopol",
+        "instructions": "Monopol är ett klassiskt brädspel där spelarna försöker bygga upp en fastighetsimperium genom att köpa, sälja och handla med fastigheter. Målet är att driva sina motståndare i konkurs och bli den sista spelaren med pengar kvar."
+    },
+    {
+        "title": "Risk",
+        "instructions": "Risk är ett strategiskt brädspel där spelarna försöker erövra territorier och eliminera motståndarna. Genom att placera ut arméer, anfalla och försvara territorier, och använda strategiska kort kan spelarna försöka dominera världskartan och vinna spelet."
+    },
+    {
+        "title": "Catan",
+        "instructions": "Catan, även känt som Settlers of Catan, är ett resursbaserat brädspel där spelarna bygger och handlar med resurser för att skapa bosättningar och städer på ön Catan. Målet är att samla tillräckligt med poäng genom att bygga och utveckla för att vinna spelet."
+    },
+    {
+        "title": "Ticket to Ride",
+        "instructions": "Ticket to Ride är ett tågspelsbrädspel där spelarna försöker bygga järnvägslinjer mellan olika städer. Genom att samla och använda rätt färgade kort kan spelarna bygga sina rutter och försöka slutföra sina biljetter för att få poäng och vinna spelet."
+    },
+    {
+        "title": "Scrabble",
+        "instructions": "Scrabble är ett ordspel där spelarna försöker bilda ord på spelbrädet genom att placera bokstavstegel med olika poängvärden. Varje spelare har en given mängd bokstavstegel och försöker maximera poängen genom att skapa ord på bästa möjliga sätt."
+    }
+]
