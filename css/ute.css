@@ -6,6 +6,11 @@ body {
     font-weight: 500;
     font-style: normal;
     margin: 0;
+    background-color: #994dc7;
+}
+
+#html-backgroundcolor {
+    background-color: #23a1df;
 }
 
 header {
