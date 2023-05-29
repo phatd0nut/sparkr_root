@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #93278f;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: #000;
+      }
+    </style>
+  </defs>
+  <g id="arrow-back">
+    <g id="Group_1" data-name="Group 1">
+      <path id="Path_4" data-name="Path 4" class="cls-2" d="m17,8.71l-10,10,10,10"/>
+      <path id="Path_5" data-name="Path 5" class="cls-2" d="m7,18.71h16c11.05,0,20,8.95,20,20v2"/>
+    </g>
+  </g>
+  <g id="arrow-back-2" data-name="arrow-back">
+    <g id="Group_1-2" data-name="Group 1">
+      <path id="Path_4-2" data-name="Path 4" class="cls-1" d="m17,8.71l-10,10,10,10"/>
+      <path id="Path_5-2" data-name="Path 5" class="cls-1" d="m7,18.71h16c11.05,0,20,8.95,20,20v2"/>
+    </g>
+  </g>
+</svg>

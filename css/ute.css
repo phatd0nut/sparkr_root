@@ -463,6 +463,11 @@ img {
     background-color: #651860;
 }
 
+.img-arrow {
+    width: 25px;
+    height: 25px;
+}
+
 /* för radio knapparna------ */
 
 .priceOpt,
