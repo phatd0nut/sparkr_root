@@ -101,8 +101,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
             userLocation = position.coords; // Användarens koordinater
             userLocationLat = position.coords.latitude;
             userLocationLng = position.coords.longitude;
-            //  userLocationLat = "56.878017011624685";
-            //  userLocationLng = "14.807412906905228";
+            // userLocationLat = "56.878017011624685";
+            // userLocationLng = "14.807412906905228";
         }, function (error) { // Funktion som anropas om det har blivit ett fel i hämtningen av geo-platsen
             console.log(error);
         });
@@ -113,7 +113,8 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi(activityType) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&types=activity&descriptions=" + activityType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius + "&debug=true", true);
+    console.log(activityType);
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + activityType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&radius=" + selectedRadius, true);
     request.send(null);
     // console.log(activityType);
     request.onreadystatechange = function () {
@@ -124,6 +125,7 @@ function requestSmapi(activityType) {
 }
 
 function getData(responseText) {
+    console.log(responseText);
     activityData = JSON.parse(responseText);
     currentOptionIndex = 1;
     if (activityData.payload == null || activityData.payload.length === 0) {
@@ -301,7 +303,7 @@ function displayedOption() {
         document.getElementById("activityAbstract").innerHTML = "";
     }
 
-   
+
     displayMap(lat, lng);
     document.getElementById("directions-btn").style.display = "block";
     document.getElementById("directions-btn").addEventListener("click", function () {

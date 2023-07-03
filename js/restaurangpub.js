@@ -123,7 +123,7 @@ function getUserLocation() { // Funktion för att få användarens geografiska p
 
 function requestSmapi(foodType, foodPrice) {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=" + selectedRadius + "&debug=true", true);
+    request.open("GET", "https://smapi.lnu.se/api?api_key=" + smapiKey + "&controller=establishment&descriptions=" + foodType + "&method=getfromlatlng&lat=" + userLocationLat + "&lng=" + userLocationLng + "&price_ranges=" + foodPrice + "&radius=" + selectedRadius, true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState == 4)
